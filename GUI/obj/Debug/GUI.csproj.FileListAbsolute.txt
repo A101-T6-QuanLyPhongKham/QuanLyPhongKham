@@ -9,3 +9,4 @@ C:\Users\PC\Desktop\QuanLyPhongKham\GUI\obj\Debug\GUI.exe
 C:\Users\PC\Desktop\QuanLyPhongKham\GUI\obj\Debug\GUI.pdb
 C:\Users\PC\Desktop\QuanLyPhongKham\GUI\obj\Debug\GUI.configForm.resources
 C:\Users\PC\Desktop\QuanLyPhongKham\GUI\obj\Debug\GUI.loginForm.resources
+C:\Users\PC\Desktop\QuanLyPhongKham\GUI\obj\Debug\GUI.userForm.resources

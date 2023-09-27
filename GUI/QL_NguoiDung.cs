@@ -10,6 +10,10 @@ namespace GUI
 {
     public static class QL_NguoiDung
     {
+        public static string GetConnectString()
+        {
+            return Properties.Settings.Default.connectString;
+        }
         public enum LoginRusult
         {
             //Wrong Username or password

@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.IO;
 namespace GUI
 {
     public partial class configForm : Form
@@ -16,6 +18,7 @@ namespace GUI
         public configForm()
         {
             InitializeComponent();
+            MessageBox.Show(Encrypt("1", PUBLIC_KEY));
         }
 
         private void cbbServername_DropDown(object sender, EventArgs e)
@@ -102,5 +105,30 @@ namespace GUI
                 cbbDatabase.Text = ""; 
             }
         }
+        public const string PUBLIC_KEY = "5DHTH1";
+        public static string Encrypt(string value, string publickey)
+        {
+            if (string.IsNullOrEmpty(value))
+                return string.Empty;
+
+            byte[] bytesIn = Encoding.UTF8.GetBytes(value);
+            DESCryptoServiceProvider des = new DESCryptoServiceProvider();
+            byte[] bytesKey = Encoding.UTF8.GetBytes(publickey);
+            Array.Resize(ref bytesKey, des.Key.Length);
+            Array.Resize(ref bytesKey, des.IV.Length);
+            des.Key = bytesKey;
+            des.IV = bytesKey;
+            MemoryStream msOut = new MemoryStream();
+            ICryptoTransform desdecrypt = des.CreateEncryptor();
+            CryptoStream cryptStream = new CryptoStream(msOut, desdecrypt, CryptoStreamMode.Write);
+            cryptStream.Write(bytesIn, 0, bytesIn.Length);
+            cryptStream.FlushFinalBlock();
+            byte[] byteOut = msOut.ToArray();
+            cryptStream.Close();
+            msOut.Close();
+            return Convert.ToBase64String(byteOut);
+            
+        }
+        
     }
 }
