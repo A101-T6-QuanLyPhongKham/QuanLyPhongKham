@@ -1,0 +1,4 @@
+C:\Users\PC\Desktop\QuanLyPhongKham\DTO\bin\Debug\DTO.dll
+C:\Users\PC\Desktop\QuanLyPhongKham\DTO\bin\Debug\DTO.pdb
+C:\Users\PC\Desktop\QuanLyPhongKham\DTO\obj\Debug\DTO.dll
+C:\Users\PC\Desktop\QuanLyPhongKham\DTO\obj\Debug\DTO.pdb

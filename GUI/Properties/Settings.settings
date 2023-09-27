@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="GUI.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="connectString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=LAPTOP-K10406A5\SQLEXPRESS;Initial Catalog=QLPK;User ID=sa;Password=1</Value>
+    </Setting>
+    <Setting Name="cnnStringFail" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data Source=LAPTOP-K10406A5\SQLEXPRESS;Initial Catalog=QLPK;User ID=sa;Password=2</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
