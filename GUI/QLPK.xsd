@@ -1,15 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="DataBase" targetNamespace="http://tempuri.org/DataBase.xsd" xmlns:mstns="http://tempuri.org/DataBase.xsd" xmlns="http://tempuri.org/DataBase.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="QLPK" targetNamespace="http://tempuri.org/QLPK.xsd" xmlns:mstns="http://tempuri.org/QLPK.xsd" xmlns="http://tempuri.org/QLPK.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="QLPKConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="QLPKConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GUI.Properties.Settings.GlobalReference.Default.QLPKConnectionString1" Provider="System.Data.SqlClient" />
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="QLPKConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="QLPKConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.GUI.Properties.Settings.GlobalReference.Default.QLPKConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BENH_NHANTableAdapter" GeneratorDataComponentClassName="BENH_NHANTableAdapter" Name="BENH_NHAN" UserDataComponentName="BENH_NHANTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLPKConnectionString (Settings)" DbObjectName="QLPK.dbo.BENH_NHAN" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLPKConnectionString1 (Settings)" DbObjectName="QLPK.dbo.BENH_NHAN" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[BENH_NHAN] WHERE (([BN_ID] = @Original_BN_ID) AND ([BN_TEN] = @Original_BN_TEN) AND ((@IsNull_BN_BHYT = 1 AND [BN_BHYT] IS NULL) OR ([BN_BHYT] = @Original_BN_BHYT)) AND ((@IsNull_BN_TENGIAMHO = 1 AND [BN_TENGIAMHO] IS NULL) OR ([BN_TENGIAMHO] = @Original_BN_TENGIAMHO)) AND ([BN_CCCD] = @Original_BN_CCCD) AND ([BN_NGAYSINH] = @Original_BN_NGAYSINH) AND ([BN_SDT] = @Original_BN_SDT) AND ([BN_GIOITINH] = @Original_BN_GIOITINH) AND ([BN_DIACHI] = @Original_BN_DIACHI))</CommandText>
@@ -96,7 +97,7 @@ SELECT BN_ID, BN_TEN, BN_BHYT, BN_TENGIAMHO, BN_CCCD, BN_NGAYSINH, BN_SDT, BN_GI
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="THUOCTableAdapter" GeneratorDataComponentClassName="THUOCTableAdapter" Name="THUOC" UserDataComponentName="THUOCTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLPKConnectionString (Settings)" DbObjectName="QLPK.dbo.THUOC" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLPKConnectionString1 (Settings)" DbObjectName="QLPK.dbo.THUOC" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[THUOC] WHERE (([T_ID] = @Original_T_ID) AND ([T_TEN] = @Original_T_TEN) AND ([T_DVT] = @Original_T_DVT) AND ([T_GIA] = @Original_T_GIA))</CommandText>
@@ -154,7 +155,7 @@ SELECT T_ID, T_TEN, T_DVT, T_GIA FROM THUOC WHERE (T_ID = @T_ID)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CHITIET_HDTableAdapter" GeneratorDataComponentClassName="CHITIET_HDTableAdapter" Name="CHITIET_HD" UserDataComponentName="CHITIET_HDTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLPKConnectionString (Settings)" DbObjectName="QLPK.dbo.CHITIET_HD" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLPKConnectionString1 (Settings)" DbObjectName="QLPK.dbo.CHITIET_HD" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[CHITIET_HD] WHERE (([HD_ID] = @Original_HD_ID) AND ([T_ID] = @Original_T_ID) AND ([T_SOLUONG] = @Original_T_SOLUONG) AND ([T_THANHTIEN] = @Original_T_THANHTIEN))</CommandText>
@@ -212,7 +213,7 @@ SELECT HD_ID, T_ID, T_SOLUONG, T_THANHTIEN FROM CHITIET_HD WHERE (HD_ID = @HD_ID
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CHUC_VUTableAdapter" GeneratorDataComponentClassName="CHUC_VUTableAdapter" Name="CHUC_VU" UserDataComponentName="CHUC_VUTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLPKConnectionString (Settings)" DbObjectName="QLPK.dbo.CHUC_VU" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLPKConnectionString1 (Settings)" DbObjectName="QLPK.dbo.CHUC_VU" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[CHUC_VU] WHERE (([CV_ID] = @Original_CV_ID) AND ([CV_TENCHUCVU] = @Original_CV_TENCHUCVU) AND ([CV_LUONG] = @Original_CV_LUONG))</CommandText>
@@ -265,7 +266,7 @@ SELECT CV_ID, CV_TENCHUCVU, CV_LUONG FROM CHUC_VU WHERE (CV_ID = @CV_ID)</Comman
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DM_MANHINHTableAdapter" GeneratorDataComponentClassName="DM_MANHINHTableAdapter" Name="DM_MANHINH" UserDataComponentName="DM_MANHINHTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLPKConnectionString (Settings)" DbObjectName="QLPK.dbo.DM_MANHINH" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLPKConnectionString1 (Settings)" DbObjectName="QLPK.dbo.DM_MANHINH" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[DM_MANHINH] WHERE (([MAMANHINH] = @Original_MAMANHINH) AND ((@IsNull_TENMANHINH = 1 AND [TENMANHINH] IS NULL) OR ([TENMANHINH] = @Original_TENMANHINH)))</CommandText>
@@ -315,7 +316,7 @@ SELECT MAMANHINH, TENMANHINH FROM DM_MANHINH WHERE (MAMANHINH = @MAMANHINH)</Com
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="HOA_DONTableAdapter" GeneratorDataComponentClassName="HOA_DONTableAdapter" Name="HOA_DON" UserDataComponentName="HOA_DONTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLPKConnectionString (Settings)" DbObjectName="QLPK.dbo.HOA_DON" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLPKConnectionString1 (Settings)" DbObjectName="QLPK.dbo.HOA_DON" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[HOA_DON] WHERE (([HD_ID] = @Original_HD_ID) AND ([PK_ID] = @Original_PK_ID) AND ([HD_TONGTIEN] = @Original_HD_TONGTIEN) AND ([HD_NGAYLAP] = @Original_HD_NGAYLAP))</CommandText>
@@ -373,7 +374,7 @@ SELECT HD_ID, PK_ID, HD_TONGTIEN, HD_NGAYLAP FROM HOA_DON WHERE (HD_ID = @HD_ID)
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LICH_HENTableAdapter" GeneratorDataComponentClassName="LICH_HENTableAdapter" Name="LICH_HEN" UserDataComponentName="LICH_HENTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLPKConnectionString (Settings)" DbObjectName="QLPK.dbo.LICH_HEN" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLPKConnectionString1 (Settings)" DbObjectName="QLPK.dbo.LICH_HEN" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[LICH_HEN] WHERE (([LH_ID] = @Original_LH_ID) AND ([BN_ID] = @Original_BN_ID) AND ([LH_NGAYHEN] = @Original_LH_NGAYHEN) AND ([LH_GIOHEN] = @Original_LH_GIOHEN) AND ([LH_TRANGTHAI] = @Original_LH_TRANGTHAI))</CommandText>
@@ -436,7 +437,7 @@ SELECT LH_ID, BN_ID, LH_NGAYHEN, LH_GIOHEN, LH_TRANGTHAI FROM LICH_HEN WHERE (LH
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LOAI_KHAMTableAdapter" GeneratorDataComponentClassName="LOAI_KHAMTableAdapter" Name="LOAI_KHAM" UserDataComponentName="LOAI_KHAMTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLPKConnectionString (Settings)" DbObjectName="QLPK.dbo.LOAI_KHAM" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLPKConnectionString1 (Settings)" DbObjectName="QLPK.dbo.LOAI_KHAM" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[LOAI_KHAM] WHERE (([LK_ID] = @Original_LK_ID) AND ([LK_TEN] = @Original_LK_TEN))</CommandText>
@@ -484,7 +485,7 @@ SELECT LK_ID, LK_TEN FROM LOAI_KHAM WHERE (LK_ID = @LK_ID)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="NHAN_VIENTableAdapter" GeneratorDataComponentClassName="NHAN_VIENTableAdapter" Name="NHAN_VIEN" UserDataComponentName="NHAN_VIENTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLPKConnectionString (Settings)" DbObjectName="QLPK.dbo.NHAN_VIEN" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLPKConnectionString1 (Settings)" DbObjectName="QLPK.dbo.NHAN_VIEN" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[NHAN_VIEN] WHERE (([NV_ID] = @Original_NV_ID) AND ([CV_ID] = @Original_CV_ID) AND ([NV_TEN] = @Original_NV_TEN) AND ([NV_NGAYSINH] = @Original_NV_NGAYSINH) AND ([NV_EMAIL] = @Original_NV_EMAIL) AND ([NV_GIOITINH] = @Original_NV_GIOITINH) AND ([NV_SDT] = @Original_NV_SDT) AND ((@IsNull_NV_ANH = 1 AND [NV_ANH] IS NULL) OR ([NV_ANH] = @Original_NV_ANH)) AND ((@IsNull_BS_BANGCAP = 1 AND [BS_BANGCAP] IS NULL) OR ([BS_BANGCAP] = @Original_BS_BANGCAP)) AND ((@IsNull_BS_CHUYENMON = 1 AND [BS_CHUYENMON] IS NULL) OR ([BS_CHUYENMON] = @Original_BS_CHUYENMON)) AND ((@IsNull_ROLE = 1 AND [ROLE] IS NULL) OR ([ROLE] = @Original_ROLE)))</CommandText>
@@ -585,7 +586,7 @@ SELECT NV_ID, CV_ID, NV_TEN, NV_NGAYSINH, NV_EMAIL, NV_GIOITINH, NV_SDT, NV_ANH,
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PHIEU_KHAMTableAdapter" GeneratorDataComponentClassName="PHIEU_KHAMTableAdapter" Name="PHIEU_KHAM" UserDataComponentName="PHIEU_KHAMTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLPKConnectionString (Settings)" DbObjectName="QLPK.dbo.PHIEU_KHAM" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLPKConnectionString1 (Settings)" DbObjectName="QLPK.dbo.PHIEU_KHAM" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[PHIEU_KHAM] WHERE (([PK_ID] = @Original_PK_ID) AND ([BN_ID] = @Original_BN_ID) AND ([NV_ID] = @Original_NV_ID) AND ([LK_ID] = @Original_LK_ID) AND ([PK_NGAYLAP] = @Original_PK_NGAYLAP) AND ([PK_TRIEUCHUNG] = @Original_PK_TRIEUCHUNG))</CommandText>
@@ -653,7 +654,7 @@ SELECT PK_ID, BN_ID, NV_ID, LK_ID, PK_NGAYLAP, PK_TRIEUCHUNG FROM PHIEU_KHAM WHE
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QL_NGUOIDUNGTableAdapter" GeneratorDataComponentClassName="QL_NGUOIDUNGTableAdapter" Name="QL_NGUOIDUNG" UserDataComponentName="QL_NGUOIDUNGTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLPKConnectionString (Settings)" DbObjectName="QLPK.dbo.QL_NGUOIDUNG" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLPKConnectionString1 (Settings)" DbObjectName="QLPK.dbo.QL_NGUOIDUNG" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[QL_NGUOIDUNG] WHERE (([TENDANGNHAP] = @Original_TENDANGNHAP) AND ([MATKHAU] = @Original_MATKHAU) AND ((@IsNull_HOATDONG = 1 AND [HOATDONG] IS NULL) OR ([HOATDONG] = @Original_HOATDONG)) AND ((@IsNull_NV_ID = 1 AND [NV_ID] IS NULL) OR ([NV_ID] = @Original_NV_ID)))</CommandText>
@@ -715,7 +716,7 @@ SELECT TENDANGNHAP, MATKHAU, HOATDONG, NV_ID FROM QL_NGUOIDUNG WHERE (TENDANGNHA
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QL_NGUOIDUNGNHOMNGUOIDUNGTableAdapter" GeneratorDataComponentClassName="QL_NGUOIDUNGNHOMNGUOIDUNGTableAdapter" Name="QL_NGUOIDUNGNHOMNGUOIDUNG" UserDataComponentName="QL_NGUOIDUNGNHOMNGUOIDUNGTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLPKConnectionString (Settings)" DbObjectName="QLPK.dbo.QL_NGUOIDUNGNHOMNGUOIDUNG" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLPKConnectionString1 (Settings)" DbObjectName="QLPK.dbo.QL_NGUOIDUNGNHOMNGUOIDUNG" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[QL_NGUOIDUNGNHOMNGUOIDUNG] WHERE (([TENDANGNHAP] = @Original_TENDANGNHAP) AND ([MANHOMNGUOIDUNG] = @Original_MANHOMNGUOIDUNG) AND ((@IsNull_GHICHU = 1 AND [GHICHU] IS NULL) OR ([GHICHU] = @Original_GHICHU)))</CommandText>
@@ -770,7 +771,7 @@ SELECT TENDANGNHAP, MANHOMNGUOIDUNG, GHICHU FROM QL_NGUOIDUNGNHOMNGUOIDUNG WHERE
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QL_NHOMNGUOIDUNGTableAdapter" GeneratorDataComponentClassName="QL_NHOMNGUOIDUNGTableAdapter" Name="QL_NHOMNGUOIDUNG" UserDataComponentName="QL_NHOMNGUOIDUNGTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="QLPKConnectionString (Settings)" DbObjectName="QLPK.dbo.QL_NHOMNGUOIDUNG" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="QLPKConnectionString1 (Settings)" DbObjectName="QLPK.dbo.QL_NHOMNGUOIDUNG" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[QL_NHOMNGUOIDUNG] WHERE (([MANHOM] = @Original_MANHOM) AND ((@IsNull_TENNHOM = 1 AND [TENNHOM] IS NULL) OR ([TENNHOM] = @Original_TENNHOM)) AND ((@IsNull_GHICHU = 1 AND [GHICHU] IS NULL) OR ([GHICHU] = @Original_GHICHU)))</CommandText>
@@ -825,6 +826,103 @@ SELECT MANHOM, TENNHOM, GHICHU FROM QL_NHOMNGUOIDUNG WHERE (MANHOM = @MANHOM)</C
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QL_NGUOIDUNGNHOMNGUOIDUNG_ConditionTableAdapter" GeneratorDataComponentClassName="QL_NGUOIDUNGNHOMNGUOIDUNG_ConditionTableAdapter" Name="QL_NGUOIDUNGNHOMNGUOIDUNG_Condition" UserDataComponentName="QL_NGUOIDUNGNHOMNGUOIDUNG_ConditionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QLPKConnectionString1 (Settings)" DbObjectName="QLPK.dbo.QL_NGUOIDUNGNHOMNGUOIDUNG" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [QL_NGUOIDUNGNHOMNGUOIDUNG] WHERE (([TENDANGNHAP] = @Original_TENDANGNHAP) AND ([MANHOMNGUOIDUNG] = @Original_MANHOMNGUOIDUNG) AND ((@IsNull_GHICHU = 1 AND [GHICHU] IS NULL) OR ([GHICHU] = @Original_GHICHU)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TENDANGNHAP" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TENDANGNHAP" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_MANHOMNGUOIDUNG" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MANHOMNGUOIDUNG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GHICHU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="GHICHU" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_GHICHU" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="GHICHU" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [QL_NGUOIDUNGNHOMNGUOIDUNG] ([TENDANGNHAP], [MANHOMNGUOIDUNG], [GHICHU]) VALUES (@TENDANGNHAP, @MANHOMNGUOIDUNG, @GHICHU);
+SELECT TENDANGNHAP, MANHOMNGUOIDUNG, GHICHU FROM QL_NGUOIDUNGNHOMNGUOIDUNG WHERE (MANHOMNGUOIDUNG = @MANHOMNGUOIDUNG) AND (TENDANGNHAP = @TENDANGNHAP)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TENDANGNHAP" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TENDANGNHAP" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@MANHOMNGUOIDUNG" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MANHOMNGUOIDUNG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@GHICHU" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="GHICHU" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TENDANGNHAP, MANHOMNGUOIDUNG, GHICHU
+FROM            QL_NGUOIDUNGNHOMNGUOIDUNG
+WHERE        (MANHOMNGUOIDUNG = @MANHOM)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="MANHOM" ColumnName="MANHOMNGUOIDUNG" DataSourceName="QLPK.dbo.QL_NGUOIDUNGNHOMNGUOIDUNG" DataTypeServer="varchar(10)" DbType="AnsiString" Direction="Input" ParameterName="@MANHOM" Precision="0" ProviderType="VarChar" Scale="0" Size="10" SourceColumn="MANHOMNGUOIDUNG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [QL_NGUOIDUNGNHOMNGUOIDUNG] SET [TENDANGNHAP] = @TENDANGNHAP, [MANHOMNGUOIDUNG] = @MANHOMNGUOIDUNG, [GHICHU] = @GHICHU WHERE (([TENDANGNHAP] = @Original_TENDANGNHAP) AND ([MANHOMNGUOIDUNG] = @Original_MANHOMNGUOIDUNG) AND ((@IsNull_GHICHU = 1 AND [GHICHU] IS NULL) OR ([GHICHU] = @Original_GHICHU)));
+SELECT TENDANGNHAP, MANHOMNGUOIDUNG, GHICHU FROM QL_NGUOIDUNGNHOMNGUOIDUNG WHERE (MANHOMNGUOIDUNG = @MANHOMNGUOIDUNG) AND (TENDANGNHAP = @TENDANGNHAP)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@TENDANGNHAP" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TENDANGNHAP" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@MANHOMNGUOIDUNG" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MANHOMNGUOIDUNG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@GHICHU" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="GHICHU" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_TENDANGNHAP" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="TENDANGNHAP" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_MANHOMNGUOIDUNG" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MANHOMNGUOIDUNG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GHICHU" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="GHICHU" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_GHICHU" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="GHICHU" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="TENDANGNHAP" DataSetColumn="TENDANGNHAP" />
+              <Mapping SourceColumn="MANHOMNGUOIDUNG" DataSetColumn="MANHOMNGUOIDUNG" />
+              <Mapping SourceColumn="GHICHU" DataSetColumn="GHICHU" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QL_GetPhanQuyenTableAdapter" GeneratorDataComponentClassName="QL_GetPhanQuyenTableAdapter" Name="QL_GetPhanQuyen" UserDataComponentName="QL_GetPhanQuyenTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QLPKConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        DM_MANHINH.MAMANHINH, DM_MANHINH.TENMANHINH, ql_phanquyen.coquyen
+FROM            DM_MANHINH LEFT OUTER JOIN
+                         QL_PHANQUYEN ON QL_PHANQUYEN.MAMANHINH = DM_MANHINH.MAMANHINH AND QL_PHANQUYEN.MANHOMNGUOIDUNG = @MaNhomNguoiDung
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaNhomNguoiDung" ColumnName="MANHOMNGUOIDUNG" DataSourceName="QLPK.dbo.QL_PHANQUYEN" DataTypeServer="varchar(10)" DbType="AnsiString" Direction="Input" ParameterName="@MaNhomNguoiDung" Precision="0" ProviderType="VarChar" Scale="0" Size="10" SourceColumn="MANHOMNGUOIDUNG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MAMANHINH" DataSetColumn="MAMANHINH" />
+              <Mapping SourceColumn="TENMANHINH" DataSetColumn="TENMANHINH" />
+              <Mapping SourceColumn="coquyen" DataSetColumn="coquyen" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="QLPKConnectionString (Settings)" DbObjectName="QLPK.dbo.QL_PHANQUYEN" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="KiemTraKhoaChinhPhanQuyen" Modifier="Public" Name="KiemTraKhoaChinhPhanQuyen" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="KiemTraKhoaChinhPhanQuyen">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select manhomnguoidung, mamanhinh, coquyen
+from ql_phanquyen 
+where manhomnguoidung = @MaNhomNguoiDung
+and mamanhinh = @MaManHinh</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaNhomNguoiDung" ColumnName="MANHOMNGUOIDUNG" DataSourceName="QLPK.dbo.QL_PHANQUYEN" DataTypeServer="varchar(10)" DbType="AnsiString" Direction="Input" ParameterName="@MaNhomNguoiDung" Precision="0" ProviderType="VarChar" Scale="0" Size="10" SourceColumn="MANHOMNGUOIDUNG" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaManHinh" ColumnName="MAMANHINH" DataSourceName="QLPK.dbo.QL_PHANQUYEN" DataTypeServer="varchar(10)" DbType="AnsiString" Direction="Input" ParameterName="@MaManHinh" Precision="0" ProviderType="VarChar" Scale="0" Size="10" SourceColumn="MAMANHINH" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="QL_PHANQUYENTableAdapter" GeneratorDataComponentClassName="QL_PHANQUYENTableAdapter" Name="QL_PHANQUYEN" UserDataComponentName="QL_PHANQUYENTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="QLPKConnectionString (Settings)" DbObjectName="QLPK.dbo.QL_PHANQUYEN" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -835,7 +933,7 @@ SELECT MANHOM, TENNHOM, GHICHU FROM QL_NHOMNGUOIDUNG WHERE (MANHOM = @MANHOM)</C
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_MANHOMNGUOIDUNG" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MANHOMNGUOIDUNG" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_MAMANHINH" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MAMANHINH" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_COQUYEN" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="COQUYEN" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_COQUYEN" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="COQUYEN" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_COQUYEN" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="COQUYEN" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
@@ -846,7 +944,7 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@MANHOMNGUOIDUNG" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MANHOMNGUOIDUNG" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@MAMANHINH" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MAMANHINH" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@COQUYEN" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="COQUYEN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@COQUYEN" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="COQUYEN" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
@@ -863,11 +961,11 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@MANHOMNGUOIDUNG" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MANHOMNGUOIDUNG" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@MAMANHINH" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MAMANHINH" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@COQUYEN" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="COQUYEN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@COQUYEN" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="COQUYEN" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_MANHOMNGUOIDUNG" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MANHOMNGUOIDUNG" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_MAMANHINH" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MAMANHINH" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_COQUYEN" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="COQUYEN" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_COQUYEN" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="COQUYEN" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_COQUYEN" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="COQUYEN" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -878,17 +976,33 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
               <Mapping SourceColumn="MAMANHINH" DataSetColumn="MAMANHINH" />
               <Mapping SourceColumn="COQUYEN" DataSetColumn="COQUYEN" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="QLPKConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="UpdateQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>update ql_phanquyen
+set coquyen = @CoQuyen
+where manhomnguoidung = @MaNhomNguoiDung
+and mamanhinh = @MaManHinh</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="CoQuyen" ColumnName="COQUYEN" DataSourceName="QLPK.dbo.QL_PHANQUYEN" DataTypeServer="bit" DbType="Boolean" Direction="Input" ParameterName="@CoQuyen" Precision="0" ProviderType="Bit" Scale="0" Size="1" SourceColumn="COQUYEN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaNhomNguoiDung" ColumnName="MANHOMNGUOIDUNG" DataSourceName="QLPK.dbo.QL_PHANQUYEN" DataTypeServer="varchar(10)" DbType="AnsiString" Direction="Input" ParameterName="@MaNhomNguoiDung" Precision="0" ProviderType="VarChar" Scale="0" Size="10" SourceColumn="MANHOMNGUOIDUNG" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="MaManHinh" ColumnName="MAMANHINH" DataSourceName="QLPK.dbo.QL_PHANQUYEN" DataTypeServer="varchar(10)" DbType="AnsiString" Direction="Input" ParameterName="@MaManHinh" Precision="0" ProviderType="VarChar" Scale="0" Size="10" SourceColumn="MAMANHINH" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DataBase" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataBase" msprop:Generator_UserDSName="DataBase">
+  <xs:element name="QLPK" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="QLPK" msprop:Generator_UserDSName="QLPK">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="BENH_NHAN" msprop:Generator_TableClassName="BENH_NHANDataTable" msprop:Generator_TableVarName="tableBENH_NHAN" msprop:Generator_TablePropName="BENH_NHAN" msprop:Generator_RowDeletingName="BENH_NHANRowDeleting" msprop:Generator_RowChangingName="BENH_NHANRowChanging" msprop:Generator_RowEvHandlerName="BENH_NHANRowChangeEventHandler" msprop:Generator_RowDeletedName="BENH_NHANRowDeleted" msprop:Generator_UserTableName="BENH_NHAN" msprop:Generator_RowChangedName="BENH_NHANRowChanged" msprop:Generator_RowEvArgName="BENH_NHANRowChangeEvent" msprop:Generator_RowClassName="BENH_NHANRow">
+        <xs:element name="BENH_NHAN" msprop:Generator_TableClassName="BENH_NHANDataTable" msprop:Generator_TableVarName="tableBENH_NHAN" msprop:Generator_RowChangedName="BENH_NHANRowChanged" msprop:Generator_TablePropName="BENH_NHAN" msprop:Generator_RowDeletingName="BENH_NHANRowDeleting" msprop:Generator_RowChangingName="BENH_NHANRowChanging" msprop:Generator_RowEvHandlerName="BENH_NHANRowChangeEventHandler" msprop:Generator_RowDeletedName="BENH_NHANRowDeleted" msprop:Generator_RowClassName="BENH_NHANRow" msprop:Generator_UserTableName="BENH_NHAN" msprop:Generator_RowEvArgName="BENH_NHANRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="BN_ID" msprop:Generator_ColumnVarNameInTable="columnBN_ID" msprop:Generator_ColumnPropNameInRow="BN_ID" msprop:Generator_ColumnPropNameInTable="BN_IDColumn" msprop:Generator_UserColumnName="BN_ID">
@@ -951,7 +1065,7 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="THUOC" msprop:Generator_TableClassName="THUOCDataTable" msprop:Generator_TableVarName="tableTHUOC" msprop:Generator_TablePropName="THUOC" msprop:Generator_RowDeletingName="THUOCRowDeleting" msprop:Generator_RowChangingName="THUOCRowChanging" msprop:Generator_RowEvHandlerName="THUOCRowChangeEventHandler" msprop:Generator_RowDeletedName="THUOCRowDeleted" msprop:Generator_UserTableName="THUOC" msprop:Generator_RowChangedName="THUOCRowChanged" msprop:Generator_RowEvArgName="THUOCRowChangeEvent" msprop:Generator_RowClassName="THUOCRow">
+        <xs:element name="THUOC" msprop:Generator_TableClassName="THUOCDataTable" msprop:Generator_TableVarName="tableTHUOC" msprop:Generator_RowChangedName="THUOCRowChanged" msprop:Generator_TablePropName="THUOC" msprop:Generator_RowDeletingName="THUOCRowDeleting" msprop:Generator_RowChangingName="THUOCRowChanging" msprop:Generator_RowEvHandlerName="THUOCRowChangeEventHandler" msprop:Generator_RowDeletedName="THUOCRowDeleted" msprop:Generator_RowClassName="THUOCRow" msprop:Generator_UserTableName="THUOC" msprop:Generator_RowEvArgName="THUOCRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="T_ID" msprop:Generator_ColumnVarNameInTable="columnT_ID" msprop:Generator_ColumnPropNameInRow="T_ID" msprop:Generator_ColumnPropNameInTable="T_IDColumn" msprop:Generator_UserColumnName="T_ID">
@@ -979,7 +1093,7 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CHITIET_HD" msprop:Generator_TableClassName="CHITIET_HDDataTable" msprop:Generator_TableVarName="tableCHITIET_HD" msprop:Generator_TablePropName="CHITIET_HD" msprop:Generator_RowDeletingName="CHITIET_HDRowDeleting" msprop:Generator_RowChangingName="CHITIET_HDRowChanging" msprop:Generator_RowEvHandlerName="CHITIET_HDRowChangeEventHandler" msprop:Generator_RowDeletedName="CHITIET_HDRowDeleted" msprop:Generator_UserTableName="CHITIET_HD" msprop:Generator_RowChangedName="CHITIET_HDRowChanged" msprop:Generator_RowEvArgName="CHITIET_HDRowChangeEvent" msprop:Generator_RowClassName="CHITIET_HDRow">
+        <xs:element name="CHITIET_HD" msprop:Generator_TableClassName="CHITIET_HDDataTable" msprop:Generator_TableVarName="tableCHITIET_HD" msprop:Generator_RowChangedName="CHITIET_HDRowChanged" msprop:Generator_TablePropName="CHITIET_HD" msprop:Generator_RowDeletingName="CHITIET_HDRowDeleting" msprop:Generator_RowChangingName="CHITIET_HDRowChanging" msprop:Generator_RowEvHandlerName="CHITIET_HDRowChangeEventHandler" msprop:Generator_RowDeletedName="CHITIET_HDRowDeleted" msprop:Generator_RowClassName="CHITIET_HDRow" msprop:Generator_UserTableName="CHITIET_HD" msprop:Generator_RowEvArgName="CHITIET_HDRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="HD_ID" msprop:Generator_ColumnVarNameInTable="columnHD_ID" msprop:Generator_ColumnPropNameInRow="HD_ID" msprop:Generator_ColumnPropNameInTable="HD_IDColumn" msprop:Generator_UserColumnName="HD_ID">
@@ -1001,7 +1115,7 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CHUC_VU" msprop:Generator_TableClassName="CHUC_VUDataTable" msprop:Generator_TableVarName="tableCHUC_VU" msprop:Generator_TablePropName="CHUC_VU" msprop:Generator_RowDeletingName="CHUC_VURowDeleting" msprop:Generator_RowChangingName="CHUC_VURowChanging" msprop:Generator_RowEvHandlerName="CHUC_VURowChangeEventHandler" msprop:Generator_RowDeletedName="CHUC_VURowDeleted" msprop:Generator_UserTableName="CHUC_VU" msprop:Generator_RowChangedName="CHUC_VURowChanged" msprop:Generator_RowEvArgName="CHUC_VURowChangeEvent" msprop:Generator_RowClassName="CHUC_VURow">
+        <xs:element name="CHUC_VU" msprop:Generator_TableClassName="CHUC_VUDataTable" msprop:Generator_TableVarName="tableCHUC_VU" msprop:Generator_RowChangedName="CHUC_VURowChanged" msprop:Generator_TablePropName="CHUC_VU" msprop:Generator_RowDeletingName="CHUC_VURowDeleting" msprop:Generator_RowChangingName="CHUC_VURowChanging" msprop:Generator_RowEvHandlerName="CHUC_VURowChangeEventHandler" msprop:Generator_RowDeletedName="CHUC_VURowDeleted" msprop:Generator_RowClassName="CHUC_VURow" msprop:Generator_UserTableName="CHUC_VU" msprop:Generator_RowEvArgName="CHUC_VURowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CV_ID" msprop:Generator_ColumnVarNameInTable="columnCV_ID" msprop:Generator_ColumnPropNameInRow="CV_ID" msprop:Generator_ColumnPropNameInTable="CV_IDColumn" msprop:Generator_UserColumnName="CV_ID">
@@ -1022,7 +1136,7 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DM_MANHINH" msprop:Generator_TableClassName="DM_MANHINHDataTable" msprop:Generator_TableVarName="tableDM_MANHINH" msprop:Generator_TablePropName="DM_MANHINH" msprop:Generator_RowDeletingName="DM_MANHINHRowDeleting" msprop:Generator_RowChangingName="DM_MANHINHRowChanging" msprop:Generator_RowEvHandlerName="DM_MANHINHRowChangeEventHandler" msprop:Generator_RowDeletedName="DM_MANHINHRowDeleted" msprop:Generator_UserTableName="DM_MANHINH" msprop:Generator_RowChangedName="DM_MANHINHRowChanged" msprop:Generator_RowEvArgName="DM_MANHINHRowChangeEvent" msprop:Generator_RowClassName="DM_MANHINHRow">
+        <xs:element name="DM_MANHINH" msprop:Generator_TableClassName="DM_MANHINHDataTable" msprop:Generator_TableVarName="tableDM_MANHINH" msprop:Generator_RowChangedName="DM_MANHINHRowChanged" msprop:Generator_TablePropName="DM_MANHINH" msprop:Generator_RowDeletingName="DM_MANHINHRowDeleting" msprop:Generator_RowChangingName="DM_MANHINHRowChanging" msprop:Generator_RowEvHandlerName="DM_MANHINHRowChangeEventHandler" msprop:Generator_RowDeletedName="DM_MANHINHRowDeleted" msprop:Generator_RowClassName="DM_MANHINHRow" msprop:Generator_UserTableName="DM_MANHINH" msprop:Generator_RowEvArgName="DM_MANHINHRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MAMANHINH" msprop:Generator_ColumnVarNameInTable="columnMAMANHINH" msprop:Generator_ColumnPropNameInRow="MAMANHINH" msprop:Generator_ColumnPropNameInTable="MAMANHINHColumn" msprop:Generator_UserColumnName="MAMANHINH">
@@ -1042,7 +1156,7 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HOA_DON" msprop:Generator_TableClassName="HOA_DONDataTable" msprop:Generator_TableVarName="tableHOA_DON" msprop:Generator_TablePropName="HOA_DON" msprop:Generator_RowDeletingName="HOA_DONRowDeleting" msprop:Generator_RowChangingName="HOA_DONRowChanging" msprop:Generator_RowEvHandlerName="HOA_DONRowChangeEventHandler" msprop:Generator_RowDeletedName="HOA_DONRowDeleted" msprop:Generator_UserTableName="HOA_DON" msprop:Generator_RowChangedName="HOA_DONRowChanged" msprop:Generator_RowEvArgName="HOA_DONRowChangeEvent" msprop:Generator_RowClassName="HOA_DONRow">
+        <xs:element name="HOA_DON" msprop:Generator_TableClassName="HOA_DONDataTable" msprop:Generator_TableVarName="tableHOA_DON" msprop:Generator_RowChangedName="HOA_DONRowChanged" msprop:Generator_TablePropName="HOA_DON" msprop:Generator_RowDeletingName="HOA_DONRowDeleting" msprop:Generator_RowChangingName="HOA_DONRowChanging" msprop:Generator_RowEvHandlerName="HOA_DONRowChangeEventHandler" msprop:Generator_RowDeletedName="HOA_DONRowDeleted" msprop:Generator_RowClassName="HOA_DONRow" msprop:Generator_UserTableName="HOA_DON" msprop:Generator_RowEvArgName="HOA_DONRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="HD_ID" msprop:Generator_ColumnVarNameInTable="columnHD_ID" msprop:Generator_ColumnPropNameInRow="HD_ID" msprop:Generator_ColumnPropNameInTable="HD_IDColumn" msprop:Generator_UserColumnName="HD_ID">
@@ -1064,7 +1178,7 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="LICH_HEN" msprop:Generator_TableClassName="LICH_HENDataTable" msprop:Generator_TableVarName="tableLICH_HEN" msprop:Generator_TablePropName="LICH_HEN" msprop:Generator_RowDeletingName="LICH_HENRowDeleting" msprop:Generator_RowChangingName="LICH_HENRowChanging" msprop:Generator_RowEvHandlerName="LICH_HENRowChangeEventHandler" msprop:Generator_RowDeletedName="LICH_HENRowDeleted" msprop:Generator_UserTableName="LICH_HEN" msprop:Generator_RowChangedName="LICH_HENRowChanged" msprop:Generator_RowEvArgName="LICH_HENRowChangeEvent" msprop:Generator_RowClassName="LICH_HENRow">
+        <xs:element name="LICH_HEN" msprop:Generator_TableClassName="LICH_HENDataTable" msprop:Generator_TableVarName="tableLICH_HEN" msprop:Generator_RowChangedName="LICH_HENRowChanged" msprop:Generator_TablePropName="LICH_HEN" msprop:Generator_RowDeletingName="LICH_HENRowDeleting" msprop:Generator_RowChangingName="LICH_HENRowChanging" msprop:Generator_RowEvHandlerName="LICH_HENRowChangeEventHandler" msprop:Generator_RowDeletedName="LICH_HENRowDeleted" msprop:Generator_RowClassName="LICH_HENRow" msprop:Generator_UserTableName="LICH_HEN" msprop:Generator_RowEvArgName="LICH_HENRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="LH_ID" msprop:Generator_ColumnVarNameInTable="columnLH_ID" msprop:Generator_ColumnPropNameInRow="LH_ID" msprop:Generator_ColumnPropNameInTable="LH_IDColumn" msprop:Generator_UserColumnName="LH_ID">
@@ -1093,7 +1207,7 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="LOAI_KHAM" msprop:Generator_TableClassName="LOAI_KHAMDataTable" msprop:Generator_TableVarName="tableLOAI_KHAM" msprop:Generator_TablePropName="LOAI_KHAM" msprop:Generator_RowDeletingName="LOAI_KHAMRowDeleting" msprop:Generator_RowChangingName="LOAI_KHAMRowChanging" msprop:Generator_RowEvHandlerName="LOAI_KHAMRowChangeEventHandler" msprop:Generator_RowDeletedName="LOAI_KHAMRowDeleted" msprop:Generator_UserTableName="LOAI_KHAM" msprop:Generator_RowChangedName="LOAI_KHAMRowChanged" msprop:Generator_RowEvArgName="LOAI_KHAMRowChangeEvent" msprop:Generator_RowClassName="LOAI_KHAMRow">
+        <xs:element name="LOAI_KHAM" msprop:Generator_TableClassName="LOAI_KHAMDataTable" msprop:Generator_TableVarName="tableLOAI_KHAM" msprop:Generator_RowChangedName="LOAI_KHAMRowChanged" msprop:Generator_TablePropName="LOAI_KHAM" msprop:Generator_RowDeletingName="LOAI_KHAMRowDeleting" msprop:Generator_RowChangingName="LOAI_KHAMRowChanging" msprop:Generator_RowEvHandlerName="LOAI_KHAMRowChangeEventHandler" msprop:Generator_RowDeletedName="LOAI_KHAMRowDeleted" msprop:Generator_RowClassName="LOAI_KHAMRow" msprop:Generator_UserTableName="LOAI_KHAM" msprop:Generator_RowEvArgName="LOAI_KHAMRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="LK_ID" msprop:Generator_ColumnVarNameInTable="columnLK_ID" msprop:Generator_ColumnPropNameInRow="LK_ID" msprop:Generator_ColumnPropNameInTable="LK_IDColumn" msprop:Generator_UserColumnName="LK_ID">
@@ -1113,7 +1227,7 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="NHAN_VIEN" msprop:Generator_TableClassName="NHAN_VIENDataTable" msprop:Generator_TableVarName="tableNHAN_VIEN" msprop:Generator_TablePropName="NHAN_VIEN" msprop:Generator_RowDeletingName="NHAN_VIENRowDeleting" msprop:Generator_RowChangingName="NHAN_VIENRowChanging" msprop:Generator_RowEvHandlerName="NHAN_VIENRowChangeEventHandler" msprop:Generator_RowDeletedName="NHAN_VIENRowDeleted" msprop:Generator_UserTableName="NHAN_VIEN" msprop:Generator_RowChangedName="NHAN_VIENRowChanged" msprop:Generator_RowEvArgName="NHAN_VIENRowChangeEvent" msprop:Generator_RowClassName="NHAN_VIENRow">
+        <xs:element name="NHAN_VIEN" msprop:Generator_TableClassName="NHAN_VIENDataTable" msprop:Generator_TableVarName="tableNHAN_VIEN" msprop:Generator_RowChangedName="NHAN_VIENRowChanged" msprop:Generator_TablePropName="NHAN_VIEN" msprop:Generator_RowDeletingName="NHAN_VIENRowDeleting" msprop:Generator_RowChangingName="NHAN_VIENRowChanging" msprop:Generator_RowEvHandlerName="NHAN_VIENRowChangeEventHandler" msprop:Generator_RowDeletedName="NHAN_VIENRowDeleted" msprop:Generator_RowClassName="NHAN_VIENRow" msprop:Generator_UserTableName="NHAN_VIEN" msprop:Generator_RowEvArgName="NHAN_VIENRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NV_ID" msprop:Generator_ColumnVarNameInTable="columnNV_ID" msprop:Generator_ColumnPropNameInRow="NV_ID" msprop:Generator_ColumnPropNameInTable="NV_IDColumn" msprop:Generator_UserColumnName="NV_ID">
@@ -1190,7 +1304,7 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="PHIEU_KHAM" msprop:Generator_TableClassName="PHIEU_KHAMDataTable" msprop:Generator_TableVarName="tablePHIEU_KHAM" msprop:Generator_TablePropName="PHIEU_KHAM" msprop:Generator_RowDeletingName="PHIEU_KHAMRowDeleting" msprop:Generator_RowChangingName="PHIEU_KHAMRowChanging" msprop:Generator_RowEvHandlerName="PHIEU_KHAMRowChangeEventHandler" msprop:Generator_RowDeletedName="PHIEU_KHAMRowDeleted" msprop:Generator_UserTableName="PHIEU_KHAM" msprop:Generator_RowChangedName="PHIEU_KHAMRowChanged" msprop:Generator_RowEvArgName="PHIEU_KHAMRowChangeEvent" msprop:Generator_RowClassName="PHIEU_KHAMRow">
+        <xs:element name="PHIEU_KHAM" msprop:Generator_TableClassName="PHIEU_KHAMDataTable" msprop:Generator_TableVarName="tablePHIEU_KHAM" msprop:Generator_RowChangedName="PHIEU_KHAMRowChanged" msprop:Generator_TablePropName="PHIEU_KHAM" msprop:Generator_RowDeletingName="PHIEU_KHAMRowDeleting" msprop:Generator_RowChangingName="PHIEU_KHAMRowChanging" msprop:Generator_RowEvHandlerName="PHIEU_KHAMRowChangeEventHandler" msprop:Generator_RowDeletedName="PHIEU_KHAMRowDeleted" msprop:Generator_RowClassName="PHIEU_KHAMRow" msprop:Generator_UserTableName="PHIEU_KHAM" msprop:Generator_RowEvArgName="PHIEU_KHAMRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PK_ID" msprop:Generator_ColumnVarNameInTable="columnPK_ID" msprop:Generator_ColumnPropNameInRow="PK_ID" msprop:Generator_ColumnPropNameInTable="PK_IDColumn" msprop:Generator_UserColumnName="PK_ID">
@@ -1232,7 +1346,7 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="QL_NGUOIDUNG" msprop:Generator_TableClassName="QL_NGUOIDUNGDataTable" msprop:Generator_TableVarName="tableQL_NGUOIDUNG" msprop:Generator_TablePropName="QL_NGUOIDUNG" msprop:Generator_RowDeletingName="QL_NGUOIDUNGRowDeleting" msprop:Generator_RowChangingName="QL_NGUOIDUNGRowChanging" msprop:Generator_RowEvHandlerName="QL_NGUOIDUNGRowChangeEventHandler" msprop:Generator_RowDeletedName="QL_NGUOIDUNGRowDeleted" msprop:Generator_UserTableName="QL_NGUOIDUNG" msprop:Generator_RowChangedName="QL_NGUOIDUNGRowChanged" msprop:Generator_RowEvArgName="QL_NGUOIDUNGRowChangeEvent" msprop:Generator_RowClassName="QL_NGUOIDUNGRow">
+        <xs:element name="QL_NGUOIDUNG" msprop:Generator_TableClassName="QL_NGUOIDUNGDataTable" msprop:Generator_TableVarName="tableQL_NGUOIDUNG" msprop:Generator_RowChangedName="QL_NGUOIDUNGRowChanged" msprop:Generator_TablePropName="QL_NGUOIDUNG" msprop:Generator_RowDeletingName="QL_NGUOIDUNGRowDeleting" msprop:Generator_RowChangingName="QL_NGUOIDUNGRowChanging" msprop:Generator_RowEvHandlerName="QL_NGUOIDUNGRowChangeEventHandler" msprop:Generator_RowDeletedName="QL_NGUOIDUNGRowDeleted" msprop:Generator_RowClassName="QL_NGUOIDUNGRow" msprop:Generator_UserTableName="QL_NGUOIDUNG" msprop:Generator_RowEvArgName="QL_NGUOIDUNGRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TENDANGNHAP" msprop:Generator_ColumnVarNameInTable="columnTENDANGNHAP" msprop:Generator_ColumnPropNameInRow="TENDANGNHAP" msprop:Generator_ColumnPropNameInTable="TENDANGNHAPColumn" msprop:Generator_UserColumnName="TENDANGNHAP">
@@ -1266,7 +1380,7 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="QL_NGUOIDUNGNHOMNGUOIDUNG" msprop:Generator_TableClassName="QL_NGUOIDUNGNHOMNGUOIDUNGDataTable" msprop:Generator_TableVarName="tableQL_NGUOIDUNGNHOMNGUOIDUNG" msprop:Generator_TablePropName="QL_NGUOIDUNGNHOMNGUOIDUNG" msprop:Generator_RowDeletingName="QL_NGUOIDUNGNHOMNGUOIDUNGRowDeleting" msprop:Generator_RowChangingName="QL_NGUOIDUNGNHOMNGUOIDUNGRowChanging" msprop:Generator_RowEvHandlerName="QL_NGUOIDUNGNHOMNGUOIDUNGRowChangeEventHandler" msprop:Generator_RowDeletedName="QL_NGUOIDUNGNHOMNGUOIDUNGRowDeleted" msprop:Generator_UserTableName="QL_NGUOIDUNGNHOMNGUOIDUNG" msprop:Generator_RowChangedName="QL_NGUOIDUNGNHOMNGUOIDUNGRowChanged" msprop:Generator_RowEvArgName="QL_NGUOIDUNGNHOMNGUOIDUNGRowChangeEvent" msprop:Generator_RowClassName="QL_NGUOIDUNGNHOMNGUOIDUNGRow">
+        <xs:element name="QL_NGUOIDUNGNHOMNGUOIDUNG" msprop:Generator_TableClassName="QL_NGUOIDUNGNHOMNGUOIDUNGDataTable" msprop:Generator_TableVarName="tableQL_NGUOIDUNGNHOMNGUOIDUNG" msprop:Generator_RowChangedName="QL_NGUOIDUNGNHOMNGUOIDUNGRowChanged" msprop:Generator_TablePropName="QL_NGUOIDUNGNHOMNGUOIDUNG" msprop:Generator_RowDeletingName="QL_NGUOIDUNGNHOMNGUOIDUNGRowDeleting" msprop:Generator_RowChangingName="QL_NGUOIDUNGNHOMNGUOIDUNGRowChanging" msprop:Generator_RowEvHandlerName="QL_NGUOIDUNGNHOMNGUOIDUNGRowChangeEventHandler" msprop:Generator_RowDeletedName="QL_NGUOIDUNGNHOMNGUOIDUNGRowDeleted" msprop:Generator_RowClassName="QL_NGUOIDUNGNHOMNGUOIDUNGRow" msprop:Generator_UserTableName="QL_NGUOIDUNGNHOMNGUOIDUNG" msprop:Generator_RowEvArgName="QL_NGUOIDUNGNHOMNGUOIDUNGRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TENDANGNHAP" msprop:Generator_ColumnVarNameInTable="columnTENDANGNHAP" msprop:Generator_ColumnPropNameInRow="TENDANGNHAP" msprop:Generator_ColumnPropNameInTable="TENDANGNHAPColumn" msprop:Generator_UserColumnName="TENDANGNHAP">
@@ -1293,7 +1407,7 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="QL_NHOMNGUOIDUNG" msprop:Generator_TableClassName="QL_NHOMNGUOIDUNGDataTable" msprop:Generator_TableVarName="tableQL_NHOMNGUOIDUNG" msprop:Generator_TablePropName="QL_NHOMNGUOIDUNG" msprop:Generator_RowDeletingName="QL_NHOMNGUOIDUNGRowDeleting" msprop:Generator_RowChangingName="QL_NHOMNGUOIDUNGRowChanging" msprop:Generator_RowEvHandlerName="QL_NHOMNGUOIDUNGRowChangeEventHandler" msprop:Generator_RowDeletedName="QL_NHOMNGUOIDUNGRowDeleted" msprop:Generator_UserTableName="QL_NHOMNGUOIDUNG" msprop:Generator_RowChangedName="QL_NHOMNGUOIDUNGRowChanged" msprop:Generator_RowEvArgName="QL_NHOMNGUOIDUNGRowChangeEvent" msprop:Generator_RowClassName="QL_NHOMNGUOIDUNGRow">
+        <xs:element name="QL_NHOMNGUOIDUNG" msprop:Generator_TableClassName="QL_NHOMNGUOIDUNGDataTable" msprop:Generator_TableVarName="tableQL_NHOMNGUOIDUNG" msprop:Generator_RowChangedName="QL_NHOMNGUOIDUNGRowChanged" msprop:Generator_TablePropName="QL_NHOMNGUOIDUNG" msprop:Generator_RowDeletingName="QL_NHOMNGUOIDUNGRowDeleting" msprop:Generator_RowChangingName="QL_NHOMNGUOIDUNGRowChanging" msprop:Generator_RowEvHandlerName="QL_NHOMNGUOIDUNGRowChangeEventHandler" msprop:Generator_RowDeletedName="QL_NHOMNGUOIDUNGRowDeleted" msprop:Generator_RowClassName="QL_NHOMNGUOIDUNGRow" msprop:Generator_UserTableName="QL_NHOMNGUOIDUNG" msprop:Generator_RowEvArgName="QL_NHOMNGUOIDUNGRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MANHOM" msprop:Generator_ColumnVarNameInTable="columnMANHOM" msprop:Generator_ColumnPropNameInRow="MANHOM" msprop:Generator_ColumnPropNameInTable="MANHOMColumn" msprop:Generator_UserColumnName="MANHOM">
@@ -1320,6 +1434,54 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="QL_NGUOIDUNGNHOMNGUOIDUNG_Condition" msprop:Generator_TableClassName="QL_NGUOIDUNGNHOMNGUOIDUNG_ConditionDataTable" msprop:Generator_TableVarName="tableQL_NGUOIDUNGNHOMNGUOIDUNG_Condition" msprop:Generator_RowChangedName="QL_NGUOIDUNGNHOMNGUOIDUNG_ConditionRowChanged" msprop:Generator_TablePropName="QL_NGUOIDUNGNHOMNGUOIDUNG_Condition" msprop:Generator_RowDeletingName="QL_NGUOIDUNGNHOMNGUOIDUNG_ConditionRowDeleting" msprop:Generator_RowChangingName="QL_NGUOIDUNGNHOMNGUOIDUNG_ConditionRowChanging" msprop:Generator_RowEvHandlerName="QL_NGUOIDUNGNHOMNGUOIDUNG_ConditionRowChangeEventHandler" msprop:Generator_RowDeletedName="QL_NGUOIDUNGNHOMNGUOIDUNG_ConditionRowDeleted" msprop:Generator_RowClassName="QL_NGUOIDUNGNHOMNGUOIDUNG_ConditionRow" msprop:Generator_UserTableName="QL_NGUOIDUNGNHOMNGUOIDUNG_Condition" msprop:Generator_RowEvArgName="QL_NGUOIDUNGNHOMNGUOIDUNG_ConditionRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TENDANGNHAP" msprop:Generator_ColumnVarNameInTable="columnTENDANGNHAP" msprop:Generator_ColumnPropNameInRow="TENDANGNHAP" msprop:Generator_ColumnPropNameInTable="TENDANGNHAPColumn" msprop:Generator_UserColumnName="TENDANGNHAP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MANHOMNGUOIDUNG" msprop:Generator_ColumnVarNameInTable="columnMANHOMNGUOIDUNG" msprop:Generator_ColumnPropNameInRow="MANHOMNGUOIDUNG" msprop:Generator_ColumnPropNameInTable="MANHOMNGUOIDUNGColumn" msprop:Generator_UserColumnName="MANHOMNGUOIDUNG">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GHICHU" msprop:Generator_ColumnVarNameInTable="columnGHICHU" msprop:Generator_ColumnPropNameInRow="GHICHU" msprop:Generator_ColumnPropNameInTable="GHICHUColumn" msprop:Generator_UserColumnName="GHICHU" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="QL_GetPhanQuyen" msprop:Generator_TableClassName="QL_GetPhanQuyenDataTable" msprop:Generator_TableVarName="tableQL_GetPhanQuyen" msprop:Generator_RowChangedName="QL_GetPhanQuyenRowChanged" msprop:Generator_TablePropName="QL_GetPhanQuyen" msprop:Generator_RowDeletingName="QL_GetPhanQuyenRowDeleting" msprop:Generator_RowChangingName="QL_GetPhanQuyenRowChanging" msprop:Generator_RowEvHandlerName="QL_GetPhanQuyenRowChangeEventHandler" msprop:Generator_RowDeletedName="QL_GetPhanQuyenRowDeleted" msprop:Generator_RowClassName="QL_GetPhanQuyenRow" msprop:Generator_UserTableName="QL_GetPhanQuyen" msprop:Generator_RowEvArgName="QL_GetPhanQuyenRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MAMANHINH" msprop:Generator_ColumnVarNameInTable="columnMAMANHINH" msprop:Generator_ColumnPropNameInRow="MAMANHINH" msprop:Generator_ColumnPropNameInTable="MAMANHINHColumn" msprop:Generator_UserColumnName="MAMANHINH">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENMANHINH" msprop:Generator_ColumnVarNameInTable="columnTENMANHINH" msprop:Generator_ColumnPropNameInRow="TENMANHINH" msprop:Generator_ColumnPropNameInTable="TENMANHINHColumn" msprop:Generator_UserColumnName="TENMANHINH" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="coquyen" msprop:Generator_ColumnVarNameInTable="columncoquyen" msprop:Generator_ColumnPropNameInRow="coquyen" msprop:Generator_ColumnPropNameInTable="coquyenColumn" msprop:Generator_UserColumnName="coquyen" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
         <xs:element name="QL_PHANQUYEN" msprop:Generator_TableClassName="QL_PHANQUYENDataTable" msprop:Generator_TableVarName="tableQL_PHANQUYEN" msprop:Generator_TablePropName="QL_PHANQUYEN" msprop:Generator_RowDeletingName="QL_PHANQUYENRowDeleting" msprop:Generator_RowChangingName="QL_PHANQUYENRowChanging" msprop:Generator_RowEvHandlerName="QL_PHANQUYENRowChangeEventHandler" msprop:Generator_RowDeletedName="QL_PHANQUYENRowDeleted" msprop:Generator_UserTableName="QL_PHANQUYEN" msprop:Generator_RowChangedName="QL_PHANQUYENRowChanged" msprop:Generator_RowEvArgName="QL_PHANQUYENRowChangeEvent" msprop:Generator_RowClassName="QL_PHANQUYENRow">
           <xs:complexType>
             <xs:sequence>
@@ -1337,13 +1499,7 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="COQUYEN" msprop:Generator_ColumnVarNameInTable="columnCOQUYEN" msprop:Generator_ColumnPropNameInRow="COQUYEN" msprop:Generator_ColumnPropNameInTable="COQUYENColumn" msprop:Generator_UserColumnName="COQUYEN" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
+              <xs:element name="COQUYEN" msprop:Generator_ColumnVarNameInTable="columnCOQUYEN" msprop:Generator_ColumnPropNameInRow="COQUYEN" msprop:Generator_ColumnPropNameInTable="COQUYENColumn" msprop:Generator_UserColumnName="COQUYEN" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1403,6 +1559,15 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
       <xs:selector xpath=".//mstns:QL_NHOMNGUOIDUNG" />
       <xs:field xpath="mstns:MANHOM" />
     </xs:unique>
+    <xs:unique name="QL_NGUOIDUNGNHOMNGUOIDUNG_Condition_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:QL_NGUOIDUNGNHOMNGUOIDUNG_Condition" />
+      <xs:field xpath="mstns:TENDANGNHAP" />
+      <xs:field xpath="mstns:MANHOMNGUOIDUNG" />
+    </xs:unique>
+    <xs:unique name="QL_GetPhanQuyen_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:QL_GetPhanQuyen" />
+      <xs:field xpath="mstns:MAMANHINH" />
+    </xs:unique>
     <xs:unique name="QL_PHANQUYEN_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:QL_PHANQUYEN" />
       <xs:field xpath="mstns:MANHOMNGUOIDUNG" />
@@ -1411,19 +1576,21 @@ SELECT MANHOMNGUOIDUNG, MAMANHINH, COQUYEN FROM QL_PHANQUYEN WHERE (MAMANHINH = 
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK__CHITIET_H__HD_ID__29572725" msdata:parent="HOA_DON" msdata:child="CHITIET_HD" msdata:parentkey="HD_ID" msdata:childkey="HD_ID" msprop:Generator_UserChildTable="CHITIET_HD" msprop:Generator_ChildPropName="GetCHITIET_HDRows" msprop:Generator_UserRelationName="FK__CHITIET_H__HD_ID__29572725" msprop:Generator_RelationVarName="relationFK__CHITIET_H__HD_ID__29572725" msprop:Generator_UserParentTable="HOA_DON" msprop:Generator_ParentPropName="HOA_DONRow" />
-      <msdata:Relationship name="FK__CHITIET_HD__T_ID__2A4B4B5E" msdata:parent="THUOC" msdata:child="CHITIET_HD" msdata:parentkey="T_ID" msdata:childkey="T_ID" msprop:Generator_UserChildTable="CHITIET_HD" msprop:Generator_ChildPropName="GetCHITIET_HDRows" msprop:Generator_UserRelationName="FK__CHITIET_HD__T_ID__2A4B4B5E" msprop:Generator_ParentPropName="THUOCRow" msprop:Generator_RelationVarName="relationFK__CHITIET_HD__T_ID__2A4B4B5E" msprop:Generator_UserParentTable="THUOC" />
-      <msdata:Relationship name="FK__HOA_DON__PK_ID__2D27B809" msdata:parent="PHIEU_KHAM" msdata:child="HOA_DON" msdata:parentkey="PK_ID" msdata:childkey="PK_ID" msprop:Generator_UserChildTable="HOA_DON" msprop:Generator_ChildPropName="GetHOA_DONRows" msprop:Generator_UserRelationName="FK__HOA_DON__PK_ID__2D27B809" msprop:Generator_RelationVarName="relationFK__HOA_DON__PK_ID__2D27B809" msprop:Generator_UserParentTable="PHIEU_KHAM" msprop:Generator_ParentPropName="PHIEU_KHAMRow" />
-      <msdata:Relationship name="FK__LICH_HEN__BN_ID__2F10007B" msdata:parent="BENH_NHAN" msdata:child="LICH_HEN" msdata:parentkey="BN_ID" msdata:childkey="BN_ID" msprop:Generator_UserChildTable="LICH_HEN" msprop:Generator_ChildPropName="GetLICH_HENRows" msprop:Generator_UserRelationName="FK__LICH_HEN__BN_ID__2F10007B" msprop:Generator_ParentPropName="BENH_NHANRow" msprop:Generator_RelationVarName="relationFK__LICH_HEN__BN_ID__2F10007B" msprop:Generator_UserParentTable="BENH_NHAN" />
-      <msdata:Relationship name="FK__NHAN_VIEN__CV_ID__30F848ED" msdata:parent="CHUC_VU" msdata:child="NHAN_VIEN" msdata:parentkey="CV_ID" msdata:childkey="CV_ID" msprop:Generator_UserChildTable="NHAN_VIEN" msprop:Generator_ChildPropName="GetNHAN_VIENRows" msprop:Generator_UserRelationName="FK__NHAN_VIEN__CV_ID__30F848ED" msprop:Generator_ParentPropName="CHUC_VURow" msprop:Generator_RelationVarName="relationFK__NHAN_VIEN__CV_ID__30F848ED" msprop:Generator_UserParentTable="CHUC_VU" />
-      <msdata:Relationship name="FK__PHIEU_KHA__BN_ID__32E0915F" msdata:parent="BENH_NHAN" msdata:child="PHIEU_KHAM" msdata:parentkey="BN_ID" msdata:childkey="BN_ID" msprop:Generator_UserChildTable="PHIEU_KHAM" msprop:Generator_ChildPropName="GetPHIEU_KHAMRows" msprop:Generator_UserRelationName="FK__PHIEU_KHA__BN_ID__32E0915F" msprop:Generator_ParentPropName="BENH_NHANRow" msprop:Generator_RelationVarName="relationFK__PHIEU_KHA__BN_ID__32E0915F" msprop:Generator_UserParentTable="BENH_NHAN" />
-      <msdata:Relationship name="FK__PHIEU_KHA__LK_ID__33D4B598" msdata:parent="LOAI_KHAM" msdata:child="PHIEU_KHAM" msdata:parentkey="LK_ID" msdata:childkey="LK_ID" msprop:Generator_UserChildTable="PHIEU_KHAM" msprop:Generator_ChildPropName="GetPHIEU_KHAMRows" msprop:Generator_UserRelationName="FK__PHIEU_KHA__LK_ID__33D4B598" msprop:Generator_ParentPropName="LOAI_KHAMRow" msprop:Generator_RelationVarName="relationFK__PHIEU_KHA__LK_ID__33D4B598" msprop:Generator_UserParentTable="LOAI_KHAM" />
-      <msdata:Relationship name="FK__PHIEU_KHA__NV_ID__34C8D9D1" msdata:parent="NHAN_VIEN" msdata:child="PHIEU_KHAM" msdata:parentkey="NV_ID" msdata:childkey="NV_ID" msprop:Generator_UserChildTable="PHIEU_KHAM" msprop:Generator_ChildPropName="GetPHIEU_KHAMRows" msprop:Generator_UserRelationName="FK__PHIEU_KHA__NV_ID__34C8D9D1" msprop:Generator_ParentPropName="NHAN_VIENRow" msprop:Generator_RelationVarName="relationFK__PHIEU_KHA__NV_ID__34C8D9D1" msprop:Generator_UserParentTable="NHAN_VIEN" />
-      <msdata:Relationship name="FK__QL_NGUOID__NV_ID__38996AB5" msdata:parent="NHAN_VIEN" msdata:child="QL_NGUOIDUNG" msdata:parentkey="NV_ID" msdata:childkey="NV_ID" msprop:Generator_UserChildTable="QL_NGUOIDUNG" msprop:Generator_ChildPropName="GetQL_NGUOIDUNGRows" msprop:Generator_UserRelationName="FK__QL_NGUOID__NV_ID__38996AB5" msprop:Generator_ParentPropName="NHAN_VIENRow" msprop:Generator_RelationVarName="relationFK__QL_NGUOID__NV_ID__38996AB5" msprop:Generator_UserParentTable="NHAN_VIEN" />
-      <msdata:Relationship name="FK__QL_NGUOID__MANHO__398D8EEE" msdata:parent="QL_NHOMNGUOIDUNG" msdata:child="QL_NGUOIDUNGNHOMNGUOIDUNG" msdata:parentkey="MANHOM" msdata:childkey="MANHOMNGUOIDUNG" msprop:Generator_UserChildTable="QL_NGUOIDUNGNHOMNGUOIDUNG" msprop:Generator_ChildPropName="GetQL_NGUOIDUNGNHOMNGUOIDUNGRows" msprop:Generator_UserRelationName="FK__QL_NGUOID__MANHO__398D8EEE" msprop:Generator_RelationVarName="relationFK__QL_NGUOID__MANHO__398D8EEE" msprop:Generator_UserParentTable="QL_NHOMNGUOIDUNG" msprop:Generator_ParentPropName="QL_NHOMNGUOIDUNGRow" />
-      <msdata:Relationship name="FK__QL_NGUOID__TENDA__3A81B327" msdata:parent="QL_NGUOIDUNG" msdata:child="QL_NGUOIDUNGNHOMNGUOIDUNG" msdata:parentkey="TENDANGNHAP" msdata:childkey="TENDANGNHAP" msprop:Generator_UserChildTable="QL_NGUOIDUNGNHOMNGUOIDUNG" msprop:Generator_ChildPropName="GetQL_NGUOIDUNGNHOMNGUOIDUNGRows" msprop:Generator_UserRelationName="FK__QL_NGUOID__TENDA__3A81B327" msprop:Generator_ParentPropName="QL_NGUOIDUNGRow" msprop:Generator_RelationVarName="relationFK__QL_NGUOID__TENDA__3A81B327" msprop:Generator_UserParentTable="QL_NGUOIDUNG" />
-      <msdata:Relationship name="FK__QL_PHANQU__MAMAN__3D5E1FD2" msdata:parent="DM_MANHINH" msdata:child="QL_PHANQUYEN" msdata:parentkey="MAMANHINH" msdata:childkey="MAMANHINH" msprop:Generator_UserChildTable="QL_PHANQUYEN" msprop:Generator_ChildPropName="GetQL_PHANQUYENRows" msprop:Generator_UserRelationName="FK__QL_PHANQU__MAMAN__3D5E1FD2" msprop:Generator_ParentPropName="DM_MANHINHRow" msprop:Generator_RelationVarName="relationFK__QL_PHANQU__MAMAN__3D5E1FD2" msprop:Generator_UserParentTable="DM_MANHINH" />
-      <msdata:Relationship name="FK__QL_PHANQU__MANHO__3E52440B" msdata:parent="QL_NHOMNGUOIDUNG" msdata:child="QL_PHANQUYEN" msdata:parentkey="MANHOM" msdata:childkey="MANHOMNGUOIDUNG" msprop:Generator_UserChildTable="QL_PHANQUYEN" msprop:Generator_ChildPropName="GetQL_PHANQUYENRows" msprop:Generator_UserRelationName="FK__QL_PHANQU__MANHO__3E52440B" msprop:Generator_ParentPropName="QL_NHOMNGUOIDUNGRow" msprop:Generator_RelationVarName="relationFK__QL_PHANQU__MANHO__3E52440B" msprop:Generator_UserParentTable="QL_NHOMNGUOIDUNG" />
+      <msdata:Relationship name="FK__CHITIET_H__HD_ID__29572725" msdata:parent="HOA_DON" msdata:child="CHITIET_HD" msdata:parentkey="HD_ID" msdata:childkey="HD_ID" msprop:Generator_UserChildTable="CHITIET_HD" msprop:Generator_ChildPropName="GetCHITIET_HDRows" msprop:Generator_UserRelationName="FK__CHITIET_H__HD_ID__29572725" msprop:Generator_ParentPropName="HOA_DONRow" msprop:Generator_RelationVarName="relationFK__CHITIET_H__HD_ID__29572725" msprop:Generator_UserParentTable="HOA_DON" />
+      <msdata:Relationship name="FK__CHITIET_HD__T_ID__2A4B4B5E" msdata:parent="THUOC" msdata:child="CHITIET_HD" msdata:parentkey="T_ID" msdata:childkey="T_ID" msprop:Generator_UserChildTable="CHITIET_HD" msprop:Generator_ChildPropName="GetCHITIET_HDRows" msprop:Generator_UserRelationName="FK__CHITIET_HD__T_ID__2A4B4B5E" msprop:Generator_RelationVarName="relationFK__CHITIET_HD__T_ID__2A4B4B5E" msprop:Generator_UserParentTable="THUOC" msprop:Generator_ParentPropName="THUOCRow" />
+      <msdata:Relationship name="FK__HOA_DON__PK_ID__2D27B809" msdata:parent="PHIEU_KHAM" msdata:child="HOA_DON" msdata:parentkey="PK_ID" msdata:childkey="PK_ID" msprop:Generator_UserChildTable="HOA_DON" msprop:Generator_ChildPropName="GetHOA_DONRows" msprop:Generator_UserRelationName="FK__HOA_DON__PK_ID__2D27B809" msprop:Generator_ParentPropName="PHIEU_KHAMRow" msprop:Generator_RelationVarName="relationFK__HOA_DON__PK_ID__2D27B809" msprop:Generator_UserParentTable="PHIEU_KHAM" />
+      <msdata:Relationship name="FK__LICH_HEN__BN_ID__2F10007B" msdata:parent="BENH_NHAN" msdata:child="LICH_HEN" msdata:parentkey="BN_ID" msdata:childkey="BN_ID" msprop:Generator_UserChildTable="LICH_HEN" msprop:Generator_ChildPropName="GetLICH_HENRows" msprop:Generator_UserRelationName="FK__LICH_HEN__BN_ID__2F10007B" msprop:Generator_RelationVarName="relationFK__LICH_HEN__BN_ID__2F10007B" msprop:Generator_UserParentTable="BENH_NHAN" msprop:Generator_ParentPropName="BENH_NHANRow" />
+      <msdata:Relationship name="FK__NHAN_VIEN__CV_ID__30F848ED" msdata:parent="CHUC_VU" msdata:child="NHAN_VIEN" msdata:parentkey="CV_ID" msdata:childkey="CV_ID" msprop:Generator_UserChildTable="NHAN_VIEN" msprop:Generator_ChildPropName="GetNHAN_VIENRows" msprop:Generator_UserRelationName="FK__NHAN_VIEN__CV_ID__30F848ED" msprop:Generator_RelationVarName="relationFK__NHAN_VIEN__CV_ID__30F848ED" msprop:Generator_UserParentTable="CHUC_VU" msprop:Generator_ParentPropName="CHUC_VURow" />
+      <msdata:Relationship name="FK__PHIEU_KHA__BN_ID__32E0915F" msdata:parent="BENH_NHAN" msdata:child="PHIEU_KHAM" msdata:parentkey="BN_ID" msdata:childkey="BN_ID" msprop:Generator_UserChildTable="PHIEU_KHAM" msprop:Generator_ChildPropName="GetPHIEU_KHAMRows" msprop:Generator_UserRelationName="FK__PHIEU_KHA__BN_ID__32E0915F" msprop:Generator_RelationVarName="relationFK__PHIEU_KHA__BN_ID__32E0915F" msprop:Generator_UserParentTable="BENH_NHAN" msprop:Generator_ParentPropName="BENH_NHANRow" />
+      <msdata:Relationship name="FK__PHIEU_KHA__LK_ID__33D4B598" msdata:parent="LOAI_KHAM" msdata:child="PHIEU_KHAM" msdata:parentkey="LK_ID" msdata:childkey="LK_ID" msprop:Generator_UserChildTable="PHIEU_KHAM" msprop:Generator_ChildPropName="GetPHIEU_KHAMRows" msprop:Generator_UserRelationName="FK__PHIEU_KHA__LK_ID__33D4B598" msprop:Generator_RelationVarName="relationFK__PHIEU_KHA__LK_ID__33D4B598" msprop:Generator_UserParentTable="LOAI_KHAM" msprop:Generator_ParentPropName="LOAI_KHAMRow" />
+      <msdata:Relationship name="FK__PHIEU_KHA__NV_ID__34C8D9D1" msdata:parent="NHAN_VIEN" msdata:child="PHIEU_KHAM" msdata:parentkey="NV_ID" msdata:childkey="NV_ID" msprop:Generator_UserChildTable="PHIEU_KHAM" msprop:Generator_ChildPropName="GetPHIEU_KHAMRows" msprop:Generator_UserRelationName="FK__PHIEU_KHA__NV_ID__34C8D9D1" msprop:Generator_RelationVarName="relationFK__PHIEU_KHA__NV_ID__34C8D9D1" msprop:Generator_UserParentTable="NHAN_VIEN" msprop:Generator_ParentPropName="NHAN_VIENRow" />
+      <msdata:Relationship name="FK__QL_NGUOID__NV_ID__38996AB5" msdata:parent="NHAN_VIEN" msdata:child="QL_NGUOIDUNG" msdata:parentkey="NV_ID" msdata:childkey="NV_ID" msprop:Generator_UserChildTable="QL_NGUOIDUNG" msprop:Generator_ChildPropName="GetQL_NGUOIDUNGRows" msprop:Generator_UserRelationName="FK__QL_NGUOID__NV_ID__38996AB5" msprop:Generator_RelationVarName="relationFK__QL_NGUOID__NV_ID__38996AB5" msprop:Generator_UserParentTable="NHAN_VIEN" msprop:Generator_ParentPropName="NHAN_VIENRow" />
+      <msdata:Relationship name="FK__QL_NGUOID__MANHO__398D8EEE" msdata:parent="QL_NHOMNGUOIDUNG" msdata:child="QL_NGUOIDUNGNHOMNGUOIDUNG" msdata:parentkey="MANHOM" msdata:childkey="MANHOMNGUOIDUNG" msprop:Generator_UserChildTable="QL_NGUOIDUNGNHOMNGUOIDUNG" msprop:Generator_ChildPropName="GetQL_NGUOIDUNGNHOMNGUOIDUNGRows" msprop:Generator_UserRelationName="FK__QL_NGUOID__MANHO__398D8EEE" msprop:Generator_ParentPropName="QL_NHOMNGUOIDUNGRow" msprop:Generator_RelationVarName="relationFK__QL_NGUOID__MANHO__398D8EEE" msprop:Generator_UserParentTable="QL_NHOMNGUOIDUNG" />
+      <msdata:Relationship name="FK__QL_NGUOID__TENDA__3A81B327" msdata:parent="QL_NGUOIDUNG" msdata:child="QL_NGUOIDUNGNHOMNGUOIDUNG" msdata:parentkey="TENDANGNHAP" msdata:childkey="TENDANGNHAP" msprop:Generator_UserChildTable="QL_NGUOIDUNGNHOMNGUOIDUNG" msprop:Generator_ChildPropName="GetQL_NGUOIDUNGNHOMNGUOIDUNGRows" msprop:Generator_UserRelationName="FK__QL_NGUOID__TENDA__3A81B327" msprop:Generator_RelationVarName="relationFK__QL_NGUOID__TENDA__3A81B327" msprop:Generator_UserParentTable="QL_NGUOIDUNG" msprop:Generator_ParentPropName="QL_NGUOIDUNGRow" />
+      <msdata:Relationship name="FK__QL_NGUOID__MANHO__398D8EEE1" msdata:parent="QL_NHOMNGUOIDUNG" msdata:child="QL_NGUOIDUNGNHOMNGUOIDUNG_Condition" msdata:parentkey="MANHOM" msdata:childkey="MANHOMNGUOIDUNG" msprop:Generator_UserChildTable="QL_NGUOIDUNGNHOMNGUOIDUNG_Condition" msprop:Generator_ChildPropName="GetQL_NGUOIDUNGNHOMNGUOIDUNG_ConditionRows" msprop:Generator_UserRelationName="FK__QL_NGUOID__MANHO__398D8EEE1" msprop:Generator_RelationVarName="relationFK__QL_NGUOID__MANHO__398D8EEE1" msprop:Generator_UserParentTable="QL_NHOMNGUOIDUNG" msprop:Generator_ParentPropName="QL_NHOMNGUOIDUNGRow" />
+      <msdata:Relationship name="FK__QL_NGUOID__TENDA__3A81B3271" msdata:parent="QL_NGUOIDUNG" msdata:child="QL_NGUOIDUNGNHOMNGUOIDUNG_Condition" msdata:parentkey="TENDANGNHAP" msdata:childkey="TENDANGNHAP" msprop:Generator_UserChildTable="QL_NGUOIDUNGNHOMNGUOIDUNG_Condition" msprop:Generator_ChildPropName="GetQL_NGUOIDUNGNHOMNGUOIDUNG_ConditionRows" msprop:Generator_UserRelationName="FK__QL_NGUOID__TENDA__3A81B3271" msprop:Generator_RelationVarName="relationFK__QL_NGUOID__TENDA__3A81B3271" msprop:Generator_UserParentTable="QL_NGUOIDUNG" msprop:Generator_ParentPropName="QL_NGUOIDUNGRow" />
+      <msdata:Relationship name="FK__QL_PHANQU__MAMAN__6477ECF3" msdata:parent="DM_MANHINH" msdata:child="QL_PHANQUYEN" msdata:parentkey="MAMANHINH" msdata:childkey="MAMANHINH" msprop:Generator_UserChildTable="QL_PHANQUYEN" msprop:Generator_ChildPropName="GetQL_PHANQUYENRows" msprop:Generator_UserRelationName="FK__QL_PHANQU__MAMAN__6477ECF3" msprop:Generator_ParentPropName="DM_MANHINHRow" msprop:Generator_RelationVarName="relationFK__QL_PHANQU__MAMAN__6477ECF3" msprop:Generator_UserParentTable="DM_MANHINH" />
+      <msdata:Relationship name="FK__QL_PHANQU__MANHO__656C112C" msdata:parent="QL_NHOMNGUOIDUNG" msdata:child="QL_PHANQUYEN" msdata:parentkey="MANHOM" msdata:childkey="MANHOMNGUOIDUNG" msprop:Generator_UserChildTable="QL_PHANQUYEN" msprop:Generator_ChildPropName="GetQL_PHANQUYENRows" msprop:Generator_UserRelationName="FK__QL_PHANQU__MANHO__656C112C" msprop:Generator_ParentPropName="QL_NHOMNGUOIDUNGRow" msprop:Generator_RelationVarName="relationFK__QL_PHANQU__MANHO__656C112C" msprop:Generator_UserParentTable="QL_NHOMNGUOIDUNG" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

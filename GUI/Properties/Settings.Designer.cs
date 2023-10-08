@@ -38,7 +38,7 @@ namespace GUI.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-K10406A5\\SQLEXPRESS;Initial Catalog=QLPK;User ID=sa;Password=2" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-K10406A5\\SQLEXPRESS;Initial Catalog=QLPK;User ID=sa;Password=1" +
             "")]
         public string cnnStringFail {
             get {
@@ -57,6 +57,17 @@ namespace GUI.Properties {
         public string QLPKConnectionString {
             get {
                 return ((string)(this["QLPKConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-K10406A5\\SQLEXPRESS;Initial Catalog=QLPK;User ID=sa;Password=1" +
+            "")]
+        public string QLPKConnectionString1 {
+            get {
+                return ((string)(this["QLPKConnectionString1"]));
             }
         }
     }

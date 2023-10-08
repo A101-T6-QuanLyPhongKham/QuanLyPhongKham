@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GUI</RootNamespace>
     <AssemblyName>GUI</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -60,11 +61,6 @@
     <Compile Include="configForm.Designer.cs">
       <DependentUpon>configForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataBase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataBase.xsd</DependentUpon>
-    </Compile>
     <Compile Include="loginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,26 +73,29 @@
     <Compile Include="mainForm.Designer.cs">
       <DependentUpon>mainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QL_NguoiDung.cs" />
-    <Compile Include="screenListForm.cs">
+    <Compile Include="phanQuyenForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="screenListForm.Designer.cs">
-      <DependentUpon>screenListForm.cs</DependentUpon>
+    <Compile Include="phanQuyenForm.Designer.cs">
+      <DependentUpon>phanQuyenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QLPK.cs">
+      <DependentUpon>QLPK.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="QLPK.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QLPK.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QL_NguoiDung.cs" />
     <Compile Include="userForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="userForm.Designer.cs">
       <DependentUpon>userForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="userGroupForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="userGroupForm.Designer.cs">
-      <DependentUpon>userGroupForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="addUserToGroupForm.resx">
       <DependentUpon>addUserToGroupForm.cs</DependentUpon>
@@ -107,6 +106,12 @@
     <EmbeddedResource Include="loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="mainForm.resx">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="phanQuyenForm.resx">
+      <DependentUpon>phanQuyenForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -115,27 +120,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="screenListForm.resx">
-      <DependentUpon>screenListForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="userForm.resx">
       <DependentUpon>userForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="userGroupForm.resx">
-      <DependentUpon>userGroupForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="DataBase.xsc">
-      <DependentUpon>DataBase.xsd</DependentUpon>
-    </None>
-    <None Include="DataBase.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataBase.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataBase.xss">
-      <DependentUpon>DataBase.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -145,6 +134,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="QLPK.xsc">
+      <DependentUpon>QLPK.xsd</DependentUpon>
+    </None>
+    <None Include="QLPK.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QLPK.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="QLPK.xss">
+      <DependentUpon>QLPK.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -10,10 +10,8 @@ namespace GUI
 {
     public static class QL_NguoiDung
     {
-        public static string GetConnectString()
-        {
-            return Properties.Settings.Default.connectString;
-        }
+        
+        public static List<string> MaNhomNguoiDung = new List<string>();
         public enum LoginRusult
         {
             //Wrong Username or password
@@ -22,6 +20,27 @@ namespace GUI
             Disabled,
             //Login Success
             Success
+        }
+        public static DataTable getMaManHinh(string pMaNhom)
+        {
+            string query = "select * from ql_phanquyen where manhomnguoidung = '" + pMaNhom + "'";
+
+            SqlDataAdapter da = new SqlDataAdapter(query, Properties.Settings.Default.cnnStringFail);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        private static void getMaNhomNguoiDung(string pTendn)
+        {
+            string query = "select * from ql_nguoidungnhomnguoidung where tendangnhap = '" + pTendn + "'";
+
+            SqlDataAdapter da = new SqlDataAdapter(query, Properties.Settings.Default.cnnStringFail);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            foreach(DataRow item in dt.Rows)
+            {
+                MaNhomNguoiDung.Add(item[1].ToString());
+            }
         }
         public static int Check_Config()
         {
@@ -59,6 +78,7 @@ namespace GUI
             {
                 return LoginRusult.Disabled; //Tài khoản hiện đang bị khóa
             }
+            getMaNhomNguoiDung(pUser);
             return LoginRusult.Success;
 
         }

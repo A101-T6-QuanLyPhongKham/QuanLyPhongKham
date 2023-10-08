@@ -15,6 +15,7 @@ namespace GUI
         public loginForm()
         {
             InitializeComponent();
+           
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -79,14 +80,12 @@ namespace GUI
             config.Show();
         }
 
-        private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
+        private void loginForm_Load(object sender, EventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                e.Handled = true; // Ngăn chặn ký tự Enter được ghi vào TextBox
-                btnLogin.PerformClick(); // Kích hoạt sự kiện Click của Button
-            }
+            txtUsername.Focus();
         }
+
+        
 
        
     }

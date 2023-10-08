@@ -15,35 +15,63 @@ namespace GUI
         public addUserToGroupForm()
         {
             InitializeComponent();
-            loadUserList();
         }
 
-        private void qL_NGUOIDUNGBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void qL_NGUOIDUNGNHOMNGUOIDUNG_ConditionBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.qL_NGUOIDUNGBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dataBase);
+            this.qL_NGUOIDUNGNHOMNGUOIDUNG_ConditionBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.qLPK);
 
         }
+
+       
 
         private void addUserToGroupForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataBase.QL_NHOMNGUOIDUNG' table. You can move, or remove it, as needed.
-            this.qL_NHOMNGUOIDUNGTableAdapter.Fill(this.dataBase.QL_NHOMNGUOIDUNG);
-            // TODO: This line of code loads data into the 'dataBase.QL_NGUOIDUNGNHOMNGUOIDUNG' table. You can move, or remove it, as needed.
-            this.qL_NGUOIDUNGNHOMNGUOIDUNGTableAdapter.Fill(this.dataBase.QL_NGUOIDUNGNHOMNGUOIDUNG);
-            // TODO: This line of code loads data into the 'dataBase.QL_NGUOIDUNG' table. You can move, or remove it, as needed.
-            this.qL_NGUOIDUNGTableAdapter.Fill(this.dataBase.QL_NGUOIDUNG);
+            // TODO: This line of code loads data into the 'qLPK.QL_NGUOIDUNGNHOMNGUOIDUNG' table. You can move, or remove it, as needed.
+            this.qL_NGUOIDUNGNHOMNGUOIDUNGTableAdapter.Fill(this.qLPK.QL_NGUOIDUNGNHOMNGUOIDUNG);
+            // TODO: This line of code loads data into the 'qLPK.QL_NGUOIDUNGNHOMNGUOIDUNG' table. You can move, or remove it, as needed.
+            this.qL_NGUOIDUNGNHOMNGUOIDUNGTableAdapter.Fill(this.qLPK.QL_NGUOIDUNGNHOMNGUOIDUNG);
+            // TODO: This line of code loads data into the 'qLPK.QL_NGUOIDUNG' table. You can move, or remove it, as needed.
+            this.qL_NGUOIDUNGTableAdapter.Fill(this.qLPK.QL_NGUOIDUNG);
+            // TODO: This line of code loads data into the 'qLPK.QL_NHOMNGUOIDUNG' table. You can move, or remove it, as needed.
+            this.qL_NHOMNGUOIDUNGTableAdapter.Fill(this.qLPK.QL_NHOMNGUOIDUNG);
 
         }
 
-        private void cbbGroupName_SelectedIndexChanged(object sender, EventArgs e)
+        private void qL_NHOMNGUOIDUNGComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (cbbGroup.SelectedValue == null)
+            {
+                return;
+            }
+            string tennhom = cbbGroup.SelectedValue.ToString();
+            
+            try
+            {
+                this.qL_NGUOIDUNGNHOMNGUOIDUNG_ConditionTableAdapter.Fill(this.qLPK.QL_NGUOIDUNGNHOMNGUOIDUNG_Condition, tennhom);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
         }
 
-        private void loadUserList()
+        private void btnAdd_Click(object sender, EventArgs e)
         {
+            string tendn = qL_NGUOIDUNGDataGridView.CurrentRow.Cells[0].Value.ToString();
+            string tennhom = cbbGroup.SelectedValue.ToString();
+            try
+            {
+                qL_NGUOIDUNGNHOMNGUOIDUNGTableAdapter.Insert(tendn, tennhom, "");
+                MessageBox.Show("Thêm người dùng vào nhóm thành công");
+                qL_NGUOIDUNGNHOMNGUOIDUNGTableAdapter.GetData();
+            }
+            catch
+            {
+                MessageBox.Show("Người dùng đã thuộc nhóm" + cbbGroup.SelectedValue.ToString());
+            }
             
         }
     }
