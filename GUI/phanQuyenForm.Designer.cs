@@ -251,7 +251,7 @@
         private System.Windows.Forms.BindingSource qL_GetPhanQuyenBindingSource;
         private QLPKTableAdapters.QL_GetPhanQuyenTableAdapter qL_GetPhanQuyenTableAdapter;
         private System.Windows.Forms.DataGridView qL_GetPhanQuyenDataGridView;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewCheckBoxColumn coquyen;

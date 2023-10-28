@@ -15,15 +15,34 @@ namespace BLL_DAL
 
             if (patientCode == string.Empty)
                 return "BN1";
-            return patientCode;
+            int newCode = Convert.ToInt32(patientCode.Substring(2)) + 1;
+            return "BN" + newCode;
         }   
-        public DataTable Find_Info_Patient_By_Name(string name)
+        public List<BENH_NHAN> Find_Info_Patient_By_Name(string name)
         {
-            var tb = qlpk.BENH_NHANs.Where(a => a.BN_ID == name).Select(a => a);
+            name.Trim();
+            name.ToLower();
+            var list_BN = qlpk.BENH_NHANs.Where(a => a.BN_TEN.Contains(name)).Select(a => a).ToList();
+            if(list_BN.Count == 0)
+                return null;
+            return list_BN;
+            
+        }
+        public bool Add_New_Patient(BENH_NHAN bn)
+        {
+            try 
+            {
+                qlpk.BENH_NHANs.InsertOnSubmit(bn);
+                qlpk.SubmitChanges();
+                return true;
+            }
+            catch(Exception ex){
+                return false;
+            }
             
         }
 
-        }
+        
 
     }
 }
