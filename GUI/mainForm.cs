@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class mainForm : Form
+    public partial class mainForm : MetroFramework.Forms.MetroForm
     {
         public mainForm()
         {
@@ -90,6 +90,12 @@ namespace GUI
             phanQuyenForm f = new phanQuyenForm();
             this.Hide();
 
+            f.Show();
+        }
+
+        private void tiếpĐónBệnhNhânToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InfoPatientForm f = new InfoPatientForm();
             f.Show();
         }
     }
