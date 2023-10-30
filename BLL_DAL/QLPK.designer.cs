@@ -42,9 +42,6 @@ namespace BLL_DAL
     partial void InsertCHI_TIET_DON_THUOC(CHI_TIET_DON_THUOC instance);
     partial void UpdateCHI_TIET_DON_THUOC(CHI_TIET_DON_THUOC instance);
     partial void DeleteCHI_TIET_DON_THUOC(CHI_TIET_DON_THUOC instance);
-    partial void InsertCHUC_VU(CHUC_VU instance);
-    partial void UpdateCHUC_VU(CHUC_VU instance);
-    partial void DeleteCHUC_VU(CHUC_VU instance);
     partial void InsertDANHMUC_THUOC(DANHMUC_THUOC instance);
     partial void UpdateDANHMUC_THUOC(DANHMUC_THUOC instance);
     partial void DeleteDANHMUC_THUOC(DANHMUC_THUOC instance);
@@ -57,6 +54,9 @@ namespace BLL_DAL
     partial void InsertDON_THUOC_DICHVU(DON_THUOC_DICHVU instance);
     partial void UpdateDON_THUOC_DICHVU(DON_THUOC_DICHVU instance);
     partial void DeleteDON_THUOC_DICHVU(DON_THUOC_DICHVU instance);
+    partial void InsertLICH_LAM_VIEC(LICH_LAM_VIEC instance);
+    partial void UpdateLICH_LAM_VIEC(LICH_LAM_VIEC instance);
+    partial void DeleteLICH_LAM_VIEC(LICH_LAM_VIEC instance);
     partial void InsertNHA_CUNG_CAP(NHA_CUNG_CAP instance);
     partial void UpdateNHA_CUNG_CAP(NHA_CUNG_CAP instance);
     partial void DeleteNHA_CUNG_CAP(NHA_CUNG_CAP instance);
@@ -145,14 +145,6 @@ namespace BLL_DAL
 			}
 		}
 		
-		public System.Data.Linq.Table<CHUC_VU> CHUC_VUs
-		{
-			get
-			{
-				return this.GetTable<CHUC_VU>();
-			}
-		}
-		
 		public System.Data.Linq.Table<DANHMUC_THUOC> DANHMUC_THUOCs
 		{
 			get
@@ -182,6 +174,14 @@ namespace BLL_DAL
 			get
 			{
 				return this.GetTable<DON_THUOC_DICHVU>();
+			}
+		}
+		
+		public System.Data.Linq.Table<LICH_LAM_VIEC> LICH_LAM_VIECs
+		{
+			get
+			{
+				return this.GetTable<LICH_LAM_VIEC>();
 			}
 		}
 		
@@ -256,7 +256,7 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _BN_ID;
+		private int _BN_ID;
 		
 		private string _BN_TEN;
 		
@@ -274,7 +274,7 @@ namespace BLL_DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnBN_IDChanging(string value);
+    partial void OnBN_IDChanging(int value);
     partial void OnBN_IDChanged();
     partial void OnBN_TENChanging(string value);
     partial void OnBN_TENChanged();
@@ -294,8 +294,8 @@ namespace BLL_DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BN_ID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string BN_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BN_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int BN_ID
 		{
 			get
 			{
@@ -466,11 +466,11 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _THUOC_ID;
+		private int _THUOC_ID;
 		
 		private string _THUOC_TENTHUOC;
 		
-		private string _DANHMUC_ID;
+		private System.Nullable<int> _DANHMUC_ID;
 		
 		private string _THUOC_DVT;
 		
@@ -480,11 +480,13 @@ namespace BLL_DAL
 		
 		private System.Nullable<int> _THUOC_HANSUDUNG;
 		
-		private string _THUOC_NHACUNGCAP;
+		private System.Nullable<int> _THUOC_NHACUNGCAP;
 		
 		private System.Nullable<System.DateTime> _THUOC_NGAYNHAP;
 		
 		private string _THUOC_CHIDINH;
+		
+		private EntitySet<CHI_TIET_DON_THUOC> _CHI_TIET_DON_THUOCs;
 		
 		private EntityRef<DANHMUC_THUOC> _DANHMUC_THUOC;
 		
@@ -494,11 +496,11 @@ namespace BLL_DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnTHUOC_IDChanging(string value);
+    partial void OnTHUOC_IDChanging(int value);
     partial void OnTHUOC_IDChanged();
     partial void OnTHUOC_TENTHUOCChanging(string value);
     partial void OnTHUOC_TENTHUOCChanged();
-    partial void OnDANHMUC_IDChanging(string value);
+    partial void OnDANHMUC_IDChanging(System.Nullable<int> value);
     partial void OnDANHMUC_IDChanged();
     partial void OnTHUOC_DVTChanging(string value);
     partial void OnTHUOC_DVTChanged();
@@ -508,7 +510,7 @@ namespace BLL_DAL
     partial void OnTHUOC_DONGIAChanged();
     partial void OnTHUOC_HANSUDUNGChanging(System.Nullable<int> value);
     partial void OnTHUOC_HANSUDUNGChanged();
-    partial void OnTHUOC_NHACUNGCAPChanging(string value);
+    partial void OnTHUOC_NHACUNGCAPChanging(System.Nullable<int> value);
     partial void OnTHUOC_NHACUNGCAPChanged();
     partial void OnTHUOC_NGAYNHAPChanging(System.Nullable<System.DateTime> value);
     partial void OnTHUOC_NGAYNHAPChanged();
@@ -518,13 +520,14 @@ namespace BLL_DAL
 		
 		public THUOC()
 		{
+			this._CHI_TIET_DON_THUOCs = new EntitySet<CHI_TIET_DON_THUOC>(new Action<CHI_TIET_DON_THUOC>(this.attach_CHI_TIET_DON_THUOCs), new Action<CHI_TIET_DON_THUOC>(this.detach_CHI_TIET_DON_THUOCs));
 			this._DANHMUC_THUOC = default(EntityRef<DANHMUC_THUOC>);
 			this._NHA_CUNG_CAP = default(EntityRef<NHA_CUNG_CAP>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THUOC_ID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string THUOC_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THUOC_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int THUOC_ID
 		{
 			get
 			{
@@ -543,7 +546,7 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THUOC_TENTHUOC", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THUOC_TENTHUOC", DbType="NVarChar(50)")]
 		public string THUOC_TENTHUOC
 		{
 			get
@@ -563,8 +566,8 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DANHMUC_ID", DbType="VarChar(10)")]
-		public string DANHMUC_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DANHMUC_ID", DbType="Int")]
+		public System.Nullable<int> DANHMUC_ID
 		{
 			get
 			{
@@ -667,8 +670,8 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THUOC_NHACUNGCAP", DbType="VarChar(10)")]
-		public string THUOC_NHACUNGCAP
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THUOC_NHACUNGCAP", DbType="Int")]
+		public System.Nullable<int> THUOC_NHACUNGCAP
 		{
 			get
 			{
@@ -731,6 +734,19 @@ namespace BLL_DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="THUOC_CHI_TIET_DON_THUOC", Storage="_CHI_TIET_DON_THUOCs", ThisKey="THUOC_ID", OtherKey="THUOC_ID")]
+		public EntitySet<CHI_TIET_DON_THUOC> CHI_TIET_DON_THUOCs
+		{
+			get
+			{
+				return this._CHI_TIET_DON_THUOCs;
+			}
+			set
+			{
+				this._CHI_TIET_DON_THUOCs.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DANHMUC_THUOC_THUOC", Storage="_DANHMUC_THUOC", ThisKey="DANHMUC_ID", OtherKey="DANHMUC_ID", IsForeignKey=true)]
 		public DANHMUC_THUOC DANHMUC_THUOC
 		{
@@ -758,7 +774,7 @@ namespace BLL_DAL
 					}
 					else
 					{
-						this._DANHMUC_ID = default(string);
+						this._DANHMUC_ID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("DANHMUC_THUOC");
 				}
@@ -792,7 +808,7 @@ namespace BLL_DAL
 					}
 					else
 					{
-						this._THUOC_NHACUNGCAP = default(string);
+						this._THUOC_NHACUNGCAP = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("NHA_CUNG_CAP");
 				}
@@ -818,6 +834,18 @@ namespace BLL_DAL
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_CHI_TIET_DON_THUOCs(CHI_TIET_DON_THUOC entity)
+		{
+			this.SendPropertyChanging();
+			entity.THUOC = this;
+		}
+		
+		private void detach_CHI_TIET_DON_THUOCs(CHI_TIET_DON_THUOC entity)
+		{
+			this.SendPropertyChanging();
+			entity.THUOC = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CHI_TIET_DICH_VU")]
@@ -826,11 +854,11 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _CHITIET_ID;
+		private int _CHITIET_ID;
 		
-		private string _DONDV_ID;
+		private System.Nullable<int> _DONDV_ID;
 		
-		private string _DICHVU_ID;
+		private System.Nullable<int> _DICHVU_ID;
 		
 		private System.Nullable<int> _SOLUONG;
 		
@@ -842,11 +870,11 @@ namespace BLL_DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCHITIET_IDChanging(string value);
+    partial void OnCHITIET_IDChanging(int value);
     partial void OnCHITIET_IDChanged();
-    partial void OnDONDV_IDChanging(string value);
+    partial void OnDONDV_IDChanging(System.Nullable<int> value);
     partial void OnDONDV_IDChanged();
-    partial void OnDICHVU_IDChanging(string value);
+    partial void OnDICHVU_IDChanging(System.Nullable<int> value);
     partial void OnDICHVU_IDChanged();
     partial void OnSOLUONGChanging(System.Nullable<int> value);
     partial void OnSOLUONGChanged();
@@ -859,8 +887,8 @@ namespace BLL_DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHITIET_ID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string CHITIET_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHITIET_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int CHITIET_ID
 		{
 			get
 			{
@@ -879,8 +907,8 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONDV_ID", DbType="VarChar(10)")]
-		public string DONDV_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONDV_ID", DbType="Int")]
+		public System.Nullable<int> DONDV_ID
 		{
 			get
 			{
@@ -890,7 +918,7 @@ namespace BLL_DAL
 			{
 				if ((this._DONDV_ID != value))
 				{
-					if (this._DON_THUOC_DICHVU.HasLoadedOrAssignedValue)
+					if ((this._DICH_VU.HasLoadedOrAssignedValue || this._DON_THUOC_DICHVU.HasLoadedOrAssignedValue))
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -903,8 +931,8 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DICHVU_ID", DbType="VarChar(10)")]
-		public string DICHVU_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DICHVU_ID", DbType="Int")]
+		public System.Nullable<int> DICHVU_ID
 		{
 			get
 			{
@@ -914,10 +942,6 @@ namespace BLL_DAL
 			{
 				if ((this._DICHVU_ID != value))
 				{
-					if (this._DICH_VU.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnDICHVU_IDChanging(value);
 					this.SendPropertyChanging();
 					this._DICHVU_ID = value;
@@ -947,7 +971,7 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DICH_VU_CHI_TIET_DICH_VU", Storage="_DICH_VU", ThisKey="DICHVU_ID", OtherKey="DICHVU_ID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DICH_VU_CHI_TIET_DICH_VU", Storage="_DICH_VU", ThisKey="DONDV_ID", OtherKey="DICHVU_ID", IsForeignKey=true)]
 		public DICH_VU DICH_VU
 		{
 			get
@@ -970,11 +994,11 @@ namespace BLL_DAL
 					if ((value != null))
 					{
 						value.CHI_TIET_DICH_VUs.Add(this);
-						this._DICHVU_ID = value.DICHVU_ID;
+						this._DONDV_ID = value.DICHVU_ID;
 					}
 					else
 					{
-						this._DICHVU_ID = default(string);
+						this._DONDV_ID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("DICH_VU");
 				}
@@ -1008,7 +1032,7 @@ namespace BLL_DAL
 					}
 					else
 					{
-						this._DONDV_ID = default(string);
+						this._DONDV_ID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("DON_THUOC_DICHVU");
 				}
@@ -1042,13 +1066,15 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _CHITIET_ID;
+		private int _CHITIET_ID;
 		
-		private string _DONTHUOC_ID;
+		private System.Nullable<int> _DONTHUOC_ID;
 		
-		private string _THUOC_ID;
+		private System.Nullable<int> _THUOC_ID;
 		
 		private System.Nullable<int> _SOLUONG;
+		
+		private EntityRef<THUOC> _THUOC;
 		
 		private EntityRef<DON_THUOC_DICHVU> _DON_THUOC_DICHVU;
 		
@@ -1056,11 +1082,11 @@ namespace BLL_DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCHITIET_IDChanging(string value);
+    partial void OnCHITIET_IDChanging(int value);
     partial void OnCHITIET_IDChanged();
-    partial void OnDONTHUOC_IDChanging(string value);
+    partial void OnDONTHUOC_IDChanging(System.Nullable<int> value);
     partial void OnDONTHUOC_IDChanged();
-    partial void OnTHUOC_IDChanging(string value);
+    partial void OnTHUOC_IDChanging(System.Nullable<int> value);
     partial void OnTHUOC_IDChanged();
     partial void OnSOLUONGChanging(System.Nullable<int> value);
     partial void OnSOLUONGChanged();
@@ -1068,12 +1094,13 @@ namespace BLL_DAL
 		
 		public CHI_TIET_DON_THUOC()
 		{
+			this._THUOC = default(EntityRef<THUOC>);
 			this._DON_THUOC_DICHVU = default(EntityRef<DON_THUOC_DICHVU>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHITIET_ID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string CHITIET_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CHITIET_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int CHITIET_ID
 		{
 			get
 			{
@@ -1083,10 +1110,6 @@ namespace BLL_DAL
 			{
 				if ((this._CHITIET_ID != value))
 				{
-					if (this._DON_THUOC_DICHVU.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnCHITIET_IDChanging(value);
 					this.SendPropertyChanging();
 					this._CHITIET_ID = value;
@@ -1096,8 +1119,8 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONTHUOC_ID", DbType="VarChar(10)")]
-		public string DONTHUOC_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONTHUOC_ID", DbType="Int")]
+		public System.Nullable<int> DONTHUOC_ID
 		{
 			get
 			{
@@ -1107,6 +1130,10 @@ namespace BLL_DAL
 			{
 				if ((this._DONTHUOC_ID != value))
 				{
+					if (this._DON_THUOC_DICHVU.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnDONTHUOC_IDChanging(value);
 					this.SendPropertyChanging();
 					this._DONTHUOC_ID = value;
@@ -1116,8 +1143,8 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THUOC_ID", DbType="VarChar(10)")]
-		public string THUOC_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THUOC_ID", DbType="Int")]
+		public System.Nullable<int> THUOC_ID
 		{
 			get
 			{
@@ -1127,6 +1154,10 @@ namespace BLL_DAL
 			{
 				if ((this._THUOC_ID != value))
 				{
+					if (this._THUOC.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnTHUOC_IDChanging(value);
 					this.SendPropertyChanging();
 					this._THUOC_ID = value;
@@ -1156,7 +1187,41 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DON_THUOC_DICHVU_CHI_TIET_DON_THUOC", Storage="_DON_THUOC_DICHVU", ThisKey="CHITIET_ID", OtherKey="DONTHUOC_ID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="THUOC_CHI_TIET_DON_THUOC", Storage="_THUOC", ThisKey="THUOC_ID", OtherKey="THUOC_ID", IsForeignKey=true)]
+		public THUOC THUOC
+		{
+			get
+			{
+				return this._THUOC.Entity;
+			}
+			set
+			{
+				THUOC previousValue = this._THUOC.Entity;
+				if (((previousValue != value) 
+							|| (this._THUOC.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._THUOC.Entity = null;
+						previousValue.CHI_TIET_DON_THUOCs.Remove(this);
+					}
+					this._THUOC.Entity = value;
+					if ((value != null))
+					{
+						value.CHI_TIET_DON_THUOCs.Add(this);
+						this._THUOC_ID = value.THUOC_ID;
+					}
+					else
+					{
+						this._THUOC_ID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("THUOC");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DON_THUOC_DICHVU_CHI_TIET_DON_THUOC", Storage="_DON_THUOC_DICHVU", ThisKey="DONTHUOC_ID", OtherKey="DONTHUOC_ID", IsForeignKey=true)]
 		public DON_THUOC_DICHVU DON_THUOC_DICHVU
 		{
 			get
@@ -1173,17 +1238,17 @@ namespace BLL_DAL
 					if ((previousValue != null))
 					{
 						this._DON_THUOC_DICHVU.Entity = null;
-						previousValue.CHI_TIET_DON_THUOC = null;
+						previousValue.CHI_TIET_DON_THUOCs.Remove(this);
 					}
 					this._DON_THUOC_DICHVU.Entity = value;
 					if ((value != null))
 					{
-						value.CHI_TIET_DON_THUOC = this;
-						this._CHITIET_ID = value.DONTHUOC_ID;
+						value.CHI_TIET_DON_THUOCs.Add(this);
+						this._DONTHUOC_ID = value.DONTHUOC_ID;
 					}
 					else
 					{
-						this._CHITIET_ID = default(string);
+						this._DONTHUOC_ID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("DON_THUOC_DICHVU");
 				}
@@ -1211,179 +1276,13 @@ namespace BLL_DAL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CHUC_VU")]
-	public partial class CHUC_VU : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _CV_ID;
-		
-		private string _CV_TENCHUCVU;
-		
-		private int _CV_LUONG;
-		
-		private EntitySet<NHAN_VIEN> _NHAN_VIENs;
-		
-		private EntitySet<NHAN_VIEN> _NHAN_VIENs1;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCV_IDChanging(string value);
-    partial void OnCV_IDChanged();
-    partial void OnCV_TENCHUCVUChanging(string value);
-    partial void OnCV_TENCHUCVUChanged();
-    partial void OnCV_LUONGChanging(int value);
-    partial void OnCV_LUONGChanged();
-    #endregion
-		
-		public CHUC_VU()
-		{
-			this._NHAN_VIENs = new EntitySet<NHAN_VIEN>(new Action<NHAN_VIEN>(this.attach_NHAN_VIENs), new Action<NHAN_VIEN>(this.detach_NHAN_VIENs));
-			this._NHAN_VIENs1 = new EntitySet<NHAN_VIEN>(new Action<NHAN_VIEN>(this.attach_NHAN_VIENs1), new Action<NHAN_VIEN>(this.detach_NHAN_VIENs1));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CV_ID", DbType="VarChar(5) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string CV_ID
-		{
-			get
-			{
-				return this._CV_ID;
-			}
-			set
-			{
-				if ((this._CV_ID != value))
-				{
-					this.OnCV_IDChanging(value);
-					this.SendPropertyChanging();
-					this._CV_ID = value;
-					this.SendPropertyChanged("CV_ID");
-					this.OnCV_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CV_TENCHUCVU", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
-		public string CV_TENCHUCVU
-		{
-			get
-			{
-				return this._CV_TENCHUCVU;
-			}
-			set
-			{
-				if ((this._CV_TENCHUCVU != value))
-				{
-					this.OnCV_TENCHUCVUChanging(value);
-					this.SendPropertyChanging();
-					this._CV_TENCHUCVU = value;
-					this.SendPropertyChanged("CV_TENCHUCVU");
-					this.OnCV_TENCHUCVUChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CV_LUONG", DbType="Int NOT NULL")]
-		public int CV_LUONG
-		{
-			get
-			{
-				return this._CV_LUONG;
-			}
-			set
-			{
-				if ((this._CV_LUONG != value))
-				{
-					this.OnCV_LUONGChanging(value);
-					this.SendPropertyChanging();
-					this._CV_LUONG = value;
-					this.SendPropertyChanged("CV_LUONG");
-					this.OnCV_LUONGChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CHUC_VU_NHAN_VIEN", Storage="_NHAN_VIENs", ThisKey="CV_ID", OtherKey="CV_ID")]
-		public EntitySet<NHAN_VIEN> NHAN_VIENs
-		{
-			get
-			{
-				return this._NHAN_VIENs;
-			}
-			set
-			{
-				this._NHAN_VIENs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CHUC_VU_NHAN_VIEN1", Storage="_NHAN_VIENs1", ThisKey="CV_ID", OtherKey="CV_ID")]
-		public EntitySet<NHAN_VIEN> NHAN_VIENs1
-		{
-			get
-			{
-				return this._NHAN_VIENs1;
-			}
-			set
-			{
-				this._NHAN_VIENs1.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_NHAN_VIENs(NHAN_VIEN entity)
-		{
-			this.SendPropertyChanging();
-			entity.CHUC_VU = this;
-		}
-		
-		private void detach_NHAN_VIENs(NHAN_VIEN entity)
-		{
-			this.SendPropertyChanging();
-			entity.CHUC_VU = null;
-		}
-		
-		private void attach_NHAN_VIENs1(NHAN_VIEN entity)
-		{
-			this.SendPropertyChanging();
-			entity.CHUC_VU1 = this;
-		}
-		
-		private void detach_NHAN_VIENs1(NHAN_VIEN entity)
-		{
-			this.SendPropertyChanging();
-			entity.CHUC_VU1 = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DANHMUC_THUOC")]
 	public partial class DANHMUC_THUOC : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _DANHMUC_ID;
+		private int _DANHMUC_ID;
 		
 		private string _DANHMUC_TEN;
 		
@@ -1395,7 +1294,7 @@ namespace BLL_DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnDANHMUC_IDChanging(string value);
+    partial void OnDANHMUC_IDChanging(int value);
     partial void OnDANHMUC_IDChanged();
     partial void OnDANHMUC_TENChanging(string value);
     partial void OnDANHMUC_TENChanged();
@@ -1409,8 +1308,8 @@ namespace BLL_DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DANHMUC_ID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string DANHMUC_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DANHMUC_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int DANHMUC_ID
 		{
 			get
 			{
@@ -1521,7 +1420,7 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _DICHVU_ID;
+		private int _DICHVU_ID;
 		
 		private string _DICHVU_TEN;
 		
@@ -1533,7 +1432,7 @@ namespace BLL_DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnDICHVU_IDChanging(string value);
+    partial void OnDICHVU_IDChanging(int value);
     partial void OnDICHVU_IDChanged();
     partial void OnDICHVU_TENChanging(string value);
     partial void OnDICHVU_TENChanged();
@@ -1547,8 +1446,8 @@ namespace BLL_DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DICHVU_ID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string DICHVU_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DICHVU_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int DICHVU_ID
 		{
 			get
 			{
@@ -1607,7 +1506,7 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DICH_VU_CHI_TIET_DICH_VU", Storage="_CHI_TIET_DICH_VUs", ThisKey="DICHVU_ID", OtherKey="DICHVU_ID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DICH_VU_CHI_TIET_DICH_VU", Storage="_CHI_TIET_DICH_VUs", ThisKey="DICHVU_ID", OtherKey="DONDV_ID")]
 		public EntitySet<CHI_TIET_DICH_VU> CHI_TIET_DICH_VUs
 		{
 			get
@@ -1659,7 +1558,7 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _MAMANHINH;
+		private int _MAMANHINH;
 		
 		private string _TENMANHINH;
 		
@@ -1669,7 +1568,7 @@ namespace BLL_DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnMAMANHINHChanging(string value);
+    partial void OnMAMANHINHChanging(int value);
     partial void OnMAMANHINHChanged();
     partial void OnTENMANHINHChanging(string value);
     partial void OnTENMANHINHChanged();
@@ -1681,8 +1580,8 @@ namespace BLL_DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAMANHINH", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MAMANHINH
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAMANHINH", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MAMANHINH
 		{
 			get
 			{
@@ -1773,21 +1672,21 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _DONTHUOC_ID;
+		private int _DONTHUOC_ID;
 		
 		private System.Nullable<System.DateTime> _NGAYLAP;
 		
-		private string _NV_ID;
+		private System.Nullable<int> _NV_ID;
 		
-		private string _BN_ID;
+		private System.Nullable<int> _BN_ID;
 		
-		private string _PK_ID;
+		private System.Nullable<int> _PK_ID;
 		
 		private System.Nullable<decimal> _TONGTIEN;
 		
 		private EntitySet<CHI_TIET_DICH_VU> _CHI_TIET_DICH_VUs;
 		
-		private EntityRef<CHI_TIET_DON_THUOC> _CHI_TIET_DON_THUOC;
+		private EntitySet<CHI_TIET_DON_THUOC> _CHI_TIET_DON_THUOCs;
 		
 		private EntityRef<BENH_NHAN> _BENH_NHAN;
 		
@@ -1799,15 +1698,15 @@ namespace BLL_DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnDONTHUOC_IDChanging(string value);
+    partial void OnDONTHUOC_IDChanging(int value);
     partial void OnDONTHUOC_IDChanged();
     partial void OnNGAYLAPChanging(System.Nullable<System.DateTime> value);
     partial void OnNGAYLAPChanged();
-    partial void OnNV_IDChanging(string value);
+    partial void OnNV_IDChanging(System.Nullable<int> value);
     partial void OnNV_IDChanged();
-    partial void OnBN_IDChanging(string value);
+    partial void OnBN_IDChanging(System.Nullable<int> value);
     partial void OnBN_IDChanged();
-    partial void OnPK_IDChanging(string value);
+    partial void OnPK_IDChanging(System.Nullable<int> value);
     partial void OnPK_IDChanged();
     partial void OnTONGTIENChanging(System.Nullable<decimal> value);
     partial void OnTONGTIENChanged();
@@ -1816,15 +1715,15 @@ namespace BLL_DAL
 		public DON_THUOC_DICHVU()
 		{
 			this._CHI_TIET_DICH_VUs = new EntitySet<CHI_TIET_DICH_VU>(new Action<CHI_TIET_DICH_VU>(this.attach_CHI_TIET_DICH_VUs), new Action<CHI_TIET_DICH_VU>(this.detach_CHI_TIET_DICH_VUs));
-			this._CHI_TIET_DON_THUOC = default(EntityRef<CHI_TIET_DON_THUOC>);
+			this._CHI_TIET_DON_THUOCs = new EntitySet<CHI_TIET_DON_THUOC>(new Action<CHI_TIET_DON_THUOC>(this.attach_CHI_TIET_DON_THUOCs), new Action<CHI_TIET_DON_THUOC>(this.detach_CHI_TIET_DON_THUOCs));
 			this._BENH_NHAN = default(EntityRef<BENH_NHAN>);
 			this._NHAN_VIEN = default(EntityRef<NHAN_VIEN>);
 			this._PHONG_KHAM = default(EntityRef<PHONG_KHAM>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONTHUOC_ID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string DONTHUOC_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONTHUOC_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int DONTHUOC_ID
 		{
 			get
 			{
@@ -1863,8 +1762,8 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NV_ID", DbType="VarChar(10)")]
-		public string NV_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NV_ID", DbType="Int")]
+		public System.Nullable<int> NV_ID
 		{
 			get
 			{
@@ -1887,8 +1786,8 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BN_ID", DbType="VarChar(10)")]
-		public string BN_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BN_ID", DbType="Int")]
+		public System.Nullable<int> BN_ID
 		{
 			get
 			{
@@ -1911,8 +1810,8 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PK_ID", DbType="VarChar(10)")]
-		public string PK_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PK_ID", DbType="Int")]
+		public System.Nullable<int> PK_ID
 		{
 			get
 			{
@@ -1968,32 +1867,16 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DON_THUOC_DICHVU_CHI_TIET_DON_THUOC", Storage="_CHI_TIET_DON_THUOC", ThisKey="DONTHUOC_ID", OtherKey="CHITIET_ID", IsUnique=true, IsForeignKey=false)]
-		public CHI_TIET_DON_THUOC CHI_TIET_DON_THUOC
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DON_THUOC_DICHVU_CHI_TIET_DON_THUOC", Storage="_CHI_TIET_DON_THUOCs", ThisKey="DONTHUOC_ID", OtherKey="DONTHUOC_ID")]
+		public EntitySet<CHI_TIET_DON_THUOC> CHI_TIET_DON_THUOCs
 		{
 			get
 			{
-				return this._CHI_TIET_DON_THUOC.Entity;
+				return this._CHI_TIET_DON_THUOCs;
 			}
 			set
 			{
-				CHI_TIET_DON_THUOC previousValue = this._CHI_TIET_DON_THUOC.Entity;
-				if (((previousValue != value) 
-							|| (this._CHI_TIET_DON_THUOC.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._CHI_TIET_DON_THUOC.Entity = null;
-						previousValue.DON_THUOC_DICHVU = null;
-					}
-					this._CHI_TIET_DON_THUOC.Entity = value;
-					if ((value != null))
-					{
-						value.DON_THUOC_DICHVU = this;
-					}
-					this.SendPropertyChanged("CHI_TIET_DON_THUOC");
-				}
+				this._CHI_TIET_DON_THUOCs.Assign(value);
 			}
 		}
 		
@@ -2024,7 +1907,7 @@ namespace BLL_DAL
 					}
 					else
 					{
-						this._BN_ID = default(string);
+						this._BN_ID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("BENH_NHAN");
 				}
@@ -2058,14 +1941,14 @@ namespace BLL_DAL
 					}
 					else
 					{
-						this._NV_ID = default(string);
+						this._NV_ID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("NHAN_VIEN");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHONG_KHAM_DON_THUOC_DICHVU", Storage="_PHONG_KHAM", ThisKey="PK_ID", OtherKey="PK_ID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHONG_KHAM_DON_THUOC_DICHVU", Storage="_PHONG_KHAM", ThisKey="PK_ID", OtherKey="PHONGKHAM_ID", IsForeignKey=true)]
 		public PHONG_KHAM PHONG_KHAM
 		{
 			get
@@ -2088,11 +1971,11 @@ namespace BLL_DAL
 					if ((value != null))
 					{
 						value.DON_THUOC_DICHVUs.Add(this);
-						this._PK_ID = value.PK_ID;
+						this._PK_ID = value.PHONGKHAM_ID;
 					}
 					else
 					{
-						this._PK_ID = default(string);
+						this._PK_ID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("PHONG_KHAM");
 				}
@@ -2130,6 +2013,193 @@ namespace BLL_DAL
 			this.SendPropertyChanging();
 			entity.DON_THUOC_DICHVU = null;
 		}
+		
+		private void attach_CHI_TIET_DON_THUOCs(CHI_TIET_DON_THUOC entity)
+		{
+			this.SendPropertyChanging();
+			entity.DON_THUOC_DICHVU = this;
+		}
+		
+		private void detach_CHI_TIET_DON_THUOCs(CHI_TIET_DON_THUOC entity)
+		{
+			this.SendPropertyChanging();
+			entity.DON_THUOC_DICHVU = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LICH_LAM_VIEC")]
+	public partial class LICH_LAM_VIEC : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _LICHLAMVIEC_ID;
+		
+		private System.Nullable<int> _NV_ID;
+		
+		private System.Nullable<int> _PK_ID;
+		
+		private System.DateTime _NGAYLAMVIEC;
+		
+		private EntityRef<PHONG_KHAM> _PHONG_KHAM;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLICHLAMVIEC_IDChanging(int value);
+    partial void OnLICHLAMVIEC_IDChanged();
+    partial void OnNV_IDChanging(System.Nullable<int> value);
+    partial void OnNV_IDChanged();
+    partial void OnPK_IDChanging(System.Nullable<int> value);
+    partial void OnPK_IDChanged();
+    partial void OnNGAYLAMVIECChanging(System.DateTime value);
+    partial void OnNGAYLAMVIECChanged();
+    #endregion
+		
+		public LICH_LAM_VIEC()
+		{
+			this._PHONG_KHAM = default(EntityRef<PHONG_KHAM>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LICHLAMVIEC_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int LICHLAMVIEC_ID
+		{
+			get
+			{
+				return this._LICHLAMVIEC_ID;
+			}
+			set
+			{
+				if ((this._LICHLAMVIEC_ID != value))
+				{
+					this.OnLICHLAMVIEC_IDChanging(value);
+					this.SendPropertyChanging();
+					this._LICHLAMVIEC_ID = value;
+					this.SendPropertyChanged("LICHLAMVIEC_ID");
+					this.OnLICHLAMVIEC_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NV_ID", DbType="Int")]
+		public System.Nullable<int> NV_ID
+		{
+			get
+			{
+				return this._NV_ID;
+			}
+			set
+			{
+				if ((this._NV_ID != value))
+				{
+					this.OnNV_IDChanging(value);
+					this.SendPropertyChanging();
+					this._NV_ID = value;
+					this.SendPropertyChanged("NV_ID");
+					this.OnNV_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PK_ID", DbType="Int")]
+		public System.Nullable<int> PK_ID
+		{
+			get
+			{
+				return this._PK_ID;
+			}
+			set
+			{
+				if ((this._PK_ID != value))
+				{
+					if (this._PHONG_KHAM.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPK_IDChanging(value);
+					this.SendPropertyChanging();
+					this._PK_ID = value;
+					this.SendPropertyChanged("PK_ID");
+					this.OnPK_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NGAYLAMVIEC", DbType="Date NOT NULL", IsPrimaryKey=true)]
+		public System.DateTime NGAYLAMVIEC
+		{
+			get
+			{
+				return this._NGAYLAMVIEC;
+			}
+			set
+			{
+				if ((this._NGAYLAMVIEC != value))
+				{
+					this.OnNGAYLAMVIECChanging(value);
+					this.SendPropertyChanging();
+					this._NGAYLAMVIEC = value;
+					this.SendPropertyChanged("NGAYLAMVIEC");
+					this.OnNGAYLAMVIECChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHONG_KHAM_LICH_LAM_VIEC", Storage="_PHONG_KHAM", ThisKey="PK_ID", OtherKey="PHONGKHAM_ID", IsForeignKey=true)]
+		public PHONG_KHAM PHONG_KHAM
+		{
+			get
+			{
+				return this._PHONG_KHAM.Entity;
+			}
+			set
+			{
+				PHONG_KHAM previousValue = this._PHONG_KHAM.Entity;
+				if (((previousValue != value) 
+							|| (this._PHONG_KHAM.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PHONG_KHAM.Entity = null;
+						previousValue.LICH_LAM_VIECs.Remove(this);
+					}
+					this._PHONG_KHAM.Entity = value;
+					if ((value != null))
+					{
+						value.LICH_LAM_VIECs.Add(this);
+						this._PK_ID = value.PHONGKHAM_ID;
+					}
+					else
+					{
+						this._PK_ID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("PHONG_KHAM");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NHA_CUNG_CAP")]
@@ -2138,7 +2208,7 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _NCC_ID;
+		private int _NCC_ID;
 		
 		private string _NCC_TEN;
 		
@@ -2154,7 +2224,7 @@ namespace BLL_DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnNCC_IDChanging(string value);
+    partial void OnNCC_IDChanging(int value);
     partial void OnNCC_IDChanged();
     partial void OnNCC_TENChanging(string value);
     partial void OnNCC_TENChanged();
@@ -2171,8 +2241,8 @@ namespace BLL_DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NCC_ID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string NCC_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NCC_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int NCC_ID
 		{
 			get
 			{
@@ -2211,7 +2281,7 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NCC_DIACHI", DbType="VarChar(100)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NCC_DIACHI", DbType="NVarChar(100)")]
 		public string NCC_DIACHI
 		{
 			get
@@ -2231,7 +2301,7 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NCC_SDT", DbType="VarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NCC_SDT", DbType="VarChar(10)")]
 		public string NCC_SDT
 		{
 			get
@@ -2328,9 +2398,7 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _NV_ID;
-		
-		private string _CV_ID;
+		private int _NV_ID;
 		
 		private string _NV_TEN;
 		
@@ -2348,24 +2416,16 @@ namespace BLL_DAL
 		
 		private string _BS_CHUYENMON;
 		
-		private string _ROLE;
-		
 		private EntitySet<DON_THUOC_DICHVU> _DON_THUOC_DICHVUs;
 		
 		private EntitySet<QL_NGUOIDUNG> _QL_NGUOIDUNGs;
-		
-		private EntityRef<CHUC_VU> _CHUC_VU;
-		
-		private EntityRef<CHUC_VU> _CHUC_VU1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnNV_IDChanging(string value);
+    partial void OnNV_IDChanging(int value);
     partial void OnNV_IDChanged();
-    partial void OnCV_IDChanging(string value);
-    partial void OnCV_IDChanged();
     partial void OnNV_TENChanging(string value);
     partial void OnNV_TENChanged();
     partial void OnNV_NGAYSINHChanging(System.DateTime value);
@@ -2382,21 +2442,17 @@ namespace BLL_DAL
     partial void OnBS_BANGCAPChanged();
     partial void OnBS_CHUYENMONChanging(string value);
     partial void OnBS_CHUYENMONChanged();
-    partial void OnROLEChanging(string value);
-    partial void OnROLEChanged();
     #endregion
 		
 		public NHAN_VIEN()
 		{
 			this._DON_THUOC_DICHVUs = new EntitySet<DON_THUOC_DICHVU>(new Action<DON_THUOC_DICHVU>(this.attach_DON_THUOC_DICHVUs), new Action<DON_THUOC_DICHVU>(this.detach_DON_THUOC_DICHVUs));
 			this._QL_NGUOIDUNGs = new EntitySet<QL_NGUOIDUNG>(new Action<QL_NGUOIDUNG>(this.attach_QL_NGUOIDUNGs), new Action<QL_NGUOIDUNG>(this.detach_QL_NGUOIDUNGs));
-			this._CHUC_VU = default(EntityRef<CHUC_VU>);
-			this._CHUC_VU1 = default(EntityRef<CHUC_VU>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NV_ID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string NV_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NV_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int NV_ID
 		{
 			get
 			{
@@ -2411,30 +2467,6 @@ namespace BLL_DAL
 					this._NV_ID = value;
 					this.SendPropertyChanged("NV_ID");
 					this.OnNV_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CV_ID", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
-		public string CV_ID
-		{
-			get
-			{
-				return this._CV_ID;
-			}
-			set
-			{
-				if ((this._CV_ID != value))
-				{
-					if ((this._CHUC_VU.HasLoadedOrAssignedValue || this._CHUC_VU1.HasLoadedOrAssignedValue))
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCV_IDChanging(value);
-					this.SendPropertyChanging();
-					this._CV_ID = value;
-					this.SendPropertyChanged("CV_ID");
-					this.OnCV_IDChanged();
 				}
 			}
 		}
@@ -2599,26 +2631,6 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ROLE", DbType="NVarChar(50)")]
-		public string ROLE
-		{
-			get
-			{
-				return this._ROLE;
-			}
-			set
-			{
-				if ((this._ROLE != value))
-				{
-					this.OnROLEChanging(value);
-					this.SendPropertyChanging();
-					this._ROLE = value;
-					this.SendPropertyChanged("ROLE");
-					this.OnROLEChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHAN_VIEN_DON_THUOC_DICHVU", Storage="_DON_THUOC_DICHVUs", ThisKey="NV_ID", OtherKey="NV_ID")]
 		public EntitySet<DON_THUOC_DICHVU> DON_THUOC_DICHVUs
 		{
@@ -2642,74 +2654,6 @@ namespace BLL_DAL
 			set
 			{
 				this._QL_NGUOIDUNGs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CHUC_VU_NHAN_VIEN", Storage="_CHUC_VU", ThisKey="CV_ID", OtherKey="CV_ID", IsForeignKey=true)]
-		public CHUC_VU CHUC_VU
-		{
-			get
-			{
-				return this._CHUC_VU.Entity;
-			}
-			set
-			{
-				CHUC_VU previousValue = this._CHUC_VU.Entity;
-				if (((previousValue != value) 
-							|| (this._CHUC_VU.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._CHUC_VU.Entity = null;
-						previousValue.NHAN_VIENs.Remove(this);
-					}
-					this._CHUC_VU.Entity = value;
-					if ((value != null))
-					{
-						value.NHAN_VIENs.Add(this);
-						this._CV_ID = value.CV_ID;
-					}
-					else
-					{
-						this._CV_ID = default(string);
-					}
-					this.SendPropertyChanged("CHUC_VU");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CHUC_VU_NHAN_VIEN1", Storage="_CHUC_VU1", ThisKey="CV_ID", OtherKey="CV_ID", IsForeignKey=true)]
-		public CHUC_VU CHUC_VU1
-		{
-			get
-			{
-				return this._CHUC_VU1.Entity;
-			}
-			set
-			{
-				CHUC_VU previousValue = this._CHUC_VU1.Entity;
-				if (((previousValue != value) 
-							|| (this._CHUC_VU1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._CHUC_VU1.Entity = null;
-						previousValue.NHAN_VIENs1.Remove(this);
-					}
-					this._CHUC_VU1.Entity = value;
-					if ((value != null))
-					{
-						value.NHAN_VIENs1.Add(this);
-						this._CV_ID = value.CV_ID;
-					}
-					else
-					{
-						this._CV_ID = default(string);
-					}
-					this.SendPropertyChanged("CHUC_VU1");
-				}
 			}
 		}
 		
@@ -2764,11 +2708,15 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _PK_ID;
+		private int _PHONGKHAM_ID;
 		
-		private string _PK_CHUYENKHOA;
+		private string _PHONGKHAM_CHUYENKHOA;
+		
+		private System.Nullable<bool> _HOATDONG;
 		
 		private EntitySet<DON_THUOC_DICHVU> _DON_THUOC_DICHVUs;
+		
+		private EntitySet<LICH_LAM_VIEC> _LICH_LAM_VIECs;
 		
 		private EntitySet<THIET_BI> _THIET_BIs;
 		
@@ -2776,60 +2724,83 @@ namespace BLL_DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnPK_IDChanging(string value);
-    partial void OnPK_IDChanged();
-    partial void OnPK_CHUYENKHOAChanging(string value);
-    partial void OnPK_CHUYENKHOAChanged();
+    partial void OnPHONGKHAM_IDChanging(int value);
+    partial void OnPHONGKHAM_IDChanged();
+    partial void OnPHONGKHAM_CHUYENKHOAChanging(string value);
+    partial void OnPHONGKHAM_CHUYENKHOAChanged();
+    partial void OnHOATDONGChanging(System.Nullable<bool> value);
+    partial void OnHOATDONGChanged();
     #endregion
 		
 		public PHONG_KHAM()
 		{
 			this._DON_THUOC_DICHVUs = new EntitySet<DON_THUOC_DICHVU>(new Action<DON_THUOC_DICHVU>(this.attach_DON_THUOC_DICHVUs), new Action<DON_THUOC_DICHVU>(this.detach_DON_THUOC_DICHVUs));
+			this._LICH_LAM_VIECs = new EntitySet<LICH_LAM_VIEC>(new Action<LICH_LAM_VIEC>(this.attach_LICH_LAM_VIECs), new Action<LICH_LAM_VIEC>(this.detach_LICH_LAM_VIECs));
 			this._THIET_BIs = new EntitySet<THIET_BI>(new Action<THIET_BI>(this.attach_THIET_BIs), new Action<THIET_BI>(this.detach_THIET_BIs));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PK_ID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string PK_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHONGKHAM_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int PHONGKHAM_ID
 		{
 			get
 			{
-				return this._PK_ID;
+				return this._PHONGKHAM_ID;
 			}
 			set
 			{
-				if ((this._PK_ID != value))
+				if ((this._PHONGKHAM_ID != value))
 				{
-					this.OnPK_IDChanging(value);
+					this.OnPHONGKHAM_IDChanging(value);
 					this.SendPropertyChanging();
-					this._PK_ID = value;
-					this.SendPropertyChanged("PK_ID");
-					this.OnPK_IDChanged();
+					this._PHONGKHAM_ID = value;
+					this.SendPropertyChanged("PHONGKHAM_ID");
+					this.OnPHONGKHAM_IDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PK_CHUYENKHOA", DbType="VarChar(50)")]
-		public string PK_CHUYENKHOA
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHONGKHAM_CHUYENKHOA", DbType="VarChar(50)")]
+		public string PHONGKHAM_CHUYENKHOA
 		{
 			get
 			{
-				return this._PK_CHUYENKHOA;
+				return this._PHONGKHAM_CHUYENKHOA;
 			}
 			set
 			{
-				if ((this._PK_CHUYENKHOA != value))
+				if ((this._PHONGKHAM_CHUYENKHOA != value))
 				{
-					this.OnPK_CHUYENKHOAChanging(value);
+					this.OnPHONGKHAM_CHUYENKHOAChanging(value);
 					this.SendPropertyChanging();
-					this._PK_CHUYENKHOA = value;
-					this.SendPropertyChanged("PK_CHUYENKHOA");
-					this.OnPK_CHUYENKHOAChanged();
+					this._PHONGKHAM_CHUYENKHOA = value;
+					this.SendPropertyChanged("PHONGKHAM_CHUYENKHOA");
+					this.OnPHONGKHAM_CHUYENKHOAChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHONG_KHAM_DON_THUOC_DICHVU", Storage="_DON_THUOC_DICHVUs", ThisKey="PK_ID", OtherKey="PK_ID")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOATDONG", DbType="Bit")]
+		public System.Nullable<bool> HOATDONG
+		{
+			get
+			{
+				return this._HOATDONG;
+			}
+			set
+			{
+				if ((this._HOATDONG != value))
+				{
+					this.OnHOATDONGChanging(value);
+					this.SendPropertyChanging();
+					this._HOATDONG = value;
+					this.SendPropertyChanged("HOATDONG");
+					this.OnHOATDONGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHONG_KHAM_DON_THUOC_DICHVU", Storage="_DON_THUOC_DICHVUs", ThisKey="PHONGKHAM_ID", OtherKey="PK_ID")]
 		public EntitySet<DON_THUOC_DICHVU> DON_THUOC_DICHVUs
 		{
 			get
@@ -2842,7 +2813,20 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHONG_KHAM_THIET_BI", Storage="_THIET_BIs", ThisKey="PK_ID", OtherKey="PK_ID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHONG_KHAM_LICH_LAM_VIEC", Storage="_LICH_LAM_VIECs", ThisKey="PHONGKHAM_ID", OtherKey="PK_ID")]
+		public EntitySet<LICH_LAM_VIEC> LICH_LAM_VIECs
+		{
+			get
+			{
+				return this._LICH_LAM_VIECs;
+			}
+			set
+			{
+				this._LICH_LAM_VIECs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHONG_KHAM_THIET_BI", Storage="_THIET_BIs", ThisKey="PHONGKHAM_ID", OtherKey="PK_ID")]
 		public EntitySet<THIET_BI> THIET_BIs
 		{
 			get
@@ -2887,6 +2871,18 @@ namespace BLL_DAL
 			entity.PHONG_KHAM = null;
 		}
 		
+		private void attach_LICH_LAM_VIECs(LICH_LAM_VIEC entity)
+		{
+			this.SendPropertyChanging();
+			entity.PHONG_KHAM = this;
+		}
+		
+		private void detach_LICH_LAM_VIECs(LICH_LAM_VIEC entity)
+		{
+			this.SendPropertyChanging();
+			entity.PHONG_KHAM = null;
+		}
+		
 		private void attach_THIET_BIs(THIET_BI entity)
 		{
 			this.SendPropertyChanging();
@@ -2910,15 +2906,11 @@ namespace BLL_DAL
 		
 		private string _MATKHAU;
 		
-		private string _HOATDONG;
+		private System.Nullable<bool> _HOATDONG;
 		
-		private string _NV_ID;
+		private System.Nullable<int> _NV_ID;
 		
 		private EntitySet<QL_NGUOIDUNGNHOMNGUOIDUNG> _QL_NGUOIDUNGNHOMNGUOIDUNGs;
-		
-		private EntitySet<QL_NGUOIDUNGNHOMNGUOIDUNG> _QL_NGUOIDUNGNHOMNGUOIDUNGs1;
-		
-		private EntitySet<QL_NGUOIDUNGNHOMNGUOIDUNG> _QL_NGUOIDUNGNHOMNGUOIDUNGs2;
 		
 		private EntityRef<NHAN_VIEN> _NHAN_VIEN;
 		
@@ -2930,17 +2922,15 @@ namespace BLL_DAL
     partial void OnTENDANGNHAPChanged();
     partial void OnMATKHAUChanging(string value);
     partial void OnMATKHAUChanged();
-    partial void OnHOATDONGChanging(string value);
+    partial void OnHOATDONGChanging(System.Nullable<bool> value);
     partial void OnHOATDONGChanged();
-    partial void OnNV_IDChanging(string value);
+    partial void OnNV_IDChanging(System.Nullable<int> value);
     partial void OnNV_IDChanged();
     #endregion
 		
 		public QL_NGUOIDUNG()
 		{
 			this._QL_NGUOIDUNGNHOMNGUOIDUNGs = new EntitySet<QL_NGUOIDUNGNHOMNGUOIDUNG>(new Action<QL_NGUOIDUNGNHOMNGUOIDUNG>(this.attach_QL_NGUOIDUNGNHOMNGUOIDUNGs), new Action<QL_NGUOIDUNGNHOMNGUOIDUNG>(this.detach_QL_NGUOIDUNGNHOMNGUOIDUNGs));
-			this._QL_NGUOIDUNGNHOMNGUOIDUNGs1 = new EntitySet<QL_NGUOIDUNGNHOMNGUOIDUNG>(new Action<QL_NGUOIDUNGNHOMNGUOIDUNG>(this.attach_QL_NGUOIDUNGNHOMNGUOIDUNGs1), new Action<QL_NGUOIDUNGNHOMNGUOIDUNG>(this.detach_QL_NGUOIDUNGNHOMNGUOIDUNGs1));
-			this._QL_NGUOIDUNGNHOMNGUOIDUNGs2 = new EntitySet<QL_NGUOIDUNGNHOMNGUOIDUNG>(new Action<QL_NGUOIDUNGNHOMNGUOIDUNG>(this.attach_QL_NGUOIDUNGNHOMNGUOIDUNGs2), new Action<QL_NGUOIDUNGNHOMNGUOIDUNG>(this.detach_QL_NGUOIDUNGNHOMNGUOIDUNGs2));
 			this._NHAN_VIEN = default(EntityRef<NHAN_VIEN>);
 			OnCreated();
 		}
@@ -2985,8 +2975,8 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOATDONG", DbType="NVarChar(50)")]
-		public string HOATDONG
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HOATDONG", DbType="Bit")]
+		public System.Nullable<bool> HOATDONG
 		{
 			get
 			{
@@ -3005,8 +2995,8 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NV_ID", DbType="VarChar(10)")]
-		public string NV_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NV_ID", DbType="Int")]
+		public System.Nullable<int> NV_ID
 		{
 			get
 			{
@@ -3042,32 +3032,6 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_NGUOIDUNG_QL_NGUOIDUNGNHOMNGUOIDUNG1", Storage="_QL_NGUOIDUNGNHOMNGUOIDUNGs1", ThisKey="TENDANGNHAP", OtherKey="TENDANGNHAP")]
-		public EntitySet<QL_NGUOIDUNGNHOMNGUOIDUNG> QL_NGUOIDUNGNHOMNGUOIDUNGs1
-		{
-			get
-			{
-				return this._QL_NGUOIDUNGNHOMNGUOIDUNGs1;
-			}
-			set
-			{
-				this._QL_NGUOIDUNGNHOMNGUOIDUNGs1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_NGUOIDUNG_QL_NGUOIDUNGNHOMNGUOIDUNG2", Storage="_QL_NGUOIDUNGNHOMNGUOIDUNGs2", ThisKey="TENDANGNHAP", OtherKey="TENDANGNHAP")]
-		public EntitySet<QL_NGUOIDUNGNHOMNGUOIDUNG> QL_NGUOIDUNGNHOMNGUOIDUNGs2
-		{
-			get
-			{
-				return this._QL_NGUOIDUNGNHOMNGUOIDUNGs2;
-			}
-			set
-			{
-				this._QL_NGUOIDUNGNHOMNGUOIDUNGs2.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHAN_VIEN_QL_NGUOIDUNG", Storage="_NHAN_VIEN", ThisKey="NV_ID", OtherKey="NV_ID", IsForeignKey=true)]
 		public NHAN_VIEN NHAN_VIEN
 		{
@@ -3095,7 +3059,7 @@ namespace BLL_DAL
 					}
 					else
 					{
-						this._NV_ID = default(string);
+						this._NV_ID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("NHAN_VIEN");
 				}
@@ -3133,30 +3097,6 @@ namespace BLL_DAL
 			this.SendPropertyChanging();
 			entity.QL_NGUOIDUNG = null;
 		}
-		
-		private void attach_QL_NGUOIDUNGNHOMNGUOIDUNGs1(QL_NGUOIDUNGNHOMNGUOIDUNG entity)
-		{
-			this.SendPropertyChanging();
-			entity.QL_NGUOIDUNG1 = this;
-		}
-		
-		private void detach_QL_NGUOIDUNGNHOMNGUOIDUNGs1(QL_NGUOIDUNGNHOMNGUOIDUNG entity)
-		{
-			this.SendPropertyChanging();
-			entity.QL_NGUOIDUNG1 = null;
-		}
-		
-		private void attach_QL_NGUOIDUNGNHOMNGUOIDUNGs2(QL_NGUOIDUNGNHOMNGUOIDUNG entity)
-		{
-			this.SendPropertyChanging();
-			entity.QL_NGUOIDUNG2 = this;
-		}
-		
-		private void detach_QL_NGUOIDUNGNHOMNGUOIDUNGs2(QL_NGUOIDUNGNHOMNGUOIDUNG entity)
-		{
-			this.SendPropertyChanging();
-			entity.QL_NGUOIDUNG2 = null;
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.QL_NGUOIDUNGNHOMNGUOIDUNG")]
@@ -3167,15 +3107,11 @@ namespace BLL_DAL
 		
 		private string _TENDANGNHAP;
 		
-		private string _MANHOMNGUOIDUNG;
+		private int _MANHOMNGUOIDUNG;
 		
 		private string _GHICHU;
 		
 		private EntityRef<QL_NGUOIDUNG> _QL_NGUOIDUNG;
-		
-		private EntityRef<QL_NGUOIDUNG> _QL_NGUOIDUNG1;
-		
-		private EntityRef<QL_NGUOIDUNG> _QL_NGUOIDUNG2;
 		
 		private EntityRef<QL_NHOMNGUOIDUNG> _QL_NHOMNGUOIDUNG;
 		
@@ -3185,7 +3121,7 @@ namespace BLL_DAL
     partial void OnCreated();
     partial void OnTENDANGNHAPChanging(string value);
     partial void OnTENDANGNHAPChanged();
-    partial void OnMANHOMNGUOIDUNGChanging(string value);
+    partial void OnMANHOMNGUOIDUNGChanging(int value);
     partial void OnMANHOMNGUOIDUNGChanged();
     partial void OnGHICHUChanging(string value);
     partial void OnGHICHUChanged();
@@ -3194,8 +3130,6 @@ namespace BLL_DAL
 		public QL_NGUOIDUNGNHOMNGUOIDUNG()
 		{
 			this._QL_NGUOIDUNG = default(EntityRef<QL_NGUOIDUNG>);
-			this._QL_NGUOIDUNG1 = default(EntityRef<QL_NGUOIDUNG>);
-			this._QL_NGUOIDUNG2 = default(EntityRef<QL_NGUOIDUNG>);
 			this._QL_NHOMNGUOIDUNG = default(EntityRef<QL_NHOMNGUOIDUNG>);
 			OnCreated();
 		}
@@ -3211,8 +3145,7 @@ namespace BLL_DAL
 			{
 				if ((this._TENDANGNHAP != value))
 				{
-					if (((this._QL_NGUOIDUNG.HasLoadedOrAssignedValue || this._QL_NGUOIDUNG1.HasLoadedOrAssignedValue) 
-								|| this._QL_NGUOIDUNG2.HasLoadedOrAssignedValue))
+					if (this._QL_NGUOIDUNG.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -3225,8 +3158,8 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANHOMNGUOIDUNG", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MANHOMNGUOIDUNG
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANHOMNGUOIDUNG", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MANHOMNGUOIDUNG
 		{
 			get
 			{
@@ -3303,74 +3236,6 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_NGUOIDUNG_QL_NGUOIDUNGNHOMNGUOIDUNG1", Storage="_QL_NGUOIDUNG1", ThisKey="TENDANGNHAP", OtherKey="TENDANGNHAP", IsForeignKey=true)]
-		public QL_NGUOIDUNG QL_NGUOIDUNG1
-		{
-			get
-			{
-				return this._QL_NGUOIDUNG1.Entity;
-			}
-			set
-			{
-				QL_NGUOIDUNG previousValue = this._QL_NGUOIDUNG1.Entity;
-				if (((previousValue != value) 
-							|| (this._QL_NGUOIDUNG1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._QL_NGUOIDUNG1.Entity = null;
-						previousValue.QL_NGUOIDUNGNHOMNGUOIDUNGs1.Remove(this);
-					}
-					this._QL_NGUOIDUNG1.Entity = value;
-					if ((value != null))
-					{
-						value.QL_NGUOIDUNGNHOMNGUOIDUNGs1.Add(this);
-						this._TENDANGNHAP = value.TENDANGNHAP;
-					}
-					else
-					{
-						this._TENDANGNHAP = default(string);
-					}
-					this.SendPropertyChanged("QL_NGUOIDUNG1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_NGUOIDUNG_QL_NGUOIDUNGNHOMNGUOIDUNG2", Storage="_QL_NGUOIDUNG2", ThisKey="TENDANGNHAP", OtherKey="TENDANGNHAP", IsForeignKey=true)]
-		public QL_NGUOIDUNG QL_NGUOIDUNG2
-		{
-			get
-			{
-				return this._QL_NGUOIDUNG2.Entity;
-			}
-			set
-			{
-				QL_NGUOIDUNG previousValue = this._QL_NGUOIDUNG2.Entity;
-				if (((previousValue != value) 
-							|| (this._QL_NGUOIDUNG2.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._QL_NGUOIDUNG2.Entity = null;
-						previousValue.QL_NGUOIDUNGNHOMNGUOIDUNGs2.Remove(this);
-					}
-					this._QL_NGUOIDUNG2.Entity = value;
-					if ((value != null))
-					{
-						value.QL_NGUOIDUNGNHOMNGUOIDUNGs2.Add(this);
-						this._TENDANGNHAP = value.TENDANGNHAP;
-					}
-					else
-					{
-						this._TENDANGNHAP = default(string);
-					}
-					this.SendPropertyChanged("QL_NGUOIDUNG2");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="QL_NHOMNGUOIDUNG_QL_NGUOIDUNGNHOMNGUOIDUNG", Storage="_QL_NHOMNGUOIDUNG", ThisKey="MANHOMNGUOIDUNG", OtherKey="MANHOM", IsForeignKey=true)]
 		public QL_NHOMNGUOIDUNG QL_NHOMNGUOIDUNG
 		{
@@ -3398,7 +3263,7 @@ namespace BLL_DAL
 					}
 					else
 					{
-						this._MANHOMNGUOIDUNG = default(string);
+						this._MANHOMNGUOIDUNG = default(int);
 					}
 					this.SendPropertyChanged("QL_NHOMNGUOIDUNG");
 				}
@@ -3432,7 +3297,7 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _MANHOM;
+		private int _MANHOM;
 		
 		private string _TENNHOM;
 		
@@ -3446,7 +3311,7 @@ namespace BLL_DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnMANHOMChanging(string value);
+    partial void OnMANHOMChanging(int value);
     partial void OnMANHOMChanged();
     partial void OnTENNHOMChanging(string value);
     partial void OnTENNHOMChanged();
@@ -3461,8 +3326,8 @@ namespace BLL_DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANHOM", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MANHOM
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANHOM", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MANHOM
 		{
 			get
 			{
@@ -3598,9 +3463,9 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _MANHOMNGUOIDUNG;
+		private int _MANHOMNGUOIDUNG;
 		
-		private string _MAMANHINH;
+		private int _MAMANHINH;
 		
 		private System.Nullable<bool> _COQUYEN;
 		
@@ -3612,9 +3477,9 @@ namespace BLL_DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnMANHOMNGUOIDUNGChanging(string value);
+    partial void OnMANHOMNGUOIDUNGChanging(int value);
     partial void OnMANHOMNGUOIDUNGChanged();
-    partial void OnMAMANHINHChanging(string value);
+    partial void OnMAMANHINHChanging(int value);
     partial void OnMAMANHINHChanged();
     partial void OnCOQUYENChanging(System.Nullable<bool> value);
     partial void OnCOQUYENChanged();
@@ -3627,8 +3492,8 @@ namespace BLL_DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANHOMNGUOIDUNG", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MANHOMNGUOIDUNG
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MANHOMNGUOIDUNG", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MANHOMNGUOIDUNG
 		{
 			get
 			{
@@ -3651,8 +3516,8 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAMANHINH", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string MAMANHINH
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAMANHINH", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MAMANHINH
 		{
 			get
 			{
@@ -3722,7 +3587,7 @@ namespace BLL_DAL
 					}
 					else
 					{
-						this._MAMANHINH = default(string);
+						this._MAMANHINH = default(int);
 					}
 					this.SendPropertyChanged("DM_MANHINH");
 				}
@@ -3756,7 +3621,7 @@ namespace BLL_DAL
 					}
 					else
 					{
-						this._MANHOMNGUOIDUNG = default(string);
+						this._MANHOMNGUOIDUNG = default(int);
 					}
 					this.SendPropertyChanged("QL_NHOMNGUOIDUNG");
 				}
@@ -3790,15 +3655,15 @@ namespace BLL_DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private string _THIETBI_ID;
+		private int _THIETBI_ID;
 		
 		private string _THIETBI_TEN;
 		
 		private string _THIETBI_DVT;
 		
-		private string _NCC_ID;
+		private System.Nullable<int> _NCC_ID;
 		
-		private string _PK_ID;
+		private int _PK_ID;
 		
 		private System.Nullable<int> _THIETBI_SOLUONG;
 		
@@ -3814,15 +3679,15 @@ namespace BLL_DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnTHIETBI_IDChanging(string value);
+    partial void OnTHIETBI_IDChanging(int value);
     partial void OnTHIETBI_IDChanged();
     partial void OnTHIETBI_TENChanging(string value);
     partial void OnTHIETBI_TENChanged();
     partial void OnTHIETBI_DVTChanging(string value);
     partial void OnTHIETBI_DVTChanged();
-    partial void OnNCC_IDChanging(string value);
+    partial void OnNCC_IDChanging(System.Nullable<int> value);
     partial void OnNCC_IDChanged();
-    partial void OnPK_IDChanging(string value);
+    partial void OnPK_IDChanging(int value);
     partial void OnPK_IDChanged();
     partial void OnTHIETBI_SOLUONGChanging(System.Nullable<int> value);
     partial void OnTHIETBI_SOLUONGChanged();
@@ -3839,8 +3704,8 @@ namespace BLL_DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THIETBI_ID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string THIETBI_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THIETBI_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int THIETBI_ID
 		{
 			get
 			{
@@ -3859,7 +3724,7 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THIETBI_TEN", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_THIETBI_TEN", DbType="NVarChar(50)")]
 		public string THIETBI_TEN
 		{
 			get
@@ -3899,8 +3764,8 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NCC_ID", DbType="VarChar(10)")]
-		public string NCC_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NCC_ID", DbType="Int")]
+		public System.Nullable<int> NCC_ID
 		{
 			get
 			{
@@ -3923,8 +3788,8 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PK_ID", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string PK_ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PK_ID", DbType="Int NOT NULL")]
+		public int PK_ID
 		{
 			get
 			{
@@ -4034,14 +3899,14 @@ namespace BLL_DAL
 					}
 					else
 					{
-						this._NCC_ID = default(string);
+						this._NCC_ID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("NHA_CUNG_CAP");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHONG_KHAM_THIET_BI", Storage="_PHONG_KHAM", ThisKey="PK_ID", OtherKey="PK_ID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHONG_KHAM_THIET_BI", Storage="_PHONG_KHAM", ThisKey="PK_ID", OtherKey="PHONGKHAM_ID", IsForeignKey=true)]
 		public PHONG_KHAM PHONG_KHAM
 		{
 			get
@@ -4064,11 +3929,11 @@ namespace BLL_DAL
 					if ((value != null))
 					{
 						value.THIET_BIs.Add(this);
-						this._PK_ID = value.PK_ID;
+						this._PK_ID = value.PHONGKHAM_ID;
 					}
 					else
 					{
-						this._PK_ID = default(string);
+						this._PK_ID = default(int);
 					}
 					this.SendPropertyChanged("PHONG_KHAM");
 				}

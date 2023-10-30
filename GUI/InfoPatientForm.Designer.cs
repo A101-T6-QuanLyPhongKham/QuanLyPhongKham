@@ -28,15 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtAddress = new MetroFramework.Controls.MetroTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
+            this.btnBook = new MetroFramework.Controls.MetroButton();
+            this.btnFindName = new MetroFramework.Controls.MetroButton();
+            this.htmlLabel1 = new MetroFramework.Drawing.Html.HtmlLabel();
+            this.cbb_Clinic = new MetroFramework.Controls.MetroComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dgvInfo = new MetroFramework.Controls.MetroGrid();
+            this.txtFindName = new MetroFramework.Controls.MetroTextBox();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.label7 = new System.Windows.Forms.Label();
             this.dgvlistPatient = new MetroFramework.Controls.MetroGrid();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnInfoPatient = new MetroFramework.Drawing.Html.HtmlPanel();
             this.txtCode = new MetroFramework.Controls.MetroTextBox();
             this.dtDayOfBirth = new MetroFramework.Controls.MetroDateTime();
@@ -49,15 +66,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnUpdate = new MetroFramework.Controls.MetroButton();
             this.btnDelete = new MetroFramework.Controls.MetroButton();
             this.btnAdd = new MetroFramework.Controls.MetroButton();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroTabPage2.SuspendLayout();
+            this.htmlLabel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInfo)).BeginInit();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvlistPatient)).BeginInit();
@@ -107,6 +120,12 @@
             // 
             // metroTabPage2
             // 
+            this.metroTabPage2.Controls.Add(this.btnBook);
+            this.metroTabPage2.Controls.Add(this.btnFindName);
+            this.metroTabPage2.Controls.Add(this.htmlLabel1);
+            this.metroTabPage2.Controls.Add(this.label8);
+            this.metroTabPage2.Controls.Add(this.dgvInfo);
+            this.metroTabPage2.Controls.Add(this.txtFindName);
             this.metroTabPage2.HorizontalScrollbarBarColor = true;
             this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.HorizontalScrollbarSize = 10;
@@ -114,10 +133,141 @@
             this.metroTabPage2.Name = "metroTabPage2";
             this.metroTabPage2.Size = new System.Drawing.Size(1521, 822);
             this.metroTabPage2.TabIndex = 1;
-            this.metroTabPage2.Text = "metroTabPage2";
+            this.metroTabPage2.Text = "Xếp phòng khám bệnh";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
+            // 
+            // btnBook
+            // 
+            this.btnBook.Location = new System.Drawing.Point(48, 152);
+            this.btnBook.Name = "btnBook";
+            this.btnBook.Size = new System.Drawing.Size(75, 23);
+            this.btnBook.TabIndex = 7;
+            this.btnBook.Text = "Xếp phòng";
+            this.btnBook.UseSelectable = true;
+         //   this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
+            // 
+            // btnFindName
+            // 
+            this.btnFindName.Location = new System.Drawing.Point(48, 70);
+            this.btnFindName.Name = "btnFindName";
+            this.btnFindName.Size = new System.Drawing.Size(75, 23);
+            this.btnFindName.TabIndex = 6;
+            this.btnFindName.Text = "Tìm kiếm";
+            this.btnFindName.UseSelectable = true;
+            this.btnFindName.Click += new System.EventHandler(this.btnFindName_Click);
+            // 
+            // htmlLabel1
+            // 
+            this.htmlLabel1.AutoScroll = true;
+            this.htmlLabel1.AutoScrollMinSize = new System.Drawing.Size(188, 31);
+            this.htmlLabel1.AutoSize = false;
+            this.htmlLabel1.BackColor = System.Drawing.SystemColors.Window;
+            this.htmlLabel1.Controls.Add(this.cbb_Clinic);
+            this.htmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.htmlLabel1.Location = new System.Drawing.Point(186, 517);
+            this.htmlLabel1.Name = "htmlLabel1";
+            this.htmlLabel1.Size = new System.Drawing.Size(1162, 224);
+            this.htmlLabel1.TabIndex = 5;
+            this.htmlLabel1.Text = "Thông tin phòng khám";
+            // 
+            // cbb_Clinic
+            // 
+            this.cbb_Clinic.FormattingEnabled = true;
+            this.cbb_Clinic.ItemHeight = 24;
+            this.cbb_Clinic.Location = new System.Drawing.Point(23, 40);
+            this.cbb_Clinic.Name = "cbb_Clinic";
+            this.cbb_Clinic.Size = new System.Drawing.Size(1112, 30);
+            this.cbb_Clinic.TabIndex = 0;
+            this.cbb_Clinic.UseSelectable = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.White;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(625, 31);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(206, 20);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Tìm bệnh nhân theo tên";
+            // 
+            // dgvInfo
+            // 
+            this.dgvInfo.AllowUserToResizeRows = false;
+            this.dgvInfo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvInfo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvInfo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInfo.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvInfo.EnableHeadersVisualStyles = false;
+            this.dgvInfo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvInfo.Location = new System.Drawing.Point(186, 133);
+            this.dgvInfo.Name = "dgvInfo";
+            this.dgvInfo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvInfo.RowTemplate.Height = 24;
+            this.dgvInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvInfo.Size = new System.Drawing.Size(1135, 324);
+            this.dgvInfo.TabIndex = 3;
+            this.dgvInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGrid1_CellContentClick);
+            this.dgvInfo.SelectionChanged += new System.EventHandler(this.dgvInfo_SelectionChanged);
+            // 
+            // txtFindName
+            // 
+            // 
+            // 
+            // 
+            this.txtFindName.CustomButton.Image = null;
+            this.txtFindName.CustomButton.Location = new System.Drawing.Point(1107, 2);
+            this.txtFindName.CustomButton.Name = "";
+            this.txtFindName.CustomButton.Size = new System.Drawing.Size(25, 25);
+            this.txtFindName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtFindName.CustomButton.TabIndex = 1;
+            this.txtFindName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtFindName.CustomButton.UseSelectable = true;
+            this.txtFindName.CustomButton.Visible = false;
+            this.txtFindName.Lines = new string[0];
+            this.txtFindName.Location = new System.Drawing.Point(186, 69);
+            this.txtFindName.MaxLength = 32767;
+            this.txtFindName.Name = "txtFindName";
+            this.txtFindName.PasswordChar = '\0';
+            this.txtFindName.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtFindName.SelectedText = "";
+            this.txtFindName.SelectionLength = 0;
+            this.txtFindName.SelectionStart = 0;
+            this.txtFindName.ShortcutsEnabled = true;
+            this.txtFindName.Size = new System.Drawing.Size(1135, 30);
+            this.txtFindName.TabIndex = 2;
+            this.txtFindName.UseSelectable = true;
+            this.txtFindName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtFindName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroTabControl1
             // 
@@ -125,16 +275,18 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage2);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(1529, 864);
             this.metroTabControl1.TabIndex = 1;
             this.metroTabControl1.UseSelectable = true;
+            this.metroTabControl1.SelectedIndexChanged += new System.EventHandler(this.metroTabControl1_SelectedIndexChanged);
             // 
             // metroTabPage1
             // 
+            this.metroTabPage1.BackColor = System.Drawing.Color.White;
+            this.metroTabPage1.Controls.Add(this.label7);
             this.metroTabPage1.Controls.Add(this.dgvlistPatient);
             this.metroTabPage1.Controls.Add(this.pnInfoPatient);
-            this.metroTabPage1.Controls.Add(this.btnUpdate);
             this.metroTabPage1.Controls.Add(this.btnDelete);
             this.metroTabPage1.Controls.Add(this.btnAdd);
             this.metroTabPage1.HorizontalScrollbarBarColor = true;
@@ -149,6 +301,16 @@
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 10;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(581, 290);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(309, 20);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Danh sách bệnh nhân mới thêm vào";
+            // 
             // dgvlistPatient
             // 
             this.dgvlistPatient.AllowUserToResizeRows = false;
@@ -156,14 +318,14 @@
             this.dgvlistPatient.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvlistPatient.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvlistPatient.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvlistPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvlistPatient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvlistPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvlistPatient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -172,36 +334,73 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvlistPatient.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvlistPatient.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvlistPatient.EnableHeadersVisualStyles = false;
             this.dgvlistPatient.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvlistPatient.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvlistPatient.Location = new System.Drawing.Point(179, 293);
+            this.dgvlistPatient.Location = new System.Drawing.Point(130, 335);
             this.dgvlistPatient.Name = "dgvlistPatient";
             this.dgvlistPatient.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvlistPatient.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvlistPatient.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvlistPatient.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvlistPatient.RowTemplate.Height = 24;
             this.dgvlistPatient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvlistPatient.Size = new System.Drawing.Size(1275, 513);
+            this.dgvlistPatient.Size = new System.Drawing.Size(1242, 513);
             this.dgvlistPatient.TabIndex = 10;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mã bệnh nhân";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 200;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Họ tên";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 200;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Năm sinh";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 200;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Giới tính";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 200;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Địa chỉ";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 200;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Số điện thoại";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 200;
             // 
             // pnInfoPatient
             // 
+            this.pnInfoPatient.AutoScroll = true;
             this.pnInfoPatient.AutoScrollMinSize = new System.Drawing.Size(1125, 23);
             this.pnInfoPatient.BackColor = System.Drawing.SystemColors.Window;
             this.pnInfoPatient.Controls.Add(this.txtCode);
@@ -257,7 +456,7 @@
             // dtDayOfBirth
             // 
             this.dtDayOfBirth.Location = new System.Drawing.Point(165, 165);
-            this.dtDayOfBirth.MinimumSize = new System.Drawing.Size(0, 30);
+            this.dtDayOfBirth.MinimumSize = new System.Drawing.Size(4, 30);
             this.dtDayOfBirth.Name = "dtDayOfBirth";
             this.dtDayOfBirth.Size = new System.Drawing.Size(399, 30);
             this.dtDayOfBirth.TabIndex = 1;
@@ -400,27 +599,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã bệnh nhân";
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(29, 220);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(97, 38);
-            this.btnUpdate.TabIndex = 7;
-            this.btnUpdate.Text = "Cập nhật";
-            this.btnUpdate.UseSelectable = true;
-            // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(30, 130);
+            this.btnDelete.Location = new System.Drawing.Point(3, 279);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(96, 42);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseSelectable = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(31, 49);
+            this.btnAdd.Location = new System.Drawing.Point(4, 171);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(95, 37);
             this.btnAdd.TabIndex = 4;
@@ -428,48 +619,23 @@
             this.btnAdd.UseSelectable = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Mã bệnh nhân";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Họ tên";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Năm sinh";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Giới tính";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Địa chỉ";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Số điện thoại";
-            this.Column6.Name = "Column6";
-            // 
             // InfoPatientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1636, 962);
+            this.ClientSize = new System.Drawing.Size(1636, 926);
             this.Controls.Add(this.metroTabControl1);
             this.Name = "InfoPatientForm";
             this.Text = "InfoPatient";
             this.Load += new System.EventHandler(this.InfoPatientForm_Load);
             this.Shown += new System.EventHandler(this.InfoPatientForm_Shown);
+            this.metroTabPage2.ResumeLayout(false);
+            this.metroTabPage2.PerformLayout();
+            this.htmlLabel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInfo)).EndInit();
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
+            this.metroTabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvlistPatient)).EndInit();
             this.pnInfoPatient.ResumeLayout(false);
             this.pnInfoPatient.PerformLayout();
@@ -497,15 +663,22 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private MetroFramework.Controls.MetroButton btnUpdate;
         private MetroFramework.Controls.MetroButton btnDelete;
         private MetroFramework.Controls.MetroButton btnAdd;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private MetroFramework.Drawing.Html.HtmlLabel htmlLabel1;
+        private MetroFramework.Controls.MetroComboBox cbb_Clinic;
+        private System.Windows.Forms.Label label8;
+        private MetroFramework.Controls.MetroGrid dgvInfo;
+        private MetroFramework.Controls.MetroTextBox txtFindName;
+        private MetroFramework.Controls.MetroButton btnBook;
+        private MetroFramework.Controls.MetroButton btnFindName;
 
 
 

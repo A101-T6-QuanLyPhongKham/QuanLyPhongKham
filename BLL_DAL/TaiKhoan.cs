@@ -29,7 +29,7 @@ namespace BLL_DAL
 
             if (TaiKhoan != null)
             {
-                if (TaiKhoan.HOATDONG == "False")
+                if (TaiKhoan.HOATDONG == false)
                 {
                     return LoginResult.Disabled;
                 }

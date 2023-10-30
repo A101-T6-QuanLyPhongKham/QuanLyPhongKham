@@ -14,6 +14,7 @@ namespace GUI
     {
        
         Patient pt = new Patient();
+        Schedule sch = new Schedule();
         public InfoPatientForm()
         {
             InitializeComponent();
@@ -21,28 +22,28 @@ namespace GUI
 
         private void InfoPatientForm_Load(object sender, EventArgs e)
         {
-            txtCode.Text = pt.Generate_Code_Patient();
+            txtCode.Text = pt.Generate_Code_Patient().ToString();
             cbbGender.Text = "Nam";
             dtDayOfBirth.Text = "01/01/1990";
-           
+            cbb_Clinic.DataSource = sch.get_list_clinic();
         }
 
        
 
        
-        private void display_Info_Patient(List<BENH_NHAN> lst, string Code)
-        {
-            foreach (BENH_NHAN bn in lst)
-            {
-                if (Code == bn.BN_ID)
-                {
-                    txtAddress.Text = bn.BN_DIACHI.ToString();
-                    txtPhone.Text = bn.BN_SDT.ToString();
-                    cbbGender.Text = bn.BN_GIOITINH;
-                    dtDayOfBirth.Text = bn.BN_NGAYSINH.ToString();
-                }
-            }
-        }
+        //private void display_Info_Patient(List<BENH_NHAN> lst, string Code)
+        //{
+        //    foreach (BENH_NHAN bn in lst)
+        //    {
+        //        if (Code == bn.BN_ID)
+        //        {
+        //            txtAddress.Text = bn.BN_DIACHI.ToString();
+        //            txtPhone.Text = bn.BN_SDT.ToString();
+        //            cbbGender.Text = bn.BN_GIOITINH;
+        //            dtDayOfBirth.Text = bn.BN_NGAYSINH.ToString();
+        //        }
+        //    }
+        //}
 
         private void cbbGender_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -61,6 +62,8 @@ namespace GUI
         private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Constants.charIsInvalid.Contains(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsPunctuation(e.KeyChar) || e.KeyChar == ' ')
+                e.Handled = true;
+            if (txtPhone.Text.Length >= 10 && e.KeyChar != (char)Keys.Back)
                 e.Handled = true;
         }
         private bool Check_Data()
@@ -86,7 +89,7 @@ namespace GUI
             }
             for (int i = 0; i < diachi.Length; i++)
             {
-                if (char.IsPunctuation(diachi[i]) || Constants.charInvalid_Address.Contains(diachi[i]))
+                if ( Constants.charInvalid_Address.Contains(diachi[i]))
                 {
                     MessageBox.Show("Địa chỉ nhập vào không hợp lệ");
                     txtAddress.Focus();
@@ -145,7 +148,7 @@ namespace GUI
             BENH_NHAN bn = new BENH_NHAN();
             string birth = Convert_Date_Month_Type(dtDayOfBirth.Text.ToString());
 
-            bn.BN_ID = txtCode.Text;
+            bn.BN_ID = Convert.ToInt32(txtCode.Text);
             bn.BN_TEN = txtName.Text;
             bn.BN_NGAYSINH = Convert.ToDateTime(birth);
             bn.BN_SDT = txtPhone.Text;
@@ -155,6 +158,7 @@ namespace GUI
             {
                 MessageBox.Show("Thêm thành công");
                 load_DataGridView();
+                txtCode.Text = pt.Generate_Code_Patient().ToString();
             }
 
             else
@@ -174,6 +178,7 @@ namespace GUI
 
         private void InfoPatientForm_Shown(object sender, EventArgs e)
         {
+            
             txtName.Focus();
             pnInfoPatient.AutoScroll = false;
         }
@@ -196,6 +201,96 @@ namespace GUI
             
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            
+            if (dgvlistPatient.Rows.Count == 1)
+            {
+                MessageBox.Show("Chưa có bệnh nhân để xóa");
+                return;
+            }
+            DialogResult result = MessageBox.Show("Xác nhận xóa", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if(result == DialogResult.Yes)
+            {
+                if (pt.Delete_Patient(dgvlistPatient.CurrentRow.Cells[0].Value.ToString()))
+                {
+                    MessageBox.Show("Xóa thành công");
+                    dgvlistPatient.Rows.Remove(dgvlistPatient.CurrentRow);
+                    txtCode.Text = pt.Generate_Code_Patient().ToString();
+                }
+                    
+                else
+                    MessageBox.Show("Không thể xóa");
+                
+
+
+            }
+        }
+
+        private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void metroTabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = metroTabControl1.SelectedIndex; // Lấy chỉ số của tab đang được chọn
+
+            string tab = metroTabControl1.TabPages[selectedIndex].Text;
+
+            if (tab == "Thêm mới bệnh nhân")
+            {
+                txtName.Focus();
+                return;
+            }
+
+           
+            if (tab == "Xếp phòng khám bệnh")
+            {
+                txtFindName.Focus();
+                return;
+            }
+            
+        }
+
+        private void btnFindName_Click(object sender, EventArgs e)
+        {
+            string name = txtFindName.Text.ToString();
+            if(name == string.Empty)
+            {
+                MessageBox.Show("Vui lòng nhập họ tên bệnh nhân");
+                return;
+            }
+            DataTable tb = pt.Find_Info_Patient_By_Name(name);
+           
+            if (tb == null)
+            {
+                MessageBox.Show("Không tìm thấy bệnh nhân");
+                txtFindName.Focus();
+                return;
+            }
+            
+            dgvInfo.DataSource = tb;
+            Set_Width_Column();
+        }
+        private void Set_Width_Column()
+        {
+            dgvInfo.Columns[0].Width = 100;
+            dgvInfo.Columns[1].Width = 200;
+            dgvInfo.Columns[2].Width = 80;
+            dgvInfo.Columns[3].Width = 70;
+            dgvInfo.Columns[4].Width = 80;
+            dgvInfo.Columns[5].Width = 280;
+        }
+
+        private void dgvInfo_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+       
         
     }
 }
