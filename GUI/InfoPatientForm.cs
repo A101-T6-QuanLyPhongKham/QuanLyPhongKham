@@ -14,7 +14,7 @@ namespace GUI
     {
        
         Patient pt = new Patient();
-        Schedule sch = new Schedule();
+        PhongKham pk = new PhongKham();
         public InfoPatientForm()
         {
             InitializeComponent();
@@ -25,10 +25,22 @@ namespace GUI
             txtCode.Text = pt.Generate_Code_Patient().ToString();
             cbbGender.Text = "Nam";
             dtDayOfBirth.Text = "01/01/1990";
-            cbb_Clinic.DataSource = sch.get_list_clinic();
+            cbb_Clinic.DataSource = get_Id_And_Name_Clinic();
+            
         }
 
-       
+       private List<string> get_Id_And_Name_Clinic()
+       {
+           List<PHONG_KHAM> lst = pk.get_list_clinic();
+           List<string> list = new List<string>();
+           foreach (PHONG_KHAM a in lst)
+           {
+               
+               string chuoi = a.PHONGKHAM_ID + " - " + a.PHONGKHAM_CHUYENKHOA;
+               list.Add(chuoi);
+           }
+           return list;
+       }
 
        
         //private void display_Info_Patient(List<BENH_NHAN> lst, string Code)
@@ -227,10 +239,7 @@ namespace GUI
             }
         }
 
-        private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
 
         private void metroTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -285,6 +294,19 @@ namespace GUI
 
         private void dgvInfo_SelectionChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnBook_Click(object sender, EventArgs e)
+        {
+            if (dgvInfo.Rows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn bệnh nhân");
+                return;
+            }
+            string maBN = dgvInfo.CurrentRow.Cells[0].Value.ToString();
+            BookClinic frm = new BookClinic(maBN, cbb_Clinic.SelectedValue.ToString());
+            frm.ShowDialog();
 
         }
 

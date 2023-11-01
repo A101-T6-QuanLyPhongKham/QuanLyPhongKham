@@ -1690,10 +1690,6 @@ namespace BLL_DAL
 		
 		private EntityRef<BENH_NHAN> _BENH_NHAN;
 		
-		private EntityRef<NHAN_VIEN> _NHAN_VIEN;
-		
-		private EntityRef<PHONG_KHAM> _PHONG_KHAM;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1717,8 +1713,6 @@ namespace BLL_DAL
 			this._CHI_TIET_DICH_VUs = new EntitySet<CHI_TIET_DICH_VU>(new Action<CHI_TIET_DICH_VU>(this.attach_CHI_TIET_DICH_VUs), new Action<CHI_TIET_DICH_VU>(this.detach_CHI_TIET_DICH_VUs));
 			this._CHI_TIET_DON_THUOCs = new EntitySet<CHI_TIET_DON_THUOC>(new Action<CHI_TIET_DON_THUOC>(this.attach_CHI_TIET_DON_THUOCs), new Action<CHI_TIET_DON_THUOC>(this.detach_CHI_TIET_DON_THUOCs));
 			this._BENH_NHAN = default(EntityRef<BENH_NHAN>);
-			this._NHAN_VIEN = default(EntityRef<NHAN_VIEN>);
-			this._PHONG_KHAM = default(EntityRef<PHONG_KHAM>);
 			OnCreated();
 		}
 		
@@ -1773,10 +1767,6 @@ namespace BLL_DAL
 			{
 				if ((this._NV_ID != value))
 				{
-					if (this._NHAN_VIEN.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnNV_IDChanging(value);
 					this.SendPropertyChanging();
 					this._NV_ID = value;
@@ -1821,10 +1811,6 @@ namespace BLL_DAL
 			{
 				if ((this._PK_ID != value))
 				{
-					if (this._PHONG_KHAM.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnPK_IDChanging(value);
 					this.SendPropertyChanging();
 					this._PK_ID = value;
@@ -1914,74 +1900,6 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHAN_VIEN_DON_THUOC_DICHVU", Storage="_NHAN_VIEN", ThisKey="NV_ID", OtherKey="NV_ID", IsForeignKey=true)]
-		public NHAN_VIEN NHAN_VIEN
-		{
-			get
-			{
-				return this._NHAN_VIEN.Entity;
-			}
-			set
-			{
-				NHAN_VIEN previousValue = this._NHAN_VIEN.Entity;
-				if (((previousValue != value) 
-							|| (this._NHAN_VIEN.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._NHAN_VIEN.Entity = null;
-						previousValue.DON_THUOC_DICHVUs.Remove(this);
-					}
-					this._NHAN_VIEN.Entity = value;
-					if ((value != null))
-					{
-						value.DON_THUOC_DICHVUs.Add(this);
-						this._NV_ID = value.NV_ID;
-					}
-					else
-					{
-						this._NV_ID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("NHAN_VIEN");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHONG_KHAM_DON_THUOC_DICHVU", Storage="_PHONG_KHAM", ThisKey="PK_ID", OtherKey="PHONGKHAM_ID", IsForeignKey=true)]
-		public PHONG_KHAM PHONG_KHAM
-		{
-			get
-			{
-				return this._PHONG_KHAM.Entity;
-			}
-			set
-			{
-				PHONG_KHAM previousValue = this._PHONG_KHAM.Entity;
-				if (((previousValue != value) 
-							|| (this._PHONG_KHAM.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PHONG_KHAM.Entity = null;
-						previousValue.DON_THUOC_DICHVUs.Remove(this);
-					}
-					this._PHONG_KHAM.Entity = value;
-					if ((value != null))
-					{
-						value.DON_THUOC_DICHVUs.Add(this);
-						this._PK_ID = value.PHONGKHAM_ID;
-					}
-					else
-					{
-						this._PK_ID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("PHONG_KHAM");
-				}
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2041,6 +1959,8 @@ namespace BLL_DAL
 		
 		private System.DateTime _NGAYLAMVIEC;
 		
+		private EntityRef<NHAN_VIEN> _NHAN_VIEN;
+		
 		private EntityRef<PHONG_KHAM> _PHONG_KHAM;
 		
     #region Extensibility Method Definitions
@@ -2059,6 +1979,7 @@ namespace BLL_DAL
 		
 		public LICH_LAM_VIEC()
 		{
+			this._NHAN_VIEN = default(EntityRef<NHAN_VIEN>);
 			this._PHONG_KHAM = default(EntityRef<PHONG_KHAM>);
 			OnCreated();
 		}
@@ -2094,6 +2015,10 @@ namespace BLL_DAL
 			{
 				if ((this._NV_ID != value))
 				{
+					if (this._NHAN_VIEN.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnNV_IDChanging(value);
 					this.SendPropertyChanging();
 					this._NV_ID = value;
@@ -2143,6 +2068,40 @@ namespace BLL_DAL
 					this._NGAYLAMVIEC = value;
 					this.SendPropertyChanged("NGAYLAMVIEC");
 					this.OnNGAYLAMVIECChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHAN_VIEN_LICH_LAM_VIEC", Storage="_NHAN_VIEN", ThisKey="NV_ID", OtherKey="NV_ID", IsForeignKey=true)]
+		public NHAN_VIEN NHAN_VIEN
+		{
+			get
+			{
+				return this._NHAN_VIEN.Entity;
+			}
+			set
+			{
+				NHAN_VIEN previousValue = this._NHAN_VIEN.Entity;
+				if (((previousValue != value) 
+							|| (this._NHAN_VIEN.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._NHAN_VIEN.Entity = null;
+						previousValue.LICH_LAM_VIECs.Remove(this);
+					}
+					this._NHAN_VIEN.Entity = value;
+					if ((value != null))
+					{
+						value.LICH_LAM_VIECs.Add(this);
+						this._NV_ID = value.NV_ID;
+					}
+					else
+					{
+						this._NV_ID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("NHAN_VIEN");
 				}
 			}
 		}
@@ -2412,13 +2371,13 @@ namespace BLL_DAL
 		
 		private string _NV_ANH;
 		
-		private string _BS_BANGCAP;
+		private string _NV_BANGCAP;
 		
-		private string _BS_CHUYENMON;
+		private string _NV_CHUCVU;
 		
-		private EntitySet<DON_THUOC_DICHVU> _DON_THUOC_DICHVUs;
+		private string _NV_CHUYENMON;
 		
-		private EntitySet<QL_NGUOIDUNG> _QL_NGUOIDUNGs;
+		private EntitySet<LICH_LAM_VIEC> _LICH_LAM_VIECs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2438,16 +2397,17 @@ namespace BLL_DAL
     partial void OnNV_SDTChanged();
     partial void OnNV_ANHChanging(string value);
     partial void OnNV_ANHChanged();
-    partial void OnBS_BANGCAPChanging(string value);
-    partial void OnBS_BANGCAPChanged();
-    partial void OnBS_CHUYENMONChanging(string value);
-    partial void OnBS_CHUYENMONChanged();
+    partial void OnNV_BANGCAPChanging(string value);
+    partial void OnNV_BANGCAPChanged();
+    partial void OnNV_CHUCVUChanging(string value);
+    partial void OnNV_CHUCVUChanged();
+    partial void OnNV_CHUYENMONChanging(string value);
+    partial void OnNV_CHUYENMONChanged();
     #endregion
 		
 		public NHAN_VIEN()
 		{
-			this._DON_THUOC_DICHVUs = new EntitySet<DON_THUOC_DICHVU>(new Action<DON_THUOC_DICHVU>(this.attach_DON_THUOC_DICHVUs), new Action<DON_THUOC_DICHVU>(this.detach_DON_THUOC_DICHVUs));
-			this._QL_NGUOIDUNGs = new EntitySet<QL_NGUOIDUNG>(new Action<QL_NGUOIDUNG>(this.attach_QL_NGUOIDUNGs), new Action<QL_NGUOIDUNG>(this.detach_QL_NGUOIDUNGs));
+			this._LICH_LAM_VIECs = new EntitySet<LICH_LAM_VIEC>(new Action<LICH_LAM_VIEC>(this.attach_LICH_LAM_VIECs), new Action<LICH_LAM_VIEC>(this.detach_LICH_LAM_VIECs));
 			OnCreated();
 		}
 		
@@ -2591,69 +2551,76 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BS_BANGCAP", DbType="NVarChar(50)")]
-		public string BS_BANGCAP
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NV_BANGCAP", DbType="NVarChar(50)")]
+		public string NV_BANGCAP
 		{
 			get
 			{
-				return this._BS_BANGCAP;
+				return this._NV_BANGCAP;
 			}
 			set
 			{
-				if ((this._BS_BANGCAP != value))
+				if ((this._NV_BANGCAP != value))
 				{
-					this.OnBS_BANGCAPChanging(value);
+					this.OnNV_BANGCAPChanging(value);
 					this.SendPropertyChanging();
-					this._BS_BANGCAP = value;
-					this.SendPropertyChanged("BS_BANGCAP");
-					this.OnBS_BANGCAPChanged();
+					this._NV_BANGCAP = value;
+					this.SendPropertyChanged("NV_BANGCAP");
+					this.OnNV_BANGCAPChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BS_CHUYENMON", DbType="NVarChar(50)")]
-		public string BS_CHUYENMON
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NV_CHUCVU", DbType="NVarChar(50)")]
+		public string NV_CHUCVU
 		{
 			get
 			{
-				return this._BS_CHUYENMON;
+				return this._NV_CHUCVU;
 			}
 			set
 			{
-				if ((this._BS_CHUYENMON != value))
+				if ((this._NV_CHUCVU != value))
 				{
-					this.OnBS_CHUYENMONChanging(value);
+					this.OnNV_CHUCVUChanging(value);
 					this.SendPropertyChanging();
-					this._BS_CHUYENMON = value;
-					this.SendPropertyChanged("BS_CHUYENMON");
-					this.OnBS_CHUYENMONChanged();
+					this._NV_CHUCVU = value;
+					this.SendPropertyChanged("NV_CHUCVU");
+					this.OnNV_CHUCVUChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHAN_VIEN_DON_THUOC_DICHVU", Storage="_DON_THUOC_DICHVUs", ThisKey="NV_ID", OtherKey="NV_ID")]
-		public EntitySet<DON_THUOC_DICHVU> DON_THUOC_DICHVUs
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NV_CHUYENMON", DbType="NVarChar(50)")]
+		public string NV_CHUYENMON
 		{
 			get
 			{
-				return this._DON_THUOC_DICHVUs;
+				return this._NV_CHUYENMON;
 			}
 			set
 			{
-				this._DON_THUOC_DICHVUs.Assign(value);
+				if ((this._NV_CHUYENMON != value))
+				{
+					this.OnNV_CHUYENMONChanging(value);
+					this.SendPropertyChanging();
+					this._NV_CHUYENMON = value;
+					this.SendPropertyChanged("NV_CHUYENMON");
+					this.OnNV_CHUYENMONChanged();
+				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHAN_VIEN_QL_NGUOIDUNG", Storage="_QL_NGUOIDUNGs", ThisKey="NV_ID", OtherKey="NV_ID")]
-		public EntitySet<QL_NGUOIDUNG> QL_NGUOIDUNGs
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHAN_VIEN_LICH_LAM_VIEC", Storage="_LICH_LAM_VIECs", ThisKey="NV_ID", OtherKey="NV_ID")]
+		public EntitySet<LICH_LAM_VIEC> LICH_LAM_VIECs
 		{
 			get
 			{
-				return this._QL_NGUOIDUNGs;
+				return this._LICH_LAM_VIECs;
 			}
 			set
 			{
-				this._QL_NGUOIDUNGs.Assign(value);
+				this._LICH_LAM_VIECs.Assign(value);
 			}
 		}
 		
@@ -2677,25 +2644,13 @@ namespace BLL_DAL
 			}
 		}
 		
-		private void attach_DON_THUOC_DICHVUs(DON_THUOC_DICHVU entity)
+		private void attach_LICH_LAM_VIECs(LICH_LAM_VIEC entity)
 		{
 			this.SendPropertyChanging();
 			entity.NHAN_VIEN = this;
 		}
 		
-		private void detach_DON_THUOC_DICHVUs(DON_THUOC_DICHVU entity)
-		{
-			this.SendPropertyChanging();
-			entity.NHAN_VIEN = null;
-		}
-		
-		private void attach_QL_NGUOIDUNGs(QL_NGUOIDUNG entity)
-		{
-			this.SendPropertyChanging();
-			entity.NHAN_VIEN = this;
-		}
-		
-		private void detach_QL_NGUOIDUNGs(QL_NGUOIDUNG entity)
+		private void detach_LICH_LAM_VIECs(LICH_LAM_VIEC entity)
 		{
 			this.SendPropertyChanging();
 			entity.NHAN_VIEN = null;
@@ -2714,11 +2669,9 @@ namespace BLL_DAL
 		
 		private System.Nullable<bool> _HOATDONG;
 		
-		private EntitySet<DON_THUOC_DICHVU> _DON_THUOC_DICHVUs;
+		private System.Nullable<int> _SOLUONGBENHNHAN;
 		
 		private EntitySet<LICH_LAM_VIEC> _LICH_LAM_VIECs;
-		
-		private EntitySet<THIET_BI> _THIET_BIs;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2730,13 +2683,13 @@ namespace BLL_DAL
     partial void OnPHONGKHAM_CHUYENKHOAChanged();
     partial void OnHOATDONGChanging(System.Nullable<bool> value);
     partial void OnHOATDONGChanged();
+    partial void OnSOLUONGBENHNHANChanging(System.Nullable<int> value);
+    partial void OnSOLUONGBENHNHANChanged();
     #endregion
 		
 		public PHONG_KHAM()
 		{
-			this._DON_THUOC_DICHVUs = new EntitySet<DON_THUOC_DICHVU>(new Action<DON_THUOC_DICHVU>(this.attach_DON_THUOC_DICHVUs), new Action<DON_THUOC_DICHVU>(this.detach_DON_THUOC_DICHVUs));
 			this._LICH_LAM_VIECs = new EntitySet<LICH_LAM_VIEC>(new Action<LICH_LAM_VIEC>(this.attach_LICH_LAM_VIECs), new Action<LICH_LAM_VIEC>(this.detach_LICH_LAM_VIECs));
-			this._THIET_BIs = new EntitySet<THIET_BI>(new Action<THIET_BI>(this.attach_THIET_BIs), new Action<THIET_BI>(this.detach_THIET_BIs));
 			OnCreated();
 		}
 		
@@ -2760,7 +2713,7 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHONGKHAM_CHUYENKHOA", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PHONGKHAM_CHUYENKHOA", DbType="NVarChar(50)")]
 		public string PHONGKHAM_CHUYENKHOA
 		{
 			get
@@ -2800,16 +2753,23 @@ namespace BLL_DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHONG_KHAM_DON_THUOC_DICHVU", Storage="_DON_THUOC_DICHVUs", ThisKey="PHONGKHAM_ID", OtherKey="PK_ID")]
-		public EntitySet<DON_THUOC_DICHVU> DON_THUOC_DICHVUs
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SOLUONGBENHNHAN", DbType="Int")]
+		public System.Nullable<int> SOLUONGBENHNHAN
 		{
 			get
 			{
-				return this._DON_THUOC_DICHVUs;
+				return this._SOLUONGBENHNHAN;
 			}
 			set
 			{
-				this._DON_THUOC_DICHVUs.Assign(value);
+				if ((this._SOLUONGBENHNHAN != value))
+				{
+					this.OnSOLUONGBENHNHANChanging(value);
+					this.SendPropertyChanging();
+					this._SOLUONGBENHNHAN = value;
+					this.SendPropertyChanged("SOLUONGBENHNHAN");
+					this.OnSOLUONGBENHNHANChanged();
+				}
 			}
 		}
 		
@@ -2823,19 +2783,6 @@ namespace BLL_DAL
 			set
 			{
 				this._LICH_LAM_VIECs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHONG_KHAM_THIET_BI", Storage="_THIET_BIs", ThisKey="PHONGKHAM_ID", OtherKey="PK_ID")]
-		public EntitySet<THIET_BI> THIET_BIs
-		{
-			get
-			{
-				return this._THIET_BIs;
-			}
-			set
-			{
-				this._THIET_BIs.Assign(value);
 			}
 		}
 		
@@ -2859,18 +2806,6 @@ namespace BLL_DAL
 			}
 		}
 		
-		private void attach_DON_THUOC_DICHVUs(DON_THUOC_DICHVU entity)
-		{
-			this.SendPropertyChanging();
-			entity.PHONG_KHAM = this;
-		}
-		
-		private void detach_DON_THUOC_DICHVUs(DON_THUOC_DICHVU entity)
-		{
-			this.SendPropertyChanging();
-			entity.PHONG_KHAM = null;
-		}
-		
 		private void attach_LICH_LAM_VIECs(LICH_LAM_VIEC entity)
 		{
 			this.SendPropertyChanging();
@@ -2878,18 +2813,6 @@ namespace BLL_DAL
 		}
 		
 		private void detach_LICH_LAM_VIECs(LICH_LAM_VIEC entity)
-		{
-			this.SendPropertyChanging();
-			entity.PHONG_KHAM = null;
-		}
-		
-		private void attach_THIET_BIs(THIET_BI entity)
-		{
-			this.SendPropertyChanging();
-			entity.PHONG_KHAM = this;
-		}
-		
-		private void detach_THIET_BIs(THIET_BI entity)
 		{
 			this.SendPropertyChanging();
 			entity.PHONG_KHAM = null;
@@ -2912,8 +2835,6 @@ namespace BLL_DAL
 		
 		private EntitySet<QL_NGUOIDUNGNHOMNGUOIDUNG> _QL_NGUOIDUNGNHOMNGUOIDUNGs;
 		
-		private EntityRef<NHAN_VIEN> _NHAN_VIEN;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2931,7 +2852,6 @@ namespace BLL_DAL
 		public QL_NGUOIDUNG()
 		{
 			this._QL_NGUOIDUNGNHOMNGUOIDUNGs = new EntitySet<QL_NGUOIDUNGNHOMNGUOIDUNG>(new Action<QL_NGUOIDUNGNHOMNGUOIDUNG>(this.attach_QL_NGUOIDUNGNHOMNGUOIDUNGs), new Action<QL_NGUOIDUNGNHOMNGUOIDUNG>(this.detach_QL_NGUOIDUNGNHOMNGUOIDUNGs));
-			this._NHAN_VIEN = default(EntityRef<NHAN_VIEN>);
 			OnCreated();
 		}
 		
@@ -3006,10 +2926,6 @@ namespace BLL_DAL
 			{
 				if ((this._NV_ID != value))
 				{
-					if (this._NHAN_VIEN.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnNV_IDChanging(value);
 					this.SendPropertyChanging();
 					this._NV_ID = value;
@@ -3029,40 +2945,6 @@ namespace BLL_DAL
 			set
 			{
 				this._QL_NGUOIDUNGNHOMNGUOIDUNGs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NHAN_VIEN_QL_NGUOIDUNG", Storage="_NHAN_VIEN", ThisKey="NV_ID", OtherKey="NV_ID", IsForeignKey=true)]
-		public NHAN_VIEN NHAN_VIEN
-		{
-			get
-			{
-				return this._NHAN_VIEN.Entity;
-			}
-			set
-			{
-				NHAN_VIEN previousValue = this._NHAN_VIEN.Entity;
-				if (((previousValue != value) 
-							|| (this._NHAN_VIEN.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._NHAN_VIEN.Entity = null;
-						previousValue.QL_NGUOIDUNGs.Remove(this);
-					}
-					this._NHAN_VIEN.Entity = value;
-					if ((value != null))
-					{
-						value.QL_NGUOIDUNGs.Add(this);
-						this._NV_ID = value.NV_ID;
-					}
-					else
-					{
-						this._NV_ID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("NHAN_VIEN");
-				}
 			}
 		}
 		
@@ -3673,8 +3555,6 @@ namespace BLL_DAL
 		
 		private EntityRef<NHA_CUNG_CAP> _NHA_CUNG_CAP;
 		
-		private EntityRef<PHONG_KHAM> _PHONG_KHAM;
-		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3700,7 +3580,6 @@ namespace BLL_DAL
 		public THIET_BI()
 		{
 			this._NHA_CUNG_CAP = default(EntityRef<NHA_CUNG_CAP>);
-			this._PHONG_KHAM = default(EntityRef<PHONG_KHAM>);
 			OnCreated();
 		}
 		
@@ -3799,10 +3678,6 @@ namespace BLL_DAL
 			{
 				if ((this._PK_ID != value))
 				{
-					if (this._PHONG_KHAM.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnPK_IDChanging(value);
 					this.SendPropertyChanging();
 					this._PK_ID = value;
@@ -3902,40 +3777,6 @@ namespace BLL_DAL
 						this._NCC_ID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("NHA_CUNG_CAP");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PHONG_KHAM_THIET_BI", Storage="_PHONG_KHAM", ThisKey="PK_ID", OtherKey="PHONGKHAM_ID", IsForeignKey=true)]
-		public PHONG_KHAM PHONG_KHAM
-		{
-			get
-			{
-				return this._PHONG_KHAM.Entity;
-			}
-			set
-			{
-				PHONG_KHAM previousValue = this._PHONG_KHAM.Entity;
-				if (((previousValue != value) 
-							|| (this._PHONG_KHAM.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PHONG_KHAM.Entity = null;
-						previousValue.THIET_BIs.Remove(this);
-					}
-					this._PHONG_KHAM.Entity = value;
-					if ((value != null))
-					{
-						value.THIET_BIs.Add(this);
-						this._PK_ID = value.PHONGKHAM_ID;
-					}
-					else
-					{
-						this._PK_ID = default(int);
-					}
-					this.SendPropertyChanged("PHONG_KHAM");
 				}
 			}
 		}

@@ -26,6 +26,10 @@ namespace BLL_DAL
             return input.Substring(0, Index);
             
         }
+        public BENH_NHAN get_Info_Patient_By_Code(int Code)
+        {
+            return qlpk.BENH_NHANs.Where(a => a.BN_ID == Code).Select(a => a).FirstOrDefault();
+        }
         public DataTable Find_Info_Patient_By_Name(string name)
         {
             DataTable dt = new DataTable();

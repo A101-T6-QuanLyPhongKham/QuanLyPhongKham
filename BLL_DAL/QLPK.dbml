@@ -82,8 +82,6 @@
       <Association Name="DON_THUOC_DICHVU_CHI_TIET_DICH_VU" Member="CHI_TIET_DICH_VUs" ThisKey="DONTHUOC_ID" OtherKey="DONDV_ID" Type="CHI_TIET_DICH_VU" />
       <Association Name="DON_THUOC_DICHVU_CHI_TIET_DON_THUOC" Member="CHI_TIET_DON_THUOCs" ThisKey="DONTHUOC_ID" OtherKey="DONTHUOC_ID" Type="CHI_TIET_DON_THUOC" />
       <Association Name="BENH_NHAN_DON_THUOC_DICHVU" Member="BENH_NHAN" ThisKey="BN_ID" OtherKey="BN_ID" Type="BENH_NHAN" IsForeignKey="true" />
-      <Association Name="NHAN_VIEN_DON_THUOC_DICHVU" Member="NHAN_VIEN" ThisKey="NV_ID" OtherKey="NV_ID" Type="NHAN_VIEN" IsForeignKey="true" />
-      <Association Name="PHONG_KHAM_DON_THUOC_DICHVU" Member="PHONG_KHAM" ThisKey="PK_ID" OtherKey="PHONGKHAM_ID" Type="PHONG_KHAM" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.LICH_LAM_VIEC" Member="LICH_LAM_VIECs">
@@ -92,6 +90,7 @@
       <Column Name="NV_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PK_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="NGAYLAMVIEC" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="NHAN_VIEN_LICH_LAM_VIEC" Member="NHAN_VIEN" ThisKey="NV_ID" OtherKey="NV_ID" Type="NHAN_VIEN" IsForeignKey="true" />
       <Association Name="PHONG_KHAM_LICH_LAM_VIEC" Member="PHONG_KHAM" ThisKey="PK_ID" OtherKey="PHONGKHAM_ID" Type="PHONG_KHAM" IsForeignKey="true" />
     </Type>
   </Table>
@@ -114,20 +113,19 @@
       <Column Name="NV_GIOITINH" Type="System.String" DbType="NVarChar(4) NOT NULL" CanBeNull="false" />
       <Column Name="NV_SDT" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="NV_ANH" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="BS_BANGCAP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="BS_CHUYENMON" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="NHAN_VIEN_DON_THUOC_DICHVU" Member="DON_THUOC_DICHVUs" ThisKey="NV_ID" OtherKey="NV_ID" Type="DON_THUOC_DICHVU" />
-      <Association Name="NHAN_VIEN_QL_NGUOIDUNG" Member="QL_NGUOIDUNGs" ThisKey="NV_ID" OtherKey="NV_ID" Type="QL_NGUOIDUNG" />
+      <Column Name="NV_BANGCAP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NV_CHUCVU" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NV_CHUYENMON" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="NHAN_VIEN_LICH_LAM_VIEC" Member="LICH_LAM_VIECs" ThisKey="NV_ID" OtherKey="NV_ID" Type="LICH_LAM_VIEC" />
     </Type>
   </Table>
   <Table Name="dbo.PHONG_KHAM" Member="PHONG_KHAMs">
     <Type Name="PHONG_KHAM">
       <Column Name="PHONGKHAM_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="PHONGKHAM_CHUYENKHOA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PHONGKHAM_CHUYENKHOA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="HOATDONG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="PHONG_KHAM_DON_THUOC_DICHVU" Member="DON_THUOC_DICHVUs" ThisKey="PHONGKHAM_ID" OtherKey="PK_ID" Type="DON_THUOC_DICHVU" />
+      <Column Name="SOLUONGBENHNHAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="PHONG_KHAM_LICH_LAM_VIEC" Member="LICH_LAM_VIECs" ThisKey="PHONGKHAM_ID" OtherKey="PK_ID" Type="LICH_LAM_VIEC" />
-      <Association Name="PHONG_KHAM_THIET_BI" Member="THIET_BIs" ThisKey="PHONGKHAM_ID" OtherKey="PK_ID" Type="THIET_BI" />
     </Type>
   </Table>
   <Table Name="dbo.QL_NGUOIDUNG" Member="QL_NGUOIDUNGs">
@@ -137,7 +135,6 @@
       <Column Name="HOATDONG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="NV_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="QL_NGUOIDUNG_QL_NGUOIDUNGNHOMNGUOIDUNG" Member="QL_NGUOIDUNGNHOMNGUOIDUNGs" ThisKey="TENDANGNHAP" OtherKey="TENDANGNHAP" Type="QL_NGUOIDUNGNHOMNGUOIDUNG" />
-      <Association Name="NHAN_VIEN_QL_NGUOIDUNG" Member="NHAN_VIEN" ThisKey="NV_ID" OtherKey="NV_ID" Type="NHAN_VIEN" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.QL_NGUOIDUNGNHOMNGUOIDUNG" Member="QL_NGUOIDUNGNHOMNGUOIDUNGs">
@@ -178,7 +175,6 @@
       <Column Name="THIETBI_DONGIA" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Column Name="THIETBI_XUATXU" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="NHA_CUNG_CAP_THIET_BI" Member="NHA_CUNG_CAP" ThisKey="NCC_ID" OtherKey="NCC_ID" Type="NHA_CUNG_CAP" IsForeignKey="true" />
-      <Association Name="PHONG_KHAM_THIET_BI" Member="PHONG_KHAM" ThisKey="PK_ID" OtherKey="PHONGKHAM_ID" Type="PHONG_KHAM" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,14 +9,9 @@ namespace BLL_DAL
     public class Schedule
     {
         QLPKDataContext qlpk = new QLPKDataContext();
-        public List<PHONG_KHAM> get_list_clinic()
+        public List<NHAN_VIEN> get_List_Doctor_In_Clinic(int maPhong, string Date_Now)
         {
-            List<PHONG_KHAM> pk =  qlpk.PHONG_KHAMs.Where(a => a.HOATDONG == true).ToList();
-            List<PHONG_KHAM> field = pk.Select(a => new { a.PHONGKHAM_ID, a.PHONGKHAM_CHUYENKHOA });
-            return field;
-
+            return qlpk.LICH_LAM_VIECs.Where(a => a.PK_ID == maPhong && a.NGAYLAMVIEC.ToString() == Date_Now).Join(qlpk.NHAN_VIENs, a => a.NV_ID, b => b.NV_ID, (a, b) => b).Where(c => c.NV_CHUCVU == "Bác Sĩ").ToList();
         }
-        
-
     }
 }

@@ -20,7 +20,7 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InfoPatientForm());
+            Application.Run(new BookClinic("1", "1- cơ"));
             
         }
     }
