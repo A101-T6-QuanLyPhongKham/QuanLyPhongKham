@@ -110,9 +110,6 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="License-LGPL.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="PhieuKham.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PhieuKham.cs</LastGenOutput>

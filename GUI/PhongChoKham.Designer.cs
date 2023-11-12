@@ -41,7 +41,7 @@
             this.dgvListPatient = new MetroFramework.Controls.MetroGrid();
             this.label3 = new System.Windows.Forms.Label();
             this.labeldate = new System.Windows.Forms.Label();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.btnView = new MetroFramework.Controls.MetroButton();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.metroButton4 = new MetroFramework.Controls.MetroButton();
             this.rdbAll.SuspendLayout();
@@ -185,14 +185,15 @@
             this.labeldate.TabIndex = 6;
             this.labeldate.Text = "label4";
             // 
-            // metroButton2
+            // btnView
             // 
-            this.metroButton2.Location = new System.Drawing.Point(963, 235);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(109, 47);
-            this.metroButton2.TabIndex = 7;
-            this.metroButton2.Text = "Xem thông tin";
-            this.metroButton2.UseSelectable = true;
+            this.btnView.Location = new System.Drawing.Point(963, 235);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(109, 47);
+            this.btnView.TabIndex = 7;
+            this.btnView.Text = "Xem thông tin";
+            this.btnView.UseSelectable = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
             // 
             // metroButton3
             // 
@@ -219,7 +220,7 @@
             this.ClientSize = new System.Drawing.Size(1130, 781);
             this.Controls.Add(this.metroButton4);
             this.Controls.Add(this.metroButton3);
-            this.Controls.Add(this.metroButton2);
+            this.Controls.Add(this.btnView);
             this.Controls.Add(this.labeldate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dgvListPatient);
@@ -250,7 +251,7 @@
         private MetroFramework.Controls.MetroRadioButton metroRadioButton1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labeldate;
-        private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroButton btnView;
         private MetroFramework.Controls.MetroButton metroButton3;
         private MetroFramework.Controls.MetroButton metroButton4;
     }
