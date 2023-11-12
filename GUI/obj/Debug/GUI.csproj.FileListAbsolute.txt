@@ -113,3 +113,7 @@ C:\Users\PC\Desktop\QuanLyPhongKham\GUI\bin\Debug\sv\ZedGraph.resources.dll
 C:\Users\PC\Desktop\QuanLyPhongKham\GUI\bin\Debug\tr\ZedGraph.resources.dll
 C:\Users\PC\Desktop\QuanLyPhongKham\GUI\bin\Debug\zh-cn\ZedGraph.resources.dll
 C:\Users\PC\Desktop\QuanLyPhongKham\GUI\bin\Debug\zh-tw\ZedGraph.resources.dll
+C:\Users\PC\Desktop\QuanLyPhongKham\GUI\obj\Debug\GUI.PhieuKhamForm.resources
+C:\Users\PC\Desktop\QuanLyPhongKham\GUI\obj\Debug\GUI.RoomNow.resources
+C:\Users\PC\Desktop\QuanLyPhongKham\GUI\obj\Debug\GUI.PhongChoKham.resources
+C:\Users\PC\Desktop\QuanLyPhongKham\GUI\obj\Debug\GUI.ListRoomForm.resources

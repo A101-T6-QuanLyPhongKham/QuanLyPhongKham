@@ -22,6 +22,7 @@ namespace GUI
 
         private void InfoPatientForm_Load(object sender, EventArgs e)
         {
+            
             txtCode.Text = pt.Generate_Code_Patient().ToString();
             cbbGender.Text = "Nam";
             dtDayOfBirth.Text = "01/01/1990";
@@ -170,6 +171,7 @@ namespace GUI
             {
                 MessageBox.Show("Thêm thành công");
                 load_DataGridView();
+                Clear_TextBox();
                 txtCode.Text = pt.Generate_Code_Patient().ToString();
             }
 
@@ -179,7 +181,13 @@ namespace GUI
             
 
         }
-
+        private void Clear_TextBox()
+        {
+            txtName.Clear();
+            txtAddress.Clear();
+            txtPhone.Clear();
+            txtName.Focus();
+        }
         private void txtName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsDigit(e.KeyChar) || char.IsPunctuation(e.KeyChar) || Constants.charIsInvalid.Contains(e.KeyChar))
@@ -306,9 +314,19 @@ namespace GUI
             }
             string maBN = dgvInfo.CurrentRow.Cells[0].Value.ToString();
             BookClinic frm = new BookClinic(maBN, cbb_Clinic.SelectedValue.ToString());
-            frm.ShowDialog();
+            frm.FormClosed += frm_FormClosed;
+
+            this.Hide();
+            frm.Show();
 
         }
+
+        void frm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Show();
+        }
+
+        
 
         
 

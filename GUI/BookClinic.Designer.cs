@@ -41,7 +41,7 @@
             this.txtDayOfBirthB = new MetroFramework.Controls.MetroTextBox();
             this.txtPhoneNumberB = new MetroFramework.Controls.MetroTextBox();
             this.txtNameB = new MetroFramework.Controls.MetroTextBox();
-            this.htmlPanel2 = new MetroFramework.Drawing.Html.HtmlPanel();
+            this.panelPK = new MetroFramework.Drawing.Html.HtmlPanel();
             this.label10 = new System.Windows.Forms.Label();
             this.txtState = new MetroFramework.Controls.MetroTextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -53,7 +53,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pnInfo.SuspendLayout();
-            this.htmlPanel2.SuspendLayout();
+            this.panelPK.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnConfirm
@@ -296,26 +296,26 @@
             this.txtNameB.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtNameB.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // htmlPanel2
+            // panelPK
             // 
-            this.htmlPanel2.AutoScroll = true;
-            this.htmlPanel2.AutoScrollMinSize = new System.Drawing.Size(896, 23);
-            this.htmlPanel2.BackColor = System.Drawing.SystemColors.Window;
-            this.htmlPanel2.Controls.Add(this.label10);
-            this.htmlPanel2.Controls.Add(this.txtState);
-            this.htmlPanel2.Controls.Add(this.label9);
-            this.htmlPanel2.Controls.Add(this.label8);
-            this.htmlPanel2.Controls.Add(this.txtNumberPeople);
-            this.htmlPanel2.Controls.Add(this.cbbListDoctor);
-            this.htmlPanel2.Controls.Add(this.txtNumber);
-            this.htmlPanel2.Controls.Add(this.txtSpecialty);
-            this.htmlPanel2.Controls.Add(this.label7);
-            this.htmlPanel2.Controls.Add(this.label6);
-            this.htmlPanel2.Location = new System.Drawing.Point(237, 394);
-            this.htmlPanel2.Name = "htmlPanel2";
-            this.htmlPanel2.Size = new System.Drawing.Size(896, 271);
-            this.htmlPanel2.TabIndex = 5;
-            this.htmlPanel2.Text = "Thông tin phòng khám";
+            this.panelPK.AutoScroll = true;
+            this.panelPK.AutoScrollMinSize = new System.Drawing.Size(896, 23);
+            this.panelPK.BackColor = System.Drawing.SystemColors.Window;
+            this.panelPK.Controls.Add(this.label10);
+            this.panelPK.Controls.Add(this.txtState);
+            this.panelPK.Controls.Add(this.label9);
+            this.panelPK.Controls.Add(this.label8);
+            this.panelPK.Controls.Add(this.txtNumberPeople);
+            this.panelPK.Controls.Add(this.cbbListDoctor);
+            this.panelPK.Controls.Add(this.txtNumber);
+            this.panelPK.Controls.Add(this.txtSpecialty);
+            this.panelPK.Controls.Add(this.label7);
+            this.panelPK.Controls.Add(this.label6);
+            this.panelPK.Location = new System.Drawing.Point(237, 394);
+            this.panelPK.Name = "panelPK";
+            this.panelPK.Size = new System.Drawing.Size(896, 271);
+            this.panelPK.TabIndex = 5;
+            this.panelPK.Text = "Thông tin phòng khám";
             // 
             // label10
             // 
@@ -369,9 +369,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(46, 186);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 17);
+            this.label8.Size = new System.Drawing.Size(71, 25);
             this.label8.TabIndex = 6;
             this.label8.Text = "Bác sĩ";
             // 
@@ -501,7 +502,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1344, 801);
-            this.Controls.Add(this.htmlPanel2);
+            this.Controls.Add(this.panelPK);
             this.Controls.Add(this.pnInfo);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnConfirm);
@@ -510,8 +511,8 @@
             this.Load += new System.EventHandler(this.BookClinic_Load);
             this.pnInfo.ResumeLayout(false);
             this.pnInfo.PerformLayout();
-            this.htmlPanel2.ResumeLayout(false);
-            this.htmlPanel2.PerformLayout();
+            this.panelPK.ResumeLayout(false);
+            this.panelPK.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -522,7 +523,7 @@
         private MetroFramework.Controls.MetroButton btnReturn;
         private MetroFramework.Drawing.Html.HtmlPanel pnInfo;
         private MetroFramework.Controls.MetroTextBox txtNameB;
-        private MetroFramework.Drawing.Html.HtmlPanel htmlPanel2;
+        private MetroFramework.Drawing.Html.HtmlPanel panelPK;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

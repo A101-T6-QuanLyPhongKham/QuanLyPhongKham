@@ -13,14 +13,14 @@ namespace GUI
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        public static mainForm main = null;
-        public static loginForm dangnhap = null;
+       
+       
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BookClinic("1", "1- cơ"));
+            Application.Run(new loginForm());
             
         }
     }

@@ -236,7 +236,6 @@
             this.dgvInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvInfo.Size = new System.Drawing.Size(1135, 324);
             this.dgvInfo.TabIndex = 3;
-            ///this.dgvInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.metroGrid1_CellContentClick);
             this.dgvInfo.SelectionChanged += new System.EventHandler(this.dgvInfo_SelectionChanged);
             // 
             // txtFindName
@@ -275,7 +274,7 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage2);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(1529, 864);
             this.metroTabControl1.TabIndex = 1;
             this.metroTabControl1.UseSelectable = true;
@@ -456,7 +455,7 @@
             // dtDayOfBirth
             // 
             this.dtDayOfBirth.Location = new System.Drawing.Point(165, 165);
-            this.dtDayOfBirth.MinimumSize = new System.Drawing.Size(4, 30);
+            this.dtDayOfBirth.MinimumSize = new System.Drawing.Size(0, 30);
             this.dtDayOfBirth.Name = "dtDayOfBirth";
             this.dtDayOfBirth.Size = new System.Drawing.Size(399, 30);
             this.dtDayOfBirth.TabIndex = 1;
@@ -611,7 +610,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(4, 171);
+            this.btnAdd.Location = new System.Drawing.Point(4, 176);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(95, 37);
             this.btnAdd.TabIndex = 4;

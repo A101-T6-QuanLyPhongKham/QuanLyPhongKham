@@ -12,7 +12,7 @@ namespace GUI
 {
     public partial class loginForm : MetroFramework.Forms.MetroForm
     {
-        
+        int Number_Login_Fail = 0;
         public loginForm()
         {
             InitializeComponent();
@@ -20,6 +20,7 @@ namespace GUI
         }
 
         TaiKhoan tk = new TaiKhoan();
+        Employee emp = new Employee();
         private void ProcessLogin(string tdn ,string mk)
         {
             
@@ -27,21 +28,27 @@ namespace GUI
             if (tk.KiemTraDangNhap(tdn, mk) == TaiKhoan.LoginResult.Invalid)
             {
                 MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
-             
-                return;
-            }
+                Number_Login_Fail += 1;
+                if (Number_Login_Fail % 3==0)
+                {
+                    
+                    if(tk.block_Account(txtUserName.Text.Trim()))
+                        MessageBox.Show("Bạn đã nhập sai thông tin 3 lần. Tài khoản đã bị khóa.");
+                    return;
+                }
+                    return;
+             }
+            
             //Account has been disabled
             else if (tk.KiemTraDangNhap(tdn, mk) == TaiKhoan.LoginResult.Disabled)
             {
                 MessageBox.Show("Tài khoản đã bị khóa");
                 return;
             }
-            if (Program.main == null || Program.main.IsDisposed)
-            {
-                Program.main = new mainForm();
-            }
-            this.Visible = false;
-            Program.main.Show();
+            NHAN_VIEN nhanvien = emp.get_Info_Employee_By_id(Convert.ToInt32(tk.get_NV_id_By_UserName(txtUserName.Text.ToString())));
+            ListRoomForm frm = new ListRoomForm(nhanvien);
+            this.Hide();
+            frm.Show();
         }
        
 
@@ -66,6 +73,11 @@ namespace GUI
             }
             ProcessLogin(txtUserName.Text.ToString(), txtPassword.Text.ToString());
            
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
        

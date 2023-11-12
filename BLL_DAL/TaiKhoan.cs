@@ -43,5 +43,20 @@ namespace BLL_DAL
             return LoginResult.Invalid;
 
         }
+        public string get_NV_id_By_UserName(string userName)
+        {
+            return qlPK.QL_NGUOIDUNGs.Where(a => a.TENDANGNHAP == userName).Select(b => b.NV_ID).FirstOrDefault().ToString();
+        }
+        public bool block_Account(string username)
+        {
+            QL_NGUOIDUNG user = qlPK.QL_NGUOIDUNGs.Where(a => a.TENDANGNHAP == username).FirstOrDefault();
+            if (user != null)
+            {
+                user.HOATDONG = false;
+                qlPK.SubmitChanges();
+                return true;
+            }
+            return false;
+        }
     }
 }

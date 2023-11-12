@@ -13,5 +13,6 @@ namespace BLL_DAL
         {
             return qlpk.LICH_LAM_VIECs.Where(a => a.PK_ID == maPhong && a.NGAYLAMVIEC.ToString() == Date_Now).Join(qlpk.NHAN_VIENs, a => a.NV_ID, b => b.NV_ID, (a, b) => b).Where(c => c.NV_CHUCVU == "Bác Sĩ").ToList();
         }
+     
     }
 }
