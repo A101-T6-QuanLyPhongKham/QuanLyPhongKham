@@ -24,6 +24,18 @@ namespace GUI
             label.Text = bn.BN_SDT;
             txtBirth.Text = bn.BN_NGAYSINH.ToString();
         }
+
+        private void txtTemperature_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Constants.charIsInvalid.Contains(e.KeyChar) || char.IsLetter(e.KeyChar) || char.IsPunctuation(e.KeyChar) || e.KeyChar == ' ')
+                e.Handled = true;
+        }
+
+        private void btnDrug_Click(object sender, EventArgs e)
+        {
+
+        }
+
        
     }
 }

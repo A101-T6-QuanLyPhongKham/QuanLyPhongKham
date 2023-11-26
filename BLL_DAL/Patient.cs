@@ -8,7 +8,7 @@ namespace BLL_DAL
 {
     public class Patient
     {
-        QLPKDataContext qlpk = new QLPKDataContext();
+        QLPK_DataContext qlpk = new QLPK_DataContext();
         public int Generate_Code_Patient()
         {
             var patientCode = qlpk.BENH_NHANs.OrderByDescending(a => a.BN_ID).Select(a => a.BN_ID).FirstOrDefault().ToString();

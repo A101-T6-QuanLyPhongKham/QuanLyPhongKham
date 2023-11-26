@@ -114,3 +114,4 @@ C:\Users\PC\Desktop\QuanLyPhongKham\GUI\obj\Debug\GUI.RoomNow.resources
 C:\Users\PC\Desktop\QuanLyPhongKham\GUI\obj\Debug\GUI.PhongChoKham.resources
 C:\Users\PC\Desktop\QuanLyPhongKham\GUI\obj\Debug\GUI.ListRoomForm.resources
 C:\Users\PC\Desktop\QuanLyPhongKham\GUI\obj\Debug\GUI.KhamBenh.resources
+C:\Users\PC\Desktop\QuanLyPhongKham\GUI\obj\Debug\GUI.PrescriptionForm.resources

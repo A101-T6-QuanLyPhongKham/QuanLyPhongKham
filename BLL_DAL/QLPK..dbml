@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLPK" Class="QLPKDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLPK" Class="QLPK_DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-K10406A5\SQLEXPRESS;Initial Catalog=QLPK;User ID=sa" SettingsObjectName="BLL_DAL.Properties.Settings" SettingsPropertyName="QLPKConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.BENH_NHAN" Member="BENH_NHANs">
     <Type Name="BENH_NHAN">
@@ -8,6 +8,10 @@
       <Column Name="BN_SDT" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="BN_GIOITINH" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
       <Column Name="BN_DIACHI" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="BN_CHIEUCAO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BN_CANNANG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BN_HUYETAP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BN_NHIPTIM" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="BENH_NHAN_DON_THUOC_DICHVU" Member="DON_THUOC_DICHVUs" ThisKey="BN_ID" OtherKey="BN_ID" Type="DON_THUOC_DICHVU" />
       <Association Name="BENH_NHAN_PHIEU_KHAM" Member="PHIEU_KHAMs" ThisKey="BN_ID" OtherKey="PHIEUKHAM_BN" Type="PHIEU_KHAM" />
     </Type>
@@ -23,7 +27,7 @@
       <Column Name="THUOC_HANSUDUNG" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="THUOC_NHACUNGCAP" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="THUOC_NGAYNHAP" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="THUOC_CHIDINH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="THUOC_CHIDINH" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Association Name="THUOC_CHI_TIET_DON_THUOC" Member="CHI_TIET_DON_THUOCs" ThisKey="THUOC_ID" OtherKey="THUOC_ID" Type="CHI_TIET_DON_THUOC" />
       <Association Name="DANHMUC_THUOC_THUOC" Member="DANHMUC_THUOC" ThisKey="DANHMUC_ID" OtherKey="DANHMUC_ID" Type="DANHMUC_THUOC" IsForeignKey="true" />
       <Association Name="NHA_CUNG_CAP_THUOC" Member="NHA_CUNG_CAP" ThisKey="THUOC_NHACUNGCAP" OtherKey="NCC_ID" Type="NHA_CUNG_CAP" IsForeignKey="true" />
@@ -44,6 +48,12 @@
       <Column Name="CHITIET_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="DONTHUOC_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="THUOC_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LIEUSANG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LIEUTRUA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LIEUTOI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LOIDAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CHANDOAN" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NGAYTAIKHAM" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="SOLUONG" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="THUOC_CHI_TIET_DON_THUOC" Member="THUOC" ThisKey="THUOC_ID" OtherKey="THUOC_ID" Type="THUOC" IsForeignKey="true" />
       <Association Name="DON_THUOC_DICHVU_CHI_TIET_DON_THUOC" Member="DON_THUOC_DICHVU" ThisKey="DONTHUOC_ID" OtherKey="DONTHUOC_ID" Type="DON_THUOC_DICHVU" IsForeignKey="true" />
@@ -98,8 +108,8 @@
   <Table Name="dbo.NHA_CUNG_CAP" Member="NHA_CUNG_CAPs">
     <Type Name="NHA_CUNG_CAP">
       <Column Name="NCC_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="NCC_TEN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="NCC_DIACHI" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NCC_TEN" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="NCC_DIACHI" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="NCC_SDT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Association Name="NHA_CUNG_CAP_THUOC" Member="THUOCs" ThisKey="NCC_ID" OtherKey="THUOC_NHACUNGCAP" Type="THUOC" />
       <Association Name="NHA_CUNG_CAP_THIET_BI" Member="THIET_BIs" ThisKey="NCC_ID" OtherKey="NCC_ID" Type="THIET_BI" />
@@ -119,6 +129,20 @@
       <Column Name="NV_CHUYENMON" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="NHAN_VIEN_LICH_LAM_VIEC" Member="LICH_LAM_VIECs" ThisKey="NV_ID" OtherKey="NV_ID" Type="LICH_LAM_VIEC" />
       <Association Name="NHAN_VIEN_PHIEU_KHAM" Member="PHIEU_KHAMs" ThisKey="NV_ID" OtherKey="PHIEUKHAM_BS" Type="PHIEU_KHAM" />
+      <Association Name="NHAN_VIEN_QL_NGUOIDUNG" Member="QL_NGUOIDUNGs" ThisKey="NV_ID" OtherKey="NV_ID" Type="QL_NGUOIDUNG" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PHIEU_KHAM" Member="PHIEU_KHAMs">
+    <Type Name="PHIEU_KHAM">
+      <Column Name="PHIEUKHAM_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PHIEUKHAM_BN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PHIEUKHAM_PK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PHIEUKHAM_BS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PHIEUKHAM_NGAY" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="PHIEUKHAM_TRANGTHAI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="BENH_NHAN_PHIEU_KHAM" Member="BENH_NHAN" ThisKey="PHIEUKHAM_BN" OtherKey="BN_ID" Type="BENH_NHAN" IsForeignKey="true" />
+      <Association Name="NHAN_VIEN_PHIEU_KHAM" Member="NHAN_VIEN" ThisKey="PHIEUKHAM_BS" OtherKey="NV_ID" Type="NHAN_VIEN" IsForeignKey="true" />
+      <Association Name="PHONG_KHAM_PHIEU_KHAM" Member="PHONG_KHAM" ThisKey="PHIEUKHAM_PK" OtherKey="PHONGKHAM_ID" Type="PHONG_KHAM" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PHONG_KHAM" Member="PHONG_KHAMs">
@@ -139,6 +163,7 @@
       <Column Name="HOATDONG" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="NV_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="QL_NGUOIDUNG_QL_NGUOIDUNGNHOMNGUOIDUNG" Member="QL_NGUOIDUNGNHOMNGUOIDUNGs" ThisKey="TENDANGNHAP" OtherKey="TENDANGNHAP" Type="QL_NGUOIDUNGNHOMNGUOIDUNG" />
+      <Association Name="NHAN_VIEN_QL_NGUOIDUNG" Member="NHAN_VIEN" ThisKey="NV_ID" OtherKey="NV_ID" Type="NHAN_VIEN" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.QL_NGUOIDUNGNHOMNGUOIDUNG" Member="QL_NGUOIDUNGNHOMNGUOIDUNGs">
@@ -179,19 +204,6 @@
       <Column Name="THIETBI_DONGIA" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Column Name="THIETBI_XUATXU" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Association Name="NHA_CUNG_CAP_THIET_BI" Member="NHA_CUNG_CAP" ThisKey="NCC_ID" OtherKey="NCC_ID" Type="NHA_CUNG_CAP" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.PHIEU_KHAM" Member="PHIEU_KHAMs">
-    <Type Name="PHIEU_KHAM">
-      <Column Name="PHIEUKHAM_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="PHIEUKHAM_BN" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PHIEUKHAM_PK" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PHIEUKHAM_BS" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PHIEUKHAM_NGAY" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="PHIEUKHAM_TRANGTHAI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="BENH_NHAN_PHIEU_KHAM" Member="BENH_NHAN" ThisKey="PHIEUKHAM_BN" OtherKey="BN_ID" Type="BENH_NHAN" IsForeignKey="true" />
-      <Association Name="PHONG_KHAM_PHIEU_KHAM" Member="PHONG_KHAM" ThisKey="PHIEUKHAM_PK" OtherKey="PHONGKHAM_ID" Type="PHONG_KHAM" IsForeignKey="true" />
-      <Association Name="NHAN_VIEN_PHIEU_KHAM" Member="NHAN_VIEN" ThisKey="PHIEUKHAM_BS" OtherKey="NV_ID" Type="NHAN_VIEN" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

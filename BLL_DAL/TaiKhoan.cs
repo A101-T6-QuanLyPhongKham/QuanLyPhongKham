@@ -17,7 +17,7 @@ namespace BLL_DAL
             //Login Success
             Success
         }
-        QLPKDataContext qlPK = new QLPKDataContext();
+        QLPK_DataContext qlPK = new QLPK_DataContext();
         public LoginResult KiemTraDangNhap(string tdn, string mk)
         {
             var TaiKhoans = from tk in qlPK.QL_NGUOIDUNGs

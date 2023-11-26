@@ -66,7 +66,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryDrug.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="DonThuoc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DonThuoc.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Drug.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="PhieuKham.cs">
@@ -77,10 +85,10 @@
     </Compile>
     <Compile Include="PHIEUKHAMBENH.cs" />
     <Compile Include="PhongKham.cs" />
-    <Compile Include="QLPK.designer.cs">
+    <Compile Include="QLPK..designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLPK.dbml</DependentUpon>
+      <DependentUpon>QLPK..dbml</DependentUpon>
     </Compile>
     <Compile Include="QRCode.cs" />
     <Compile Include="Schedule.cs" />
@@ -99,9 +107,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="QLPK.dbml">
+    <None Include="QLPK..dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>QLPK.designer.cs</LastGenOutput>
+      <LastGenOutput>QLPK..designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -110,12 +118,16 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DonThuoc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DonThuoc.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="PhieuKham.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PhieuKham.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="QLPK.dbml.layout">
-      <DependentUpon>QLPK.dbml</DependentUpon>
+    <None Include="QLPK..dbml.layout">
+      <DependentUpon>QLPK..dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

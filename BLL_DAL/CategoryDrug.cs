@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace BLL_DAL
 {
-    public class Employee
+    public class CategoryDrug
     {
         QLPK_DataContext qlpk = new QLPK_DataContext();
-        public NHAN_VIEN get_Info_Employee_By_id(int id)
+        public List<DANHMUC_THUOC> get_List_Category()
         {
-            return qlpk.NHAN_VIENs.Where(a => a.NV_ID == id).Select(a => a).FirstOrDefault();
+            return qlpk.DANHMUC_THUOCs.Select(a => a).ToList();
         }
-        
     }
 }
