@@ -10,17 +10,17 @@ using System.Windows.Forms;
 using BLL_DAL;
 namespace GUI
 {
-    public partial class ListRoomForm : MetroFramework.Forms.MetroForm
+    public partial class ListRoomForm : UserControl
     {
         
         PhongKham pk = new PhongKham();
         NHAN_VIEN employee = new NHAN_VIEN();
         public ListRoomForm(NHAN_VIEN nv)
         {
+            employee = nv;
             InitializeComponent();
             create_List_Button_Clinic(pnlistRoom);
-            employee = nv;
-            labelName.Text = "Xin chào " + nv.NV_TEN;
+            pnlistRoom.AutoScroll = false;
         }
         public void create_List_Button_Clinic(Control ctr)
         {
@@ -47,6 +47,7 @@ namespace GUI
 
         private void btn_Click(object sender, EventArgs e)
         {
+            
             Button btn = sender as Button;
             DialogResult result = MessageBox.Show("Xác nhận vào phòng", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (result == DialogResult.Yes)

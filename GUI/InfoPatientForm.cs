@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using BLL_DAL;
 namespace GUI
 {
-    public partial class InfoPatientForm : MetroFramework.Forms.MetroForm
+    public partial class InfoPatientForm : UserControl
     {
        
         Patient pt = new Patient();
@@ -18,12 +18,15 @@ namespace GUI
         public InfoPatientForm()
         {
             InitializeComponent();
+            metroTabPage1.AutoScroll = false;
+            metroTabPage2.AutoScroll = false;
+            dgvInfo.DataSource = pt.get_all();
         }
 
         private void InfoPatientForm_Load(object sender, EventArgs e)
         {
             
-            txtCode.Text = pt.Generate_Code_Patient().ToString();
+            //txtCode.Text = pt.Generate_Code_Patient().ToString();
             cbbGender.Text = "Nam";
             dtDayOfBirth.Text = "01/01/1990";
             cbb_Clinic.DataSource = get_Id_And_Name_Clinic();
@@ -43,20 +46,7 @@ namespace GUI
            return list;
        }
 
-       
-        //private void display_Info_Patient(List<BENH_NHAN> lst, string Code)
-        //{
-        //    foreach (BENH_NHAN bn in lst)
-        //    {
-        //        if (Code == bn.BN_ID)
-        //        {
-        //            txtAddress.Text = bn.BN_DIACHI.ToString();
-        //            txtPhone.Text = bn.BN_SDT.ToString();
-        //            cbbGender.Text = bn.BN_GIOITINH;
-        //            dtDayOfBirth.Text = bn.BN_NGAYSINH.ToString();
-        //        }
-        //    }
-        //}
+      
 
         private void cbbGender_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -172,7 +162,7 @@ namespace GUI
                 MessageBox.Show("Thêm thành công");
                 load_DataGridView();
                 Clear_TextBox();
-                txtCode.Text = pt.Generate_Code_Patient().ToString();
+                //txtCode.Text = pt.Generate_Code_Patient().ToString();
             }
 
             else
@@ -236,7 +226,7 @@ namespace GUI
                 {
                     MessageBox.Show("Xóa thành công");
                     dgvlistPatient.Rows.Remove(dgvlistPatient.CurrentRow);
-                    txtCode.Text = pt.Generate_Code_Patient().ToString();
+                    //txtCode.Text = pt.Generate_Code_Patient().ToString();
                 }
                     
                 else
@@ -324,6 +314,11 @@ namespace GUI
         void frm_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Show();
+        }
+
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            dgvInfo.DataSource = pt.get_all();
         }
 
         

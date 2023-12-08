@@ -8,7 +8,7 @@ namespace BLL_DAL
 {
     public class PHIEUKHAMBENH
     {
-        QLPK_DataContext qlpk = new QLPK_DataContext();
+        QLPKDataContext qlpk = new QLPKDataContext();
         public List<PHIEU_KHAM> get_List_PhieuKham(int maPhong, string ngay, int BS)
         {
             return qlpk.PHIEU_KHAMs.Where(a => a.PHIEUKHAM_PK == maPhong && a.PHIEUKHAM_NGAY.ToString() == ngay && a.PHIEUKHAM_BS == BS).ToList();
@@ -75,7 +75,7 @@ namespace BLL_DAL
                 }
                 return false;
             }
-            catch (Exception ex)
+            catch 
             {
                 return false;
             }

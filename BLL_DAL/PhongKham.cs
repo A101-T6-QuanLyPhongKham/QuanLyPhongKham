@@ -11,7 +11,7 @@ namespace BLL_DAL
 {
     public class PhongKham
     {
-        QLPK_DataContext qlpk = new QLPK_DataContext();
+        QLPKDataContext qlpk = new QLPKDataContext();
        
         public List<PHONG_KHAM> get_list_clinic()
         {

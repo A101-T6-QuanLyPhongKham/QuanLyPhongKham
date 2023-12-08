@@ -59,7 +59,7 @@ namespace GUI
         {
             int id_current = (int)dgvListPatient.CurrentRow.Cells[0].Value;
             BENH_NHAN patient = pt.get_Info_Patient_By_Code(id_current);
-            KhamBenh frm = new KhamBenh(patient);
+            KhamBenh frm = new KhamBenh(employee,phong, patient);
             this.Hide();
             frm.Show();
         }

@@ -8,17 +8,8 @@ namespace BLL_DAL
 {
     public class Patient
     {
-        QLPK_DataContext qlpk = new QLPK_DataContext();
-        public int Generate_Code_Patient()
-        {
-            var patientCode = qlpk.BENH_NHANs.OrderByDescending(a => a.BN_ID).Select(a => a.BN_ID).FirstOrDefault().ToString();
-
-            if (patientCode == "")
-                return 1;
-
-            int Code = Convert.ToInt32(patientCode);
-            return Code + 1;
-        }
+        QLPKDataContext qlpk = new QLPKDataContext();
+        
         public string Trim_String_Date(string input)
         {
          
@@ -66,7 +57,7 @@ namespace BLL_DAL
                 qlpk.SubmitChanges();
                 return true;
             }
-            catch(Exception ex){
+            catch{
                 return false;
             }
             
@@ -81,13 +72,32 @@ namespace BLL_DAL
                 qlpk.SubmitChanges();
                 return true;
             }
-            catch (Exception ex)
+            catch 
             {
                 return false;
             }
                 
         }
+        public void update_info_Health(int id, int chieucao, int cannang, int huyetap, int nhiptim, int nhietdo)
+        {
+            BENH_NHAN _khoaSua = qlpk.BENH_NHANs.Where(kh => kh.BN_ID == id).FirstOrDefault();
+            if (_khoaSua != null)
+            {
+                _khoaSua.BN_CHIEUCAO = chieucao;
+                _khoaSua.BN_CANNANG = cannang;
+                _khoaSua.BN_HUYETAP = huyetap;
+                _khoaSua.BN_NHIPTIM = nhiptim;
+                _khoaSua.BN_NHIETDO = nhietdo;
+                qlpk.SubmitChanges();
 
+            }
+
+
+        }
+        public List<BENH_NHAN> get_all()
+        {
+            return qlpk.BENH_NHANs.Select(a => a).ToList();
+        }
         
 
     }

@@ -34,10 +34,6 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="Emgu.CV.World, Version=4.1.0.3420, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
-      <HintPath>..\packages\EMGU.CV.4.1.0.3420\lib\net35\Emgu.CV.World.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -49,7 +45,6 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="ZedGraph, Version=5.1.7.430, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL">
@@ -67,7 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoryDrug.cs" />
+    <Compile Include="Clinic.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="DetailPrescription.cs" />
     <Compile Include="DonThuoc.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,7 +73,9 @@
     </Compile>
     <Compile Include="Drug.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="GroupUser.cs" />
     <Compile Include="Patient.cs" />
+    <Compile Include="PhanQuyen.cs" />
     <Compile Include="PhieuKham.cs">
       <DependentUpon>PhieuKham.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -85,10 +84,12 @@
     </Compile>
     <Compile Include="PHIEUKHAMBENH.cs" />
     <Compile Include="PhongKham.cs" />
-    <Compile Include="QLPK..designer.cs">
+    <Compile Include="Prescription.cs" />
+    <Compile Include="Provider.cs" />
+    <Compile Include="QLPK.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLPK..dbml</DependentUpon>
+      <DependentUpon>QLPK.dbml</DependentUpon>
     </Compile>
     <Compile Include="QRCode.cs" />
     <Compile Include="Schedule.cs" />
@@ -107,9 +108,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="QLPK..dbml">
+    <None Include="QLPK.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>QLPK..designer.cs</LastGenOutput>
+      <LastGenOutput>QLPK.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -126,17 +127,15 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PhieuKham.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="QLPK..dbml.layout">
-      <DependentUpon>QLPK..dbml</DependentUpon>
+    <None Include="QLPK.dbml.layout">
+      <DependentUpon>QLPK.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\EMGU.CV.4.1.0.3420\build\EMGU.CV.targets" Condition="Exists('..\packages\EMGU.CV.4.1.0.3420\build\EMGU.CV.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\EMGU.CV.4.1.0.3420\build\EMGU.CV.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EMGU.CV.4.1.0.3420\build\EMGU.CV.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

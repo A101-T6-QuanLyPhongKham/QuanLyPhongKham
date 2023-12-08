@@ -68,6 +68,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnDelete = new MetroFramework.Controls.MetroButton();
             this.btnAdd = new MetroFramework.Controls.MetroButton();
+            this.btnShowAll = new System.Windows.Forms.Button();
             this.metroTabPage2.SuspendLayout();
             this.htmlLabel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInfo)).BeginInit();
@@ -120,6 +121,7 @@
             // 
             // metroTabPage2
             // 
+            this.metroTabPage2.Controls.Add(this.btnShowAll);
             this.metroTabPage2.Controls.Add(this.btnBook);
             this.metroTabPage2.Controls.Add(this.btnFindName);
             this.metroTabPage2.Controls.Add(this.htmlLabel1);
@@ -142,7 +144,7 @@
             // 
             this.btnBook.Location = new System.Drawing.Point(48, 152);
             this.btnBook.Name = "btnBook";
-            this.btnBook.Size = new System.Drawing.Size(75, 23);
+            this.btnBook.Size = new System.Drawing.Size(113, 50);
             this.btnBook.TabIndex = 7;
             this.btnBook.Text = "Xếp phòng";
             this.btnBook.UseSelectable = true;
@@ -152,7 +154,7 @@
             // 
             this.btnFindName.Location = new System.Drawing.Point(48, 70);
             this.btnFindName.Name = "btnFindName";
-            this.btnFindName.Size = new System.Drawing.Size(75, 23);
+            this.btnFindName.Size = new System.Drawing.Size(113, 51);
             this.btnFindName.TabIndex = 6;
             this.btnFindName.Text = "Tìm kiếm";
             this.btnFindName.UseSelectable = true;
@@ -274,7 +276,7 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage2);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(1529, 864);
             this.metroTabControl1.TabIndex = 1;
             this.metroTabControl1.UseSelectable = true;
@@ -618,16 +620,24 @@
             this.btnAdd.UseSelectable = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnShowAll
+            // 
+            this.btnShowAll.Location = new System.Drawing.Point(48, 239);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(113, 46);
+            this.btnShowAll.TabIndex = 8;
+            this.btnShowAll.Text = "Hiển thị tất cả";
+            this.btnShowAll.UseVisualStyleBackColor = true;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
+            // 
             // InfoPatientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1636, 926);
             this.Controls.Add(this.metroTabControl1);
             this.Name = "InfoPatientForm";
-            this.Text = "InfoPatient";
+            this.Size = new System.Drawing.Size(1636, 926);
             this.Load += new System.EventHandler(this.InfoPatientForm_Load);
-            this.Shown += new System.EventHandler(this.InfoPatientForm_Shown);
             this.metroTabPage2.ResumeLayout(false);
             this.metroTabPage2.PerformLayout();
             this.htmlLabel1.ResumeLayout(false);
@@ -678,6 +688,7 @@
         private MetroFramework.Controls.MetroTextBox txtFindName;
         private MetroFramework.Controls.MetroButton btnBook;
         private MetroFramework.Controls.MetroButton btnFindName;
+        private System.Windows.Forms.Button btnShowAll;
 
 
 

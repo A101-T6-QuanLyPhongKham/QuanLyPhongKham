@@ -8,11 +8,15 @@ namespace BLL_DAL
 {
     public class Employee
     {
-        QLPK_DataContext qlpk = new QLPK_DataContext();
+        QLPKDataContext qlpk = new QLPKDataContext();
         public NHAN_VIEN get_Info_Employee_By_id(int id)
         {
             return qlpk.NHAN_VIENs.Where(a => a.NV_ID == id).Select(a => a).FirstOrDefault();
         }
-        
+        public List<NHAN_VIEN> get_list_Staff()
+        {
+            return qlpk.NHAN_VIENs.Select(a => a).ToList();
+        }
+       
     }
 }
