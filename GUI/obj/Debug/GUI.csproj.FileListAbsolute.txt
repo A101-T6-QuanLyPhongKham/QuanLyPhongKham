@@ -150,3 +150,5 @@ C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\GUI\obj\Debug\GU
 C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\GUI\obj\Debug\GUI.mainForm.resources
 C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\GUI\obj\Debug\GUI.RoomManagementForm.resources
 C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\GUI\obj\Debug\GUI.QuanLyThuoc.resources
+C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\GUI\bin\Debug\CustomControl.dll
+C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\GUI\bin\Debug\CustomControl.pdb

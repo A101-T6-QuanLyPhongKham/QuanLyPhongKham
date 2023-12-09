@@ -13,5 +13,9 @@ namespace BLL_DAL
         {
             return qlpk.DANHMUC_THUOCs.Select(a => a).ToList();
         }
+        public string get_Name_By_Id(int id)
+        {
+            return qlpk.DANHMUC_THUOCs.Where(a => a.DANHMUC_ID == id).Select(a => a.DANHMUC_TEN).FirstOrDefault();
+        }
     }
 }

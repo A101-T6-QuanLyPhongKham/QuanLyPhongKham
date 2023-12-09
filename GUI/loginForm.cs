@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL_DAL;
+
 namespace GUI
 {
     public partial class loginForm : MetroFramework.Forms.MetroForm
@@ -18,6 +19,8 @@ namespace GUI
         public loginForm()
         {
             InitializeComponent();
+            txtUsername.Text = "hai";
+            txtPassword.Text = "hai";
         }
         private void ProcessLogin(string tdn ,string mk)
         {

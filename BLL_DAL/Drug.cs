@@ -12,7 +12,7 @@ namespace BLL_DAL
         QLPKDataContext qlpk = new QLPKDataContext();
         public List<THUOC> get_All()
         {
-            return qlpk.THUOCs.Select(a => a).ToList();
+            return qlpk.THUOCs.Select(a => a).OrderByDescending(a=> a.THUOC_ID).ToList();
         }
         public List<THUOC> get_Drug_By_Category(int id)
         {
@@ -64,9 +64,9 @@ namespace BLL_DAL
                 _dt.THUOC_TENTHUOC = tenthuoc;
                 _dt.DANHMUC_ID = danhmuc;
                 _dt.THUOC_DVT = dvt;
-
-               
-                _dt.THUOC_DONGIA = Convert.ToDecimal(dongia);
+                _dt.THUOC_SOLUONG = 0;
+                if(dongia.ToString() != string.Empty)
+                    _dt.THUOC_DONGIA = Convert.ToDecimal(dongia);
                 _dt.THUOC_HANSUDUNG = hsd;
                 _dt.THUOC_NHACUNGCAP = ncc;
                 _dt.THUOC_CHIDINH = chidinh;

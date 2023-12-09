@@ -60,3 +60,4 @@ C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\BLL_DAL\bin\Debu
 C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\BLL_DAL\bin\Debug\zh-tw\ZedGraph.resources.dll
 C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\BLL_DAL\obj\Debug\BLL_DAL.dll
 C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\BLL_DAL\obj\Debug\BLL_DAL.pdb
+C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\BLL_DAL\obj\Debug\BLL_DAL.csprojResolveAssemblyReference.cache

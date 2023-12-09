@@ -1,0 +1,7 @@
+C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\CustomControl\bin\Debug\CustomControl.dll
+C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\CustomControl\bin\Debug\CustomControl.pdb
+C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\CustomControl\obj\Debug\CustomControl.dll
+C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\CustomControl\obj\Debug\CustomControl.pdb
+C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\CustomControl\bin\Debug\BLL_DAL.dll
+C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\CustomControl\bin\Debug\BLL_DAL.pdb
+C:\Users\PC\Desktop\DA_LTCSHARP2_NHOM_07\SOURCE\QuanLyPhongKham\CustomControl\obj\Debug\CustomControl.csprojResolveAssemblyReference.cache

@@ -57,6 +57,11 @@ namespace GUI
 
         private void btnView_Click(object sender, EventArgs e)
         {
+            if (dgvListPatient.CurrentRow.Cells[0] == null)
+            {
+                MessageBox.Show("Chưa có bệnh nhân");
+                return;
+            }
             int id_current = (int)dgvListPatient.CurrentRow.Cells[0].Value;
             BENH_NHAN patient = pt.get_Info_Patient_By_Code(id_current);
             KhamBenh frm = new KhamBenh(employee,phong, patient);

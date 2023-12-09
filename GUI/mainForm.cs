@@ -268,7 +268,14 @@ namespace GUI
             mainPanel.Location = new Point(0, mainPanel.Location.Y);
             menu.Visible = false;
         }
-        private void btnMenuBar_Click(object sender, EventArgs e)
+        
+
+        private void labelMenu_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void change_State_menu_Bar()
         {
             if (state_menu_bar == true)
             {
@@ -282,6 +289,28 @@ namespace GUI
                 menu.Visible = true;
             }
         }
+
+        private void labelMenu_MouseHover(object sender, EventArgs e)
+        {
+            labelMenu.ForeColor = Color.Blue;
+            change_State_menu_Bar();
+        }
+
+        private void labelMenu_MouseLeave(object sender, EventArgs e)
+        {
+            labelMenu.ForeColor = Color.Black;
+        }
+
+        private void menu_MouseHover(object sender, EventArgs e)
+        {
+            change_State_menu_Bar();
+        }
+
+        
+
+        
+
+       
 
         
     }

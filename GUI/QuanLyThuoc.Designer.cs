@@ -38,7 +38,6 @@
             this.Hansudung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nhacungcap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Chidinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,18 +45,19 @@
             this.cbbType = new MetroFramework.Controls.MetroComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtName = new MetroFramework.Controls.MetroTextBox();
             this.cbbDVT = new MetroFramework.Controls.MetroComboBox();
             this.txtPrice = new MetroFramework.Controls.MetroTextBox();
             this.cbbDate = new MetroFramework.Controls.MetroTextBox();
             this.cbbProvider = new MetroFramework.Controls.MetroComboBox();
             this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.htmlPanel1 = new MetroFramework.Drawing.Html.HtmlPanel();
-            this.txtCode = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtCode = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.cT_Label1 = new CustomControl.CT_Label();
+            this.txtName = new CustomControl.CT_TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.htmlPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -82,6 +82,7 @@
             this.dgvList.RowTemplate.Height = 24;
             this.dgvList.Size = new System.Drawing.Size(2593, 426);
             this.dgvList.TabIndex = 0;
+            this.dgvList.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvList_CellFormatting);
             this.dgvList.SelectionChanged += new System.EventHandler(this.dgvList_SelectionChanged);
             // 
             // Mathuoc
@@ -116,13 +117,13 @@
             // 
             // Dongia
             // 
-            this.Dongia.HeaderText = "Đơn giá";
+            this.Dongia.HeaderText = "Đơn giá (Đồng)";
             this.Dongia.Name = "Dongia";
             this.Dongia.ReadOnly = true;
             // 
             // Hansudung
             // 
-            this.Hansudung.HeaderText = "Hạn sử dụng";
+            this.Hansudung.HeaderText = "Hạn sử dụng (Tháng)";
             this.Hansudung.Name = "Hansudung";
             this.Hansudung.ReadOnly = true;
             // 
@@ -137,15 +138,6 @@
             this.Chidinh.HeaderText = "Chỉ định";
             this.Chidinh.Name = "Chidinh";
             this.Chidinh.ReadOnly = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Tên thuốc";
             // 
             // label2
             // 
@@ -196,7 +188,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(50, 94);
+            this.label6.Location = new System.Drawing.Point(35, 93);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 17);
             this.label6.TabIndex = 7;
@@ -210,36 +202,6 @@
             this.label7.Size = new System.Drawing.Size(59, 17);
             this.label7.TabIndex = 8;
             this.label7.Text = "Chỉ định";
-            // 
-            // txtName
-            // 
-            // 
-            // 
-            // 
-            this.txtName.CustomButton.Image = null;
-            this.txtName.CustomButton.Location = new System.Drawing.Point(193, 1);
-            this.txtName.CustomButton.Name = "";
-            this.txtName.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtName.CustomButton.TabIndex = 1;
-            this.txtName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtName.CustomButton.UseSelectable = true;
-            this.txtName.CustomButton.Visible = false;
-            this.txtName.Lines = new string[0];
-            this.txtName.Location = new System.Drawing.Point(174, 30);
-            this.txtName.MaxLength = 32767;
-            this.txtName.Name = "txtName";
-            this.txtName.PasswordChar = '\0';
-            this.txtName.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtName.SelectedText = "";
-            this.txtName.SelectionLength = 0;
-            this.txtName.SelectionStart = 0;
-            this.txtName.ShortcutsEnabled = true;
-            this.txtName.Size = new System.Drawing.Size(215, 23);
-            this.txtName.TabIndex = 9;
-            this.txtName.UseSelectable = true;
-            this.txtName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // cbbDVT
             // 
@@ -287,6 +249,7 @@
             this.txtPrice.UseSelectable = true;
             this.txtPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // cbbDate
             // 
@@ -317,6 +280,7 @@
             this.cbbDate.UseSelectable = true;
             this.cbbDate.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.cbbDate.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.cbbDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbbDate_KeyPress);
             // 
             // cbbProvider
             // 
@@ -339,8 +303,10 @@
             // htmlPanel1
             // 
             this.htmlPanel1.AutoScroll = true;
-            this.htmlPanel1.AutoScrollMinSize = new System.Drawing.Size(1463, 23);
+            this.htmlPanel1.AutoScrollMinSize = new System.Drawing.Size(1450, 23);
             this.htmlPanel1.BackColor = System.Drawing.SystemColors.Window;
+            this.htmlPanel1.Controls.Add(this.cT_Label1);
+            this.htmlPanel1.Controls.Add(this.txtName);
             this.htmlPanel1.Controls.Add(this.label8);
             this.htmlPanel1.Controls.Add(this.txtCode);
             this.htmlPanel1.Controls.Add(this.txtDescription);
@@ -348,7 +314,6 @@
             this.htmlPanel1.Controls.Add(this.cbbDate);
             this.htmlPanel1.Controls.Add(this.txtPrice);
             this.htmlPanel1.Controls.Add(this.cbbDVT);
-            this.htmlPanel1.Controls.Add(this.txtName);
             this.htmlPanel1.Controls.Add(this.label7);
             this.htmlPanel1.Controls.Add(this.label6);
             this.htmlPanel1.Controls.Add(this.cbbType);
@@ -356,20 +321,12 @@
             this.htmlPanel1.Controls.Add(this.label4);
             this.htmlPanel1.Controls.Add(this.label3);
             this.htmlPanel1.Controls.Add(this.label2);
-            this.htmlPanel1.Controls.Add(this.label1);
             this.htmlPanel1.Location = new System.Drawing.Point(82, 462);
             this.htmlPanel1.Name = "htmlPanel1";
             this.htmlPanel1.Size = new System.Drawing.Size(1450, 271);
             this.htmlPanel1.TabIndex = 15;
             this.htmlPanel1.Text = "Thông tin thuốc";
             this.htmlPanel1.Click += new System.EventHandler(this.htmlPanel1_Click);
-            // 
-            // txtCode
-            // 
-            this.txtCode.Location = new System.Drawing.Point(993, 19);
-            this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(353, 22);
-            this.txtCode.TabIndex = 15;
             // 
             // label8
             // 
@@ -379,6 +336,13 @@
             this.label8.Size = new System.Drawing.Size(66, 17);
             this.label8.TabIndex = 16;
             this.label8.Text = "Mã thuốc";
+            // 
+            // txtCode
+            // 
+            this.txtCode.Location = new System.Drawing.Point(993, 19);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Size = new System.Drawing.Size(353, 22);
+            this.txtCode.TabIndex = 15;
             // 
             // btnAdd
             // 
@@ -418,6 +382,24 @@
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = false;
             // 
+            // cT_Label1
+            // 
+            this.cT_Label1.AutoSize = true;
+            this.cT_Label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.cT_Label1.Location = new System.Drawing.Point(34, 35);
+            this.cT_Label1.Name = "cT_Label1";
+            this.cT_Label1.Size = new System.Drawing.Size(106, 24);
+            this.cT_Label1.TabIndex = 18;
+            this.cT_Label1.Text = "Tên thuốc";
+            // 
+            // txtName
+            // 
+            this.txtName.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.txtName.Location = new System.Drawing.Point(174, 25);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(216, 30);
+            this.txtName.TabIndex = 17;
+            // 
             // QuanLyThuoc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -441,7 +423,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvList;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -449,13 +430,17 @@
         private MetroFramework.Controls.MetroComboBox cbbType;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private MetroFramework.Controls.MetroTextBox txtName;
         private MetroFramework.Controls.MetroComboBox cbbDVT;
         private MetroFramework.Controls.MetroTextBox txtPrice;
         private MetroFramework.Controls.MetroTextBox cbbDate;
         private MetroFramework.Controls.MetroComboBox cbbProvider;
         private System.Windows.Forms.RichTextBox txtDescription;
         private MetroFramework.Drawing.Html.HtmlPanel htmlPanel1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtCode;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mathuoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tenthuoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Danhmuc;
@@ -465,10 +450,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Hansudung;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nhacungcap;
         private System.Windows.Forms.DataGridViewTextBoxColumn Chidinh;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtCode;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnUpdate;
+        private CustomControl.CT_TextBox txtName;
+        private CustomControl.CT_Label cT_Label1;
     }
 }
