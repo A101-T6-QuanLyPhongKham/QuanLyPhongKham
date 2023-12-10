@@ -19,35 +19,40 @@ namespace GUI
         Prescription pre = new Prescription();
         DetailPrescription detail = new DetailPrescription();
         Drug thuoc = new Drug();
+        PHIEUKHAMBENH _phieu = new PHIEUKHAMBENH();
         CategoryDrug cate = new CategoryDrug();
         string ChanDoanBenh = "";
-        public PrescriptionForm(NHAN_VIEN nv, PHONG_KHAM phong, BENH_NHAN bn, string chandoan)
+        public PrescriptionForm( NHAN_VIEN nv, PHONG_KHAM phong, BENH_NHAN bn, string chandoan)
         {
             InitializeComponent();
+           
             employee = nv;
             room = phong;
             patient_current = bn;
             ChanDoanBenh = chandoan;
+            txtReminder.Font = new Font("Times New Roman", 12);
+            
+
         }
 
         private void SelectDrugForm_Load(object sender, EventArgs e)
         {
             
-            DataTable table = new DataTable();
-            table.Columns.Add("TenThuoc");
+           
 
-            table.Columns.Add("DonViTinh");
-            table.Columns.Add("ChiDinh");
+
+
             List<THUOC> lst = thuoc.get_Drug_By_Category(1);
-            foreach (THUOC item in lst)
+
+
+            foreach (var item in lst)
             {
-                DataRow row = table.NewRow();
-                row["TenThuoc"] = item.THUOC_TENTHUOC;
-                row["DonViTinh"] = item.THUOC_DVT;
-                row["ChiDinh"] = item.THUOC_CHIDINH;
-                table.Rows.Add(row);
+                int rowIndex = dgvListWithCategory.Rows.Add();
+                dgvListWithCategory.Rows[rowIndex].Cells["MaThuoc"].Value = item.MATHUOC;
+                dgvListWithCategory.Rows[rowIndex].Cells["TenThuoc"].Value = item.THUOC_TENTHUOC;
+                dgvListWithCategory.Rows[rowIndex].Cells["DonViTinh"].Value = item.THUOC_CHIDINH;
+                dgvListWithCategory.Rows[rowIndex].Cells["ChiDinh"].Value = item.THUOC_CHIDINH;
             }
-            dgvListWithCategory.DataSource = table;
         }
 
         private void cbbCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -57,22 +62,36 @@ namespace GUI
             string _danhmuc = cbbCategory.SelectedValue.ToString();
             try
             {
-                DataTable table = new DataTable();
-                table.Columns.Add("TenThuoc");
+                //DataTable table = new DataTable();
+                //table.Columns.Add("TenThuoc");
                
-                table.Columns.Add("DonViTinh");
-                table.Columns.Add("ChiDinh");
+                //table.Columns.Add("DonViTinh");
+                //table.Columns.Add("ChiDinh");
+                //List<THUOC> lst = thuoc.get_Drug_By_Category(Convert.ToInt32(_danhmuc));
+                //foreach (THUOC item in lst)
+                //{
+                //    DataRow row = table.NewRow();
+                //    row["TenThuoc"] = item.THUOC_TENTHUOC;
+                //    row["DonViTinh"] = item.THUOC_DVT;
+                //    row["ChiDinh"] = item.THUOC_CHIDINH;
+                //    table.Rows.Add(row);
+                //}
+                //dgvListWithCategory.DataSource = table;
+
+
+
+
                 List<THUOC> lst = thuoc.get_Drug_By_Category(Convert.ToInt32(_danhmuc));
-                foreach (THUOC item in lst)
+
+
+                foreach (var item in lst)
                 {
-                    DataRow row = table.NewRow();
-                    row["TenThuoc"] = item.THUOC_TENTHUOC;
-                    row["DonViTinh"] = item.THUOC_DVT;
-                    row["ChiDinh"] = item.THUOC_CHIDINH;
-                    table.Rows.Add(row);
+                    int rowIndex = dgvListWithCategory.Rows.Add();
+                    dgvListWithCategory.Rows[rowIndex].Cells["MaThuoc"].Value = item.MATHUOC;
+                    dgvListWithCategory.Rows[rowIndex].Cells["TenThuoc"].Value = item.THUOC_TENTHUOC;
+                    dgvListWithCategory.Rows[rowIndex].Cells["DonViTinh"].Value = item.THUOC_CHIDINH;
+                    dgvListWithCategory.Rows[rowIndex].Cells["ChiDinh"].Value = item.THUOC_CHIDINH;
                 }
-                dgvListWithCategory.DataSource = table;
-                
             }
             catch
             {
@@ -103,31 +122,7 @@ namespace GUI
                 e.Handled = true;
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            
-            if (dgvListWithCategory.Rows.Count == 1)
-                return;
-            if(!check_Drug_is_Exist())
-            {
-                MessageBox.Show("Thuốc vừa chọn đã có");
-                return;
-            }
-            DataGridViewRow currentRow = dgvListWithCategory.CurrentRow;
-
-
-            DataGridViewRow newRow = (DataGridViewRow)currentRow.Clone();
-
-            // Lặp qua từng ô trong dòng hiện tại và gán giá trị vào dòng mới
-            for (int i = 0; i < currentRow.Cells.Count -1; i++)
-            {
-                newRow.Cells[i].Value = currentRow.Cells[i].Value;
-            }
-
-            // Thêm dòng mới vào dgvPrescription
-            dgvPrescription.Rows.Add(newRow);
-
-        }
+        
         private bool check_Drug_is_Exist()
         {
 
@@ -145,15 +140,7 @@ namespace GUI
             return true;
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if(dgvPrescription.SelectedRows.Count > 0)
-            {
-                if(dgvPrescription.CurrentRow.Cells[0].Value != null)
-                    dgvPrescription.Rows.RemoveAt(dgvPrescription.SelectedRows[0].Index);
-            }
-                
-        }
+        
 
         private void dgvPrescription_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -206,72 +193,7 @@ namespace GUI
                 e.Handled = true;
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            if (dgvPrescription.Rows.Count == 1)
-            {
-                MessageBox.Show("Chưa chọn thuốc");
-                return;
-            }
-            for (int i = 0; i < dgvPrescription.Rows.Count - 1; i++)
-            {
-
-                if (dgvPrescription.Rows[i].Cells[2].Value == null)
-                {
-                    MessageBox.Show("Nhập số lượng cho thuốc " + dgvPrescription.Rows[i].Cells[0].Value.ToString());
-
-                    dgvPrescription.Rows[i].Selected = true;
-                    return;
-                    
-                }
-                if (dgvPrescription.Rows[i].Cells[3].Value == null && dgvPrescription.Rows[i].Cells[4].Value == null && dgvPrescription.Rows[i].Cells[5].Value == null)
-                {
-                    MessageBox.Show("Nhập liều dùng cho thuốc " + dgvPrescription.Rows[i].Cells[0].Value.ToString());
-
-                    dgvPrescription.Rows[i].Selected = true;
-                    return;
-                }
-                int soluong = Convert.ToInt32(dgvPrescription.Rows[i].Cells[2].Value.ToString());
-                int? sang = Convert.ToInt32(dgvPrescription.Rows[i].Cells[3].Value);
-                int? trua = Convert.ToInt32(dgvPrescription.Rows[i].Cells[4].Value);
-                int? toi = Convert.ToInt32(dgvPrescription.Rows[i].Cells[5].Value);
-                
-                
-                string dvt = dgvPrescription.Rows[i].Cells[1].Value.ToString();
-                if (dvt == "Viên" || dvt == "Gói")
-                {
-                    int tong = 0;
-                    if (sang != null)
-                        tong += (int)sang;
-                    if (trua != null)
-                        tong += (int)trua;
-                    if (toi != null)
-                        tong += (int)toi;
-                    if (soluong < tong)
-                    {
-                        MessageBox.Show("Tổng số lượng thuốc phải lớn hơn tổng liều dùng 1 ngày");
-                        dgvPrescription.Rows[i].Selected = true;
-                        return;
-                    }
-                }
-                
-                
-            }
-            if (!check_date())
-            {
-                MessageBox.Show("Ngày tái khám phải lớn hơn ngày hiện tại");
-                return;
-            }
-            DialogResult result = MessageBox.Show("Xác nhận in đơn thuốc", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            if (result == DialogResult.Yes)
-            {
-                save_data();
-                PrintPresciptionForm frm = new PrintPresciptionForm();
-                frm.Show();
-                this.Hide();
-
-            }
-        }
+       
         private bool check_date()
         {
             string inputDateString = dateReturnpicker.Value.ToString("dddd, MMMM dd, yyyy");
@@ -323,7 +245,118 @@ namespace GUI
             }
             pre.update_Price(pre.get_current_Prescription(), tongtien);
         }
-        private void btnFind_Click(object sender, EventArgs e)
+      
+
+       
+
+        private void btnAdd_Click_1(object sender, EventArgs e)
+        {
+            if (dgvListWithCategory.Rows.Count == 1)
+                return;
+            if (!check_Drug_is_Exist())
+            {
+                MessageBox.Show("Thuốc vừa chọn đã có");
+                return;
+            }
+            DataGridViewRow currentRow = dgvListWithCategory.CurrentRow;
+
+
+            DataGridViewRow newRow = (DataGridViewRow)currentRow.Clone();
+
+            // Lặp qua từng ô trong dòng hiện tại và gán giá trị vào dòng mới
+            for (int i = 0; i < currentRow.Cells.Count - 1; i++)
+            {
+                newRow.Cells[i].Value = currentRow.Cells[i].Value;
+            }
+
+            // Thêm dòng mới vào dgvPrescription
+            dgvPrescription.Rows.Add(newRow);
+        }
+
+        private void btnDelete_Click_1(object sender, EventArgs e)
+        {
+            if (dgvPrescription.SelectedRows.Count > 0)
+            {
+                if (dgvPrescription.CurrentRow.Cells[0].Value != null)
+                    dgvPrescription.Rows.RemoveAt(dgvPrescription.SelectedRows[0].Index);
+            }
+        }
+
+        private void btnPrint_Click_1(object sender, EventArgs e)
+        {
+            if (dgvPrescription.Rows.Count == 1)
+            {
+                MessageBox.Show("Chưa chọn thuốc");
+                return;
+            }
+            for (int i = 0; i < dgvPrescription.Rows.Count - 1; i++)
+            {
+
+                if (dgvPrescription.Rows[i].Cells[2].Value == null)
+                {
+                    MessageBox.Show("Nhập số lượng cho thuốc " + dgvPrescription.Rows[i].Cells[0].Value.ToString());
+
+                    dgvPrescription.Rows[i].Selected = true;
+                    return;
+
+                }
+                if (dgvPrescription.Rows[i].Cells[3].Value == null && dgvPrescription.Rows[i].Cells[4].Value == null && dgvPrescription.Rows[i].Cells[5].Value == null)
+                {
+                    MessageBox.Show("Nhập liều dùng cho thuốc " + dgvPrescription.Rows[i].Cells[0].Value.ToString());
+
+                    dgvPrescription.Rows[i].Selected = true;
+                    return;
+                }
+                int soluong = Convert.ToInt32(dgvPrescription.Rows[i].Cells[2].Value.ToString());
+                int? sang = Convert.ToInt32(dgvPrescription.Rows[i].Cells[3].Value);
+                int? trua = Convert.ToInt32(dgvPrescription.Rows[i].Cells[4].Value);
+                int? toi = Convert.ToInt32(dgvPrescription.Rows[i].Cells[5].Value);
+
+
+                string dvt = dgvPrescription.Rows[i].Cells[1].Value.ToString();
+                if (dvt == "Viên" || dvt == "Gói")
+                {
+                    int tong = 0;
+                    if (sang != null)
+                        tong += (int)sang;
+                    if (trua != null)
+                        tong += (int)trua;
+                    if (toi != null)
+                        tong += (int)toi;
+                    if (soluong < tong)
+                    {
+                        MessageBox.Show("Tổng số lượng thuốc phải lớn hơn tổng liều dùng 1 ngày");
+                        dgvPrescription.Rows[i].Selected = true;
+                        return;
+                    }
+                }
+
+
+            }
+            if (!check_date())
+            {
+                MessageBox.Show("Ngày tái khám phải lớn hơn ngày hiện tại");
+                return;
+            }
+            DialogResult result = MessageBox.Show("Xác nhận in đơn thuốc", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (result == DialogResult.Yes)
+            {
+                
+                save_data();
+                int madon = pre.get_current_Prescription();
+                PrintPresciptionForm frm = new PrintPresciptionForm(madon);
+                frm.Show();
+                this.Hide();
+
+            }
+        }
+
+        private void btnReset_Click_1(object sender, EventArgs e)
+        {
+            dgvPrescription.Rows.Clear();
+        }
+
+        private void btnFind_Click_1(object sender, EventArgs e)
         {
             string data = txtInput.Text.ToString();
             if (data == string.Empty)
@@ -336,17 +369,12 @@ namespace GUI
             if (tb == null)
             {
                 MessageBox.Show("Không tìm thấy tên thuốc");
-                
+
                 txtInput.Focus();
                 return;
             }
 
             dgvListWithCategory.DataSource = tb;
-        }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            dgvPrescription.Rows.Clear();
         }
 
     }

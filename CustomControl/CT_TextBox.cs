@@ -12,7 +12,14 @@ namespace CustomControl
         public CT_TextBox()
         {
             this.Font = new Font("Times New Roman", 12);
+            this.Leave += CT_TextBox_Leave;
 
+        }
+
+        void CT_TextBox_Leave(object sender, EventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+            txt.Text.Trim();
         }
     }
 }

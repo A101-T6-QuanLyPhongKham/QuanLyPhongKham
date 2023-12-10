@@ -13,6 +13,7 @@ namespace GUI
     public partial class PhongChoKham : MetroFramework.Forms.MetroForm
     {
         PHIEUKHAMBENH phieukham = new PHIEUKHAMBENH();
+        
         PhongKham pk = new PhongKham();
         Patient pt = new Patient();
         NHAN_VIEN employee = new NHAN_VIEN();
@@ -23,6 +24,9 @@ namespace GUI
             employee = nhanvien;
             phong = p;
             labelName.Text = "Phòng khám " + phong.PHONGKHAM_ID.ToString();
+            rdbAllList.Font = new Font("Times New Roman", 12);
+            rdbCheck.Font = new Font("Times New Roman", 12);
+            rdbChecked.Font = new Font("Times New Roman", 12);
         }
 
         private void PhongChoKham_Load(object sender, EventArgs e)
@@ -43,14 +47,29 @@ namespace GUI
                 listBN.Add(bn);
 
             }
-            dgvListPatient.DataSource = listBN;
+            foreach (var item in listBN)
+            {
+                int rowIndex = dgvListPatient.Rows.Add();
+                dgvListPatient.Rows[rowIndex].Cells["MaBenhNhan"].Value = item.MABENHNHAN;
+                dgvListPatient.Rows[rowIndex].Tag = item.BN_ID;
+                dgvListPatient.Rows[rowIndex].Cells["HoTen"].Value = item.BN_TEN;
+                dgvListPatient.Rows[rowIndex].Cells["NgaySinh"].Value = item.BN_NGAYSINH;
+                dgvListPatient.Rows[rowIndex].Cells["GioiTinh"].Value = item.BN_GIOITINH;
+                dgvListPatient.Rows[rowIndex].Cells["ChieuCao"].Value = item.BN_CHIEUCAO;
+                dgvListPatient.Rows[rowIndex].Cells["CanNang"].Value = item.BN_CANNANG;
+                dgvListPatient.Rows[rowIndex].Cells["HuyetAp"].Value = item.BN_HUYETAP;
+                dgvListPatient.Rows[rowIndex].Cells["NhipTim"].Value = item.BN_NHIPTIM;
+                dgvListPatient.Rows[rowIndex].Cells["NhietDo"].Value = item.BN_NHIETDO;
+                
+            }
         }
-        private void btnBill_Click(object sender, EventArgs e)
-        {
-            
-        }
+      
 
-        private void btnRefresh_Click(object sender, EventArgs e)
+       
+
+       
+
+        private void cT_Button2_Click(object sender, EventArgs e)
         {
             load_Data();
         }
@@ -62,11 +81,17 @@ namespace GUI
                 MessageBox.Show("Chưa có bệnh nhân");
                 return;
             }
-            int id_current = (int)dgvListPatient.CurrentRow.Cells[0].Value;
+            int id_current = (int)dgvListPatient.CurrentRow.Tag;
             BENH_NHAN patient = pt.get_Info_Patient_By_Code(id_current);
-            KhamBenh frm = new KhamBenh(employee,phong, patient);
+            KhamBenh frm = new KhamBenh(employee, phong, patient);
+            frm.WindowState = FormWindowState.Maximized;
+            frm.FormBorderStyle = FormBorderStyle.None; 
             this.Hide();
             frm.Show();
         }
+
+        
+
+        
     }
 }

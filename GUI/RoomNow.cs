@@ -39,7 +39,7 @@ namespace GUI
             DialogResult result = MessageBox.Show("Xác nhận xóa", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if (result == DialogResult.Yes)
             {
-                if(phieukhambenh.delete_phieukham_By_id(idPhieuKham))
+                if (phieukhambenh.delete_phieukham_By_id(idPhieuKham))
                 {
                     MessageBox.Show("Xóa thành công");
                     this.Close();
@@ -47,10 +47,15 @@ namespace GUI
                     frm.Show();
 
                 }
-                else {
+                else
+                {
                     MessageBox.Show("Không thể xóa");
                 }
             }
         }
+
+       
+
+       
     }
 }

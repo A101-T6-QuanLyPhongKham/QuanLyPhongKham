@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using BLL_DAL;
 namespace GUI
 {
-    public partial class userManagement : MetroFramework.Forms.MetroForm
+    public partial class userManagement : UserControl
     {
         TaiKhoan tk = new TaiKhoan();
         Employee emp = new Employee();

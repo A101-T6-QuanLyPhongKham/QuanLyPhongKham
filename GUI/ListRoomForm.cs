@@ -54,6 +54,8 @@ namespace GUI
             {
                 PHONG_KHAM clinic_Selected = pk.get_Clinic_By_Id(Convert.ToInt32(btn.Text));
                 PhongChoKham frm = new PhongChoKham(clinic_Selected, employee);
+                frm.WindowState = FormWindowState.Maximized;
+                frm.FormBorderStyle = FormBorderStyle.None; 
                 this.Hide();
                 frm.Show();
             }

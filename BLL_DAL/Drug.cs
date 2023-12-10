@@ -102,19 +102,19 @@ namespace BLL_DAL
 
         }
 
-        public bool update_data(int id, string tenthuoc, int danhmuc, string dvt, int sl, string dongia, int hsd, int ncc, string chidinh)
+        public bool update_data(int id, string ma,  string tenthuoc, int danhmuc, string dvt, string dongia, int hsd, int ncc, string chidinh)
         {
             try
             {
                 THUOC _dt = qlpk.THUOCs.Where(kh => kh.THUOC_ID == id).FirstOrDefault();
                 if (_dt != null)
                 {
-
+                    _dt.MATHUOC = ma;
                     _dt.THUOC_TENTHUOC = tenthuoc;
                     _dt.DANHMUC_ID = danhmuc;
                     _dt.THUOC_DVT = dvt;
 
-                    _dt.THUOC_SOLUONG = sl;
+                   
                     _dt.THUOC_DONGIA = Convert.ToDecimal(dongia);
                     _dt.THUOC_HANSUDUNG = hsd;
                     _dt.THUOC_NHACUNGCAP = ncc;

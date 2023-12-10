@@ -14,7 +14,7 @@ namespace GUI
 {
     public partial class PrintPresciptionForm : Form
     {
-        public PrintPresciptionForm()
+        public PrintPresciptionForm(int madon)
         {
             InitializeComponent();
             DonThuoc rpt = new DonThuoc();
@@ -26,17 +26,17 @@ namespace GUI
             ParameterValues crParameterValues = new ParameterValues();
             ParameterDiscreteValue crParameterDiscreteValue = new ParameterDiscreteValue();
 
-            crParameterDiscreteValue.Value = 1; // Giá trị tham số
+            
+
+
+
+            crParameterDiscreteValue.Value = madon; // Giá trị tham số
             crParameterFieldDefinitions = rpt.DataDefinition.ParameterFields;
-            crParameterFieldDefinition = crParameterFieldDefinitions["Name"]; // Tên tham số trong report
+            crParameterFieldDefinition = crParameterFieldDefinitions["MaDonThuoc"]; // Tên tham số trong report
             crParameterValues = crParameterFieldDefinition.CurrentValues;
             crParameterValues.Clear();
             crParameterValues.Add(crParameterDiscreteValue);
             crParameterFieldDefinition.ApplyCurrentValues(crParameterValues);
-
-
-
-
 
 
 

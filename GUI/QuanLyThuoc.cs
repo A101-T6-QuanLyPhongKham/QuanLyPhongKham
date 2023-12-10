@@ -35,6 +35,7 @@ namespace GUI
             {
                 int rowIndex = dgvList.Rows.Add();
                 dgvList.Rows[rowIndex].Cells["Mathuoc"].Value = thuoc.MATHUOC;
+                dgvList.Rows[rowIndex].Tag = thuoc.THUOC_ID;
                 dgvList.Rows[rowIndex].Cells["Tenthuoc"].Value = thuoc.THUOC_TENTHUOC;
                 dgvList.Rows[rowIndex].Cells["Danhmuc"].Value = ct.get_Name_By_Id((int)thuoc.DANHMUC_ID);
                 dgvList.Rows[rowIndex].Cells["Donvitinh"].Value = thuoc.THUOC_DVT;
@@ -80,13 +81,36 @@ namespace GUI
         }
         private void dgvList_SelectionChanged(object sender, EventArgs e)
         {
-            //MessageBox.Show(dgvList.CurrentRow.Cells[0].Value.ToString());
+            txtCode.Text = dgvList.CurrentRow.Cells[0].Value != null ? dgvList.CurrentRow.Cells[0].Value.ToString() : "";
+            txtName.Text = dgvList.CurrentRow.Cells[1].Value != null ? dgvList.CurrentRow.Cells[1].Value.ToString() : "";
+            cbbType.Text = dgvList.CurrentRow.Cells[2].Value != null ? dgvList.CurrentRow.Cells[2].Value.ToString() : "";
+            cbbDVT.Text = dgvList.CurrentRow.Cells[3].Value != null ? dgvList.CurrentRow.Cells[3].Value.ToString() : "";
+
+            if (dgvList.CurrentRow.Cells[5].Value == null)
+                txtPrice.Text = "";
+            else
+            {
+             
+                string inputText = dgvList.CurrentRow.Cells[5].Value.ToString();
+
+
+                int decimalIndex = inputText.IndexOf('.');
+                string integerPart = inputText.Substring(0, decimalIndex);
+                string formattedNumber = Convert.ToInt32(integerPart).ToString("#,###");
+
+
+
+                txtPrice.Text = formattedNumber;
+
+            }
+           // txtPrice.Text = dgvList.CurrentRow.Cells[5].Value != null ? dgvList.CurrentRow.Cells[5].Value.ToString() : "";
+            cbbDate.Text = dgvList.CurrentRow.Cells[6].Value != null ? dgvList.CurrentRow.Cells[6].Value.ToString() : "";
+            cbbProvider.Text = dgvList.CurrentRow.Cells[7].Value != null ? dgvList.CurrentRow.Cells[7].Value.ToString() : "";
+            txtDescription.Text = dgvList.CurrentRow.Cells[8].Value != null ? dgvList.CurrentRow.Cells[8].Value.ToString() : "";
+           
         }
 
-        private void htmlPanel1_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void QuanLyThuoc_Load(object sender, EventArgs e)
         {
@@ -97,6 +121,7 @@ namespace GUI
             cbbProvider.DisplayMember = "ncc_ten";
             cbbProvider.ValueMember = "ncc_id";
             cbbDVT.Text = "Viên";
+            txtDescription.Font = new Font("Times New Roman", 12);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -132,13 +157,20 @@ namespace GUI
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if(drg.remove_data((int)dgvList.CurrentRow.Cells[0].Value))
+
+            DialogResult result = MessageBox.Show("Xác nhận xóa", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Xóa thành công");
-                set_property_datagrid();
+                if (drg.remove_data(Convert.ToInt32(dgvList.CurrentRow.Tag)))
+                {
+                    MessageBox.Show("Xóa thành công");
+                    dgvList.Rows.Clear();
+                    set_property_datagrid();
+                }
+                else
+                    MessageBox.Show("Không thể xóa");
             }
-            else
-                MessageBox.Show("Không thể thêm");
+            
 
         }
 
@@ -167,6 +199,27 @@ namespace GUI
         {
             if (char.IsLetter(e.KeyChar) || Constants.charIsInvalid.Contains(e.KeyChar) || char.IsPunctuation(e.KeyChar))
                 e.Handled = true;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(dgvList.CurrentRow.Tag);
+            string mathuoc = txtCode.Text.ToString();
+            string ten = txtName.Text.ToString();
+            int danhmuc = (int)cbbType.SelectedValue;
+            string dvt = cbbDVT.Text.ToString();
+            string dongia = txtPrice.Text.ToString();
+            int hansudung = cbbDate.Text == null ? 0 : Convert.ToInt32(cbbDate.Text);
+            int ncc = Convert.ToInt32(cbbProvider.SelectedValue);
+            string chidinh = txtDescription.Text.ToString();
+            if (drg.update_data(id, mathuoc, ten, danhmuc, dvt, dongia, hansudung, ncc, chidinh))
+            {
+                MessageBox.Show("Cập nhật thành công");
+                dgvList.Rows.Clear();
+                set_property_datagrid();
+            }
+            else
+                MessageBox.Show("Không thể cập nhật");
         }
     }
 }

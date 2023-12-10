@@ -19,8 +19,7 @@ namespace GUI
         public loginForm()
         {
             InitializeComponent();
-            txtUsername.Text = "hai";
-            txtPassword.Text = "hai";
+            
         }
         private void ProcessLogin(string tdn ,string mk)
         {

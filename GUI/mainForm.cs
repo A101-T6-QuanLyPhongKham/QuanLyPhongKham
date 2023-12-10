@@ -122,6 +122,28 @@ namespace GUI
             btn6.MouseLeave += btn_MouseLeave;
 
             lst.Add(btn6);
+
+            Button btn7 = new Button();
+            btn7.Text = "Quản lý tài khoản";
+            btn7.Size = new Size(242, 62);
+            btn7.BackColor = Color.DodgerBlue;
+            btn7.ForeColor = Color.White;
+            btn7.Font = new Font("", 12, FontStyle.Bold);
+            btn7.Left = 0;
+            btn7.TextAlign = ContentAlignment.MiddleCenter;
+            btn7.Tag = "7";
+            btn7.Click += btn7_Click;
+            btn7.MouseEnter += btn_MouseEnter;
+            btn7.MouseLeave += btn_MouseLeave;
+
+            lst.Add(btn7);
+        }
+
+        void btn7_Click(object sender, EventArgs e)
+        {
+            mainPanel.Controls.Clear();
+            hide_menu_bar();
+            mainPanel.Controls.Add(new userManagement());
         }
 
         void btn3_Click(object sender, EventArgs e)

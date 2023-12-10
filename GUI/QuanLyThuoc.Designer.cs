@@ -38,26 +38,28 @@
             this.Hansudung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nhacungcap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Chidinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.cbbType = new MetroFramework.Controls.MetroComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.cbbDVT = new MetroFramework.Controls.MetroComboBox();
-            this.txtPrice = new MetroFramework.Controls.MetroTextBox();
-            this.cbbDate = new MetroFramework.Controls.MetroTextBox();
             this.cbbProvider = new MetroFramework.Controls.MetroComboBox();
             this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.htmlPanel1 = new MetroFramework.Drawing.Html.HtmlPanel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtCode = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cT_Label6 = new CustomControl.CT_Label();
+            this.cT_Label5 = new CustomControl.CT_Label();
+            this.cT_Label7 = new CustomControl.CT_Label();
+            this.cT_Label4 = new CustomControl.CT_Label();
+            this.cT_Label8 = new CustomControl.CT_Label();
+            this.cT_Label3 = new CustomControl.CT_Label();
+            this.cT_Label2 = new CustomControl.CT_Label();
+            this.txtCode = new CustomControl.CT_TextBox();
+            this.cbbDate = new CustomControl.CT_TextBox();
+            this.txtPrice = new CustomControl.CT_TextBox();
+            this.cT_Label1 = new CustomControl.CT_Label();
+            this.txtName = new CustomControl.CT_TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.cT_Label1 = new CustomControl.CT_Label();
-            this.txtName = new CustomControl.CT_TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.htmlPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -139,69 +141,15 @@
             this.Chidinh.Name = "Chidinh";
             this.Chidinh.ReadOnly = true;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 165);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Đơn vị tính";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(443, 99);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 17);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Hạn sử dụng";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(443, 162);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 17);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Nhà cung cấp";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(443, 36);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 17);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Đơn giá";
-            // 
             // cbbType
             // 
             this.cbbType.FormattingEnabled = true;
             this.cbbType.ItemHeight = 24;
-            this.cbbType.Location = new System.Drawing.Point(174, 90);
+            this.cbbType.Location = new System.Drawing.Point(171, 115);
             this.cbbType.Name = "cbbType";
-            this.cbbType.Size = new System.Drawing.Size(216, 30);
+            this.cbbType.Size = new System.Drawing.Size(347, 30);
             this.cbbType.TabIndex = 6;
             this.cbbType.UseSelectable = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(35, 93);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 17);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Danh mục";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(901, 152);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 17);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Chỉ định";
             // 
             // cbbDVT
             // 
@@ -214,135 +162,192 @@
             "Gói",
             "Tuýp",
             "Ống"});
-            this.cbbDVT.Location = new System.Drawing.Point(174, 162);
+            this.cbbDVT.Location = new System.Drawing.Point(171, 197);
             this.cbbDVT.Name = "cbbDVT";
-            this.cbbDVT.Size = new System.Drawing.Size(219, 30);
+            this.cbbDVT.Size = new System.Drawing.Size(347, 30);
             this.cbbDVT.TabIndex = 10;
             this.cbbDVT.UseSelectable = true;
-            // 
-            // txtPrice
-            // 
-            // 
-            // 
-            // 
-            this.txtPrice.CustomButton.Image = null;
-            this.txtPrice.CustomButton.Location = new System.Drawing.Point(211, 1);
-            this.txtPrice.CustomButton.Name = "";
-            this.txtPrice.CustomButton.Size = new System.Drawing.Size(27, 27);
-            this.txtPrice.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtPrice.CustomButton.TabIndex = 1;
-            this.txtPrice.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtPrice.CustomButton.UseSelectable = true;
-            this.txtPrice.CustomButton.Visible = false;
-            this.txtPrice.Lines = new string[0];
-            this.txtPrice.Location = new System.Drawing.Point(584, 30);
-            this.txtPrice.MaxLength = 32767;
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.PasswordChar = '\0';
-            this.txtPrice.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtPrice.SelectedText = "";
-            this.txtPrice.SelectionLength = 0;
-            this.txtPrice.SelectionStart = 0;
-            this.txtPrice.ShortcutsEnabled = true;
-            this.txtPrice.Size = new System.Drawing.Size(239, 29);
-            this.txtPrice.TabIndex = 11;
-            this.txtPrice.UseSelectable = true;
-            this.txtPrice.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtPrice.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
-            // 
-            // cbbDate
-            // 
-            // 
-            // 
-            // 
-            this.cbbDate.CustomButton.Image = null;
-            this.cbbDate.CustomButton.Location = new System.Drawing.Point(219, 2);
-            this.cbbDate.CustomButton.Name = "";
-            this.cbbDate.CustomButton.Size = new System.Drawing.Size(17, 17);
-            this.cbbDate.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.cbbDate.CustomButton.TabIndex = 1;
-            this.cbbDate.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.cbbDate.CustomButton.UseSelectable = true;
-            this.cbbDate.CustomButton.Visible = false;
-            this.cbbDate.Lines = new string[0];
-            this.cbbDate.Location = new System.Drawing.Point(584, 99);
-            this.cbbDate.MaxLength = 32767;
-            this.cbbDate.Name = "cbbDate";
-            this.cbbDate.PasswordChar = '\0';
-            this.cbbDate.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.cbbDate.SelectedText = "";
-            this.cbbDate.SelectionLength = 0;
-            this.cbbDate.SelectionStart = 0;
-            this.cbbDate.ShortcutsEnabled = true;
-            this.cbbDate.Size = new System.Drawing.Size(239, 22);
-            this.cbbDate.TabIndex = 12;
-            this.cbbDate.UseSelectable = true;
-            this.cbbDate.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.cbbDate.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.cbbDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbbDate_KeyPress);
             // 
             // cbbProvider
             // 
             this.cbbProvider.FormattingEnabled = true;
             this.cbbProvider.ItemHeight = 24;
-            this.cbbProvider.Location = new System.Drawing.Point(584, 152);
+            this.cbbProvider.Location = new System.Drawing.Point(734, 195);
             this.cbbProvider.Name = "cbbProvider";
-            this.cbbProvider.Size = new System.Drawing.Size(239, 30);
+            this.cbbProvider.Size = new System.Drawing.Size(347, 30);
             this.cbbProvider.TabIndex = 13;
             this.cbbProvider.UseSelectable = true;
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(993, 81);
+            this.txtDescription.Location = new System.Drawing.Point(1283, 94);
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(350, 152);
+            this.txtDescription.Size = new System.Drawing.Size(347, 152);
             this.txtDescription.TabIndex = 14;
             this.txtDescription.Text = "";
             // 
             // htmlPanel1
             // 
             this.htmlPanel1.AutoScroll = true;
-            this.htmlPanel1.AutoScrollMinSize = new System.Drawing.Size(1450, 23);
+            this.htmlPanel1.AutoScrollMinSize = new System.Drawing.Size(1682, 23);
             this.htmlPanel1.BackColor = System.Drawing.SystemColors.Window;
-            this.htmlPanel1.Controls.Add(this.cT_Label1);
-            this.htmlPanel1.Controls.Add(this.txtName);
-            this.htmlPanel1.Controls.Add(this.label8);
+            this.htmlPanel1.Controls.Add(this.label2);
+            this.htmlPanel1.Controls.Add(this.label1);
+            this.htmlPanel1.Controls.Add(this.cT_Label6);
+            this.htmlPanel1.Controls.Add(this.cT_Label5);
+            this.htmlPanel1.Controls.Add(this.cT_Label7);
+            this.htmlPanel1.Controls.Add(this.cT_Label4);
+            this.htmlPanel1.Controls.Add(this.cT_Label8);
+            this.htmlPanel1.Controls.Add(this.cT_Label3);
+            this.htmlPanel1.Controls.Add(this.cT_Label2);
             this.htmlPanel1.Controls.Add(this.txtCode);
-            this.htmlPanel1.Controls.Add(this.txtDescription);
-            this.htmlPanel1.Controls.Add(this.cbbProvider);
             this.htmlPanel1.Controls.Add(this.cbbDate);
             this.htmlPanel1.Controls.Add(this.txtPrice);
+            this.htmlPanel1.Controls.Add(this.cT_Label1);
+            this.htmlPanel1.Controls.Add(this.txtName);
+            this.htmlPanel1.Controls.Add(this.txtDescription);
+            this.htmlPanel1.Controls.Add(this.cbbProvider);
             this.htmlPanel1.Controls.Add(this.cbbDVT);
-            this.htmlPanel1.Controls.Add(this.label7);
-            this.htmlPanel1.Controls.Add(this.label6);
             this.htmlPanel1.Controls.Add(this.cbbType);
-            this.htmlPanel1.Controls.Add(this.label5);
-            this.htmlPanel1.Controls.Add(this.label4);
-            this.htmlPanel1.Controls.Add(this.label3);
-            this.htmlPanel1.Controls.Add(this.label2);
-            this.htmlPanel1.Location = new System.Drawing.Point(82, 462);
+            this.htmlPanel1.Location = new System.Drawing.Point(252, 479);
             this.htmlPanel1.Name = "htmlPanel1";
-            this.htmlPanel1.Size = new System.Drawing.Size(1450, 271);
+            this.htmlPanel1.Size = new System.Drawing.Size(1682, 271);
             this.htmlPanel1.TabIndex = 15;
             this.htmlPanel1.Text = "Thông tin thuốc";
-            this.htmlPanel1.Click += new System.EventHandler(this.htmlPanel1_Click);
             // 
-            // label8
+            // label2
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(894, 22);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 17);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Mã thuốc";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label2.Location = new System.Drawing.Point(588, 147);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 22);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "(Tháng)";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label1.Location = new System.Drawing.Point(590, 70);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 22);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "(Đồng)";
+            // 
+            // cT_Label6
+            // 
+            this.cT_Label6.AutoSize = true;
+            this.cT_Label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.cT_Label6.Location = new System.Drawing.Point(1129, 113);
+            this.cT_Label6.Name = "cT_Label6";
+            this.cT_Label6.Size = new System.Drawing.Size(79, 23);
+            this.cT_Label6.TabIndex = 26;
+            this.cT_Label6.Text = "Chỉ định";
+            // 
+            // cT_Label5
+            // 
+            this.cT_Label5.AutoSize = true;
+            this.cT_Label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.cT_Label5.Location = new System.Drawing.Point(569, 113);
+            this.cT_Label5.Name = "cT_Label5";
+            this.cT_Label5.Size = new System.Drawing.Size(115, 23);
+            this.cT_Label5.TabIndex = 25;
+            this.cT_Label5.Text = "Hạn sử dụng";
+            // 
+            // cT_Label7
+            // 
+            this.cT_Label7.AutoSize = true;
+            this.cT_Label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.cT_Label7.Location = new System.Drawing.Point(1129, 45);
+            this.cT_Label7.Name = "cT_Label7";
+            this.cT_Label7.Size = new System.Drawing.Size(89, 23);
+            this.cT_Label7.TabIndex = 27;
+            this.cT_Label7.Text = "Mã thuốc";
+            // 
+            // cT_Label4
+            // 
+            this.cT_Label4.AutoSize = true;
+            this.cT_Label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.cT_Label4.Location = new System.Drawing.Point(580, 38);
+            this.cT_Label4.Name = "cT_Label4";
+            this.cT_Label4.Size = new System.Drawing.Size(80, 23);
+            this.cT_Label4.TabIndex = 24;
+            this.cT_Label4.Text = "Đơn giá ";
+            // 
+            // cT_Label8
+            // 
+            this.cT_Label8.AutoSize = true;
+            this.cT_Label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.cT_Label8.Location = new System.Drawing.Point(569, 193);
+            this.cT_Label8.Name = "cT_Label8";
+            this.cT_Label8.Size = new System.Drawing.Size(122, 23);
+            this.cT_Label8.TabIndex = 28;
+            this.cT_Label8.Text = "Nhà cung cấp";
+            // 
+            // cT_Label3
+            // 
+            this.cT_Label3.AutoSize = true;
+            this.cT_Label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.cT_Label3.Location = new System.Drawing.Point(20, 195);
+            this.cT_Label3.Name = "cT_Label3";
+            this.cT_Label3.Size = new System.Drawing.Size(103, 23);
+            this.cT_Label3.TabIndex = 23;
+            this.cT_Label3.Text = "Đơn vị tính";
+            // 
+            // cT_Label2
+            // 
+            this.cT_Label2.AutoSize = true;
+            this.cT_Label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
+            this.cT_Label2.Location = new System.Drawing.Point(20, 117);
+            this.cT_Label2.Name = "cT_Label2";
+            this.cT_Label2.Size = new System.Drawing.Size(93, 23);
+            this.cT_Label2.TabIndex = 22;
+            this.cT_Label2.Text = "Danh mục";
             // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(993, 19);
+            this.txtCode.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.txtCode.Location = new System.Drawing.Point(1283, 34);
             this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(353, 22);
-            this.txtCode.TabIndex = 15;
+            this.txtCode.Size = new System.Drawing.Size(347, 30);
+            this.txtCode.TabIndex = 21;
+            // 
+            // cbbDate
+            // 
+            this.cbbDate.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.cbbDate.Location = new System.Drawing.Point(734, 113);
+            this.cbbDate.Name = "cbbDate";
+            this.cbbDate.Size = new System.Drawing.Size(347, 30);
+            this.cbbDate.TabIndex = 20;
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.txtPrice.Location = new System.Drawing.Point(734, 38);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(347, 30);
+            this.txtPrice.TabIndex = 19;
+            // 
+            // cT_Label1
+            // 
+            this.cT_Label1.AutoSize = true;
+            this.cT_Label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cT_Label1.Location = new System.Drawing.Point(20, 36);
+            this.cT_Label1.Name = "cT_Label1";
+            this.cT_Label1.Size = new System.Drawing.Size(93, 23);
+            this.cT_Label1.TabIndex = 18;
+            this.cT_Label1.Text = "Tên thuốc";
+            // 
+            // txtName
+            // 
+            this.txtName.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.txtName.Location = new System.Drawing.Point(171, 36);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(347, 30);
+            this.txtName.TabIndex = 17;
             // 
             // btnAdd
             // 
@@ -381,24 +386,7 @@
             this.btnUpdate.TabIndex = 18;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // cT_Label1
-            // 
-            this.cT_Label1.AutoSize = true;
-            this.cT_Label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.cT_Label1.Location = new System.Drawing.Point(34, 35);
-            this.cT_Label1.Name = "cT_Label1";
-            this.cT_Label1.Size = new System.Drawing.Size(106, 24);
-            this.cT_Label1.TabIndex = 18;
-            this.cT_Label1.Text = "Tên thuốc";
-            // 
-            // txtName
-            // 
-            this.txtName.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.txtName.Location = new System.Drawing.Point(174, 25);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(216, 30);
-            this.txtName.TabIndex = 17;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // QuanLyThuoc
             // 
@@ -423,21 +411,11 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvList;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private MetroFramework.Controls.MetroComboBox cbbType;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private MetroFramework.Controls.MetroComboBox cbbDVT;
-        private MetroFramework.Controls.MetroTextBox txtPrice;
-        private MetroFramework.Controls.MetroTextBox cbbDate;
         private MetroFramework.Controls.MetroComboBox cbbProvider;
         private System.Windows.Forms.RichTextBox txtDescription;
         private MetroFramework.Drawing.Html.HtmlPanel htmlPanel1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtCode;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
@@ -452,5 +430,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Chidinh;
         private CustomControl.CT_TextBox txtName;
         private CustomControl.CT_Label cT_Label1;
+        private CustomControl.CT_Label cT_Label6;
+        private CustomControl.CT_Label cT_Label5;
+        private CustomControl.CT_Label cT_Label7;
+        private CustomControl.CT_Label cT_Label4;
+        private CustomControl.CT_Label cT_Label8;
+        private CustomControl.CT_Label cT_Label3;
+        private CustomControl.CT_Label cT_Label2;
+        private CustomControl.CT_TextBox txtCode;
+        private CustomControl.CT_TextBox cbbDate;
+        private CustomControl.CT_TextBox txtPrice;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

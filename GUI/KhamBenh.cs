@@ -13,17 +13,21 @@ namespace GUI
     public partial class KhamBenh : MetroFramework.Forms.MetroForm
     {
         Patient pt = new Patient();
-
+        
         NHAN_VIEN employee = new NHAN_VIEN();
         PHONG_KHAM room = new PHONG_KHAM();
         BENH_NHAN patient_current = new BENH_NHAN();
         public KhamBenh(NHAN_VIEN nv, PHONG_KHAM phong, BENH_NHAN bn)
         {
             InitializeComponent();
+           
             load_info(bn);
             employee = nv;
             room = phong;
             patient_current = bn;
+            htmlPanel1.AutoScroll = false;
+            htmlPanel2.AutoScroll = false;
+            txtDescription.Font = new Font("Times New Roman", 12);
         }
         private void load_info(BENH_NHAN bn)
         {
@@ -44,13 +48,7 @@ namespace GUI
                 e.Handled = true;
         }
 
-        private void btnDrug_Click(object sender, EventArgs e)
-        {
-            save_data();
-            PrescriptionForm frm = new PrescriptionForm(employee, room, patient_current,txtDescription.Text.ToString());
-            this.Hide();
-            frm.Show();
-        }
+        
         private void save_data()
         {
             int chieucao, cannang, nhietdo, huyetap, nhiptim;
@@ -82,6 +80,16 @@ namespace GUI
             pt.update_info_Health(patient_current.BN_ID, chieucao, cannang, huyetap, nhiptim, nhietdo);
 
 
+        }
+
+        private void btnDrug_Click(object sender, EventArgs e)
+        {
+            save_data();
+            PrescriptionForm frm = new PrescriptionForm(employee, room, patient_current, txtDescription.Text.ToString());
+            frm.WindowState = FormWindowState.Maximized;
+            frm.FormBorderStyle = FormBorderStyle.None; 
+            this.Hide();
+            frm.Show();
         }
 
        

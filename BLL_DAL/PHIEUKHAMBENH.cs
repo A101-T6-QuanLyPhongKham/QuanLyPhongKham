@@ -11,7 +11,17 @@ namespace BLL_DAL
         QLPKDataContext qlpk = new QLPKDataContext();
         public List<PHIEU_KHAM> get_List_PhieuKham(int maPhong, string ngay, int BS)
         {
-            return qlpk.PHIEU_KHAMs.Where(a => a.PHIEUKHAM_PK == maPhong && a.PHIEUKHAM_NGAY.ToString() == ngay && a.PHIEUKHAM_BS == BS).ToList();
+            return qlpk.PHIEU_KHAMs.Where(a => a.PHIEUKHAM_PK == maPhong && a.PHIEUKHAM_NGAY.ToString() == ngay && a.PHIEUKHAM_BS == BS && a.PHIEUKHAM_TRANGTHAI == true).ToList();
+        }
+        public void update_state(int id)
+        {
+            PHIEU_KHAM _khoaSua = qlpk.PHIEU_KHAMs.Where(kh => kh.PHIEUKHAM_ID == id).FirstOrDefault();
+            if (_khoaSua != null)
+            {
+                _khoaSua.PHIEUKHAM_TRANGTHAI = false;
+                qlpk.SubmitChanges();
+
+            }
         }
         private string get_id_Pk()
         {
